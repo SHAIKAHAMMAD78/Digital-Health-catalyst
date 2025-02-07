@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe Diagnostics</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        /* Styles for the services section */
+        .services-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .service-item {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center; /* Center content within each service item */
+            width: 300px; /* Adjust width as needed */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .service-item img {
+            max-width: 100%; /* Make images responsive */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .service-item h2 {
+            margin-bottom: 10px;
+        }
+
+        .enquire-button {
+            background-color: #dc3545; /* Example button color */
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block; /* Needed for proper margin */
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed; /* Fixed footer */
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="diagnosis-1.html">HOME</a>
+            <a href="#">BOOK APPOINTMENT</a>
+            <a href="#">SERVICES</a>
+            <a href="#">ABOUT US</a>
+            
+        </nav>
+        <h1> Stool Tests</h1>
+        <p>Exceptional Care. Every Patient. Every Day.</p>
+        
+    </header>
+
+    <main>
+        <section class="services-container">
+            <div class="service-item">
+                <img src="diagnostic_tests.jpg" alt="Stool Culture">  <h2>Stool Tests </h2>
+                <p>Identify specific areas of weakness or strength...</p>
+                <a href="#" class="enquire-button">Enquire Now</a>
+            </div>
+            <div class="service-item">
+                <img src="cardiac_ct.jpg" alt="Occult Blood Tests"> <h2>Occult Blood Test</h2>
+                <p>An imaging method that uses x-rays...</p>
+                <a href="#" class="enquire-button">Enquire Now</a>
+            </div>
+            <div class="service-item">
+                <img src="whole_body_mri.jpg" alt="Parasite tests"> <h2>Parasite Tests</h2>
+                <p>A diagnostic technique that utilizes radio waves...</p>
+                <a href="#" class="enquire-button">Enquire Now</a>
+            </div>
+           
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Universe Diagnostics</p>
+    </footer>
+
+</body>
+</html>

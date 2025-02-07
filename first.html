@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital & Diagnosis Centers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+           background: linear-gradient(to right, #3a6186, #89253e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+           
+        }
+        .welcome {
+            width: 100%;
+            text-align: top;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 10px 10px 10px;
+            font-size: 20px;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .welcome span {
+            display: inline-block;
+            position: relative;
+            animation: scrollText 10s linear infinite;
+        }
+        @keyframes scrollText {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+            color: white;
+            margin-top: 20px;
+            position: relative;
+        }
+        .content h1 {
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .slider {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 250px;
+            height: 170px;
+            object-fit: cover;
+            margin: 0 10px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .slides img:hover {
+            transform: scale(1.05);
+        }
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.6);
+            color: #333;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+        }
+        .prev:hover, .next:hover {
+            background: white;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* "Join Us" Link Styling */
+        .join-us {
+            display: block;
+            margin-top: 30px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            background-color: #89253e;
+            padding: 10px 20px;
+            border-radius: 25px;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+        .join-us:hover {
+            background-color: #3a6186;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome">
+        <span>Welcome to the Best Hospitals & Diagnosis Centers - Providing Quality Healthcare!</span>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h1>Top Hospitals & Diagnosis Centers</h1>
+            <p>Find the best healthcare and diagnosis facilities for quality treatment.</p>
+        </div>
+        <div class="slider">
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="slides">
+                <img src="https://wpamelia.com/wp-content/uploads/2020/09/Names-that-Include-the-Word-Hospital1.jpg" alt="Hospital 1">
+                <img src="https://img.lovepik.com/bg/20231217/Serene-Hospital-Scene-with-Newborn-Mother-and-Baby-Boy-in_2598313_wh1200.jpg" alt="Hospital 2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREbZUY26dD8sFi28usTpjLG9dUce0LcELjqg&s" alt="Diagnosis Center 1">
+                <img src="https://www.vrdiagnostics.in/blog/wp-content/uploads/2024/11/diagnostic-center-noida.jpg" alt="Diagnosis Center 2">
+                <img src="https://www.oncologysystems.com/wp-content/uploads/2023/11/Philips-MRI.jpg" alt="Diagnosis Center 2">
+                <img src="https://www.smart-academy.in/wp-content/uploads/2021/03/Operation-Theatre-Technician.jpeg" alt="Diagnosis Center 2">
+                <img src="https://media.istockphoto.com/id/864573868/photo/medical-team-performing-surgical-operation-in-modern-operating-room.jpg?s=612x612&w=0&k=20&c=zXF_9Ras9TchDAEksAbaUzsB3a6ObdUU8gZAAVb93OI=" alt="Diagnosis Center 2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQErQZRDpUOwTpBfGanJCuKQ2GZ-oGp-Mcwiw&s" alt="Diagnosis Center 2">
+            </div>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+        <a href="signup.html" class="join-us">Join Us</a> <!-- Added Join Us Link -->
+    </div>
+    <script>
+        let index = 0;
+        function moveSlide(step) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slides img').length;
+            index += step;
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            slides.style.transform = `translateX(-${index * 270}px)`;
+        }
+    </script>
+</body>
+</html>

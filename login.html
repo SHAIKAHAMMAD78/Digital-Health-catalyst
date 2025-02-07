@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .form-container {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 400px;
+            margin: auto;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .att {
+            padding: 10px;
+            background: #7bbee8;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .signup-link {
+            margin-top: 15px;
+            display: block;
+            color: #35424a;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Login to Your Account</h2>
+        <input type="text" id="login-id" placeholder="Email" required>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <div class="att">
+            <a href="front.html">Log in</a>
+
+        </div>
+        <a href="signup.html" class="signup-link">Don't have an account? Sign Up</a>
+        
+    </div>
+    <script>
+        function login() {
+           /* const id = document.getElementById('login-id').value;
+            const password = document.getElementById('login-password').value;*/
+
+            /*// Validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(id)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return;
+            }*/
+
+            /*// Add validation and login logic here
+            alert('Login successful  ' + id);
+            window.location.href = "front.html"; // Redirect to front.html*/
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        main {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .item {
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            display: flex; /* Use flexbox for item layout */
+        }
+
+        .item-details {
+            display: flex;
+            flex-grow: 1; /* Allow details to expand */
+        }
+
+        .item-details img {
+            max-width: 100px;
+            margin-right: 10px;
+        }
+
+        .item-info {
+            flex-grow: 1;
+        }
+
+        .remove-button {
+            /* Style remove button as needed */
+            margin-left: auto; /* Push to right */
+            margin-top: 10px;
+            background: none;
+            border: none;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .add-more {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-item.total {
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #f0f0f0;
+            padding: 10px;
+            position: relative; /* Needed for absolute positioning of elements */
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .items-count {
+            /* Style item count if needed */
+        }
+
+        .proceed-button {
+            /* Style proceed button as needed */
+            background-color: #ff9900; /* Example button color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <button class="back-button">X</button>
+            <div class="header-title">My Cart</div>
+            <button class="close-button">X</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="item">
+            <div class="item-details">
+                <img src="placeholder.jpg" alt="Product Image">
+                <div class="item-info">
+                    <h2 class="item-name">Xpert Health Comprehensive</h2>
+                    <p class="item-price">₹3999</p>
+                    <p class="item-message">Speak to our customer care</p>
+                    <button class="remove-button">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-more">
+            <button class="add-button">+ Add more Tests/ Check</button>
+        </div>
+
+        <div class="summary">
+            <div class="summary-item">
+                <p>M.R.P Total</p>
+                <p>₹3999.00</p>
+            </div>
+            <div class="summary-item">
+                <p>Home Collection Charges</p>
+                <p>₹0.00</p>
+            </div>
+            <div class="summary-item total">
+                <p>Total</p>
+                <p>₹3999.00</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="items-count">
+                <p>1 Items</p>
+            </div>
+            <button class="proceed-button">Proceed To Login ></button>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for dynamic behavior (add items, etc.) goes here.
+    </script>
+</body>
+</html>

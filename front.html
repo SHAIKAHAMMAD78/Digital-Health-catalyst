@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #aba8a3;
+            margin: 0;
+            padding: 20px;
+            background-image: url("https://static.vecteezy.com/system/resources/previews/021/284/056/non_2x/top-view-of-stethoscope-on-color-background-with-empty-copy-space-flat-design-health-medical-concept-free-photo.jpg");
+        }
+        header {
+            background: #b86609;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+            position: static;
+            top: 0px;
+        }
+        nav a {
+            color: #ffffff;
+            padding: 10px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background: #e8491d;
+        }
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-align: center;
+        }
+        .chat-container {
+            background: #dc985d;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            z-index: 1000;
+        }
+        .chat-box {
+            height: 80px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #c6acac;
+        }
+        .input-container {
+            display: flex;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-container button {
+            padding: 10px;
+            background: #35424a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .input-container button:hover {
+            background: #e8491d;
+        }
+        .user-message {
+            text-align: right;
+            margin: 5px 0;
+        }
+        .bot-message {
+            text-align: left;
+            margin: 5px 0;
+        }
+        .service-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .service-buttons button {
+            padding: 8px 16px;
+            margin-top: 10px;
+            background: #35424a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .service-buttons button:hover {
+            background: #e8491d;
+        }
+        footer {
+            text-align: center;
+            padding: 5px;
+            background: #9cc8e3;
+            color: #ffffff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .enquire-button {
+            padding: 8px 16px;
+            margin-top: 10px;
+            background: #35424a;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            
+        }
+        .service-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px ;
+        }
+        
+        .enquire-button {
+            display: inline-block;
+            padding: 12px 240px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .enquire-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        
+        .enquire-button:active {
+            background-color: #004494;
+            transform: translateY(1px);
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Medical Sevices</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <div class="hero">
+        <h2>Your Health Matters</h2>
+    </div>
+    <div class="chat-container">
+        <h2>Chat with Our Medical Bot</h2>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Ask your medical question...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <div class="service-buttons">
+        <a href="Daiognisis-center-file/diagnosiscen-1.html" class="enquire-button">Diagnosis Centers</a>
+        <a href="Hospital/Hospital/hospitals.html" class="enquire-button">Hospitals</a>
+        
+    </div>
+    <footer>
+        <p>&copy; 2023 Your Website. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const userMessage = input.value;
+
+            if (userMessage) {
+                chatBox.innerHTML += `<div class="user-message"><strong>You:</strong> ${userMessage}</div>`;
+                input.value = '';
+
+                // Enhanced predefined responses
+                let response = '';
+                if (userMessage.toLowerCase().includes('headache')) {
+                    response = 'For headaches, consider staying hydrated and resting in a dark room.';
+                } else if (userMessage.toLowerCase().includes('fever')) {
+                    response = 'For fever, ensure you stay hydrated and consider taking fever-reducing medication.';
+                } else if (userMessage.toLowerCase().includes('cold')) {
+                    response = 'For a cold, rest and drink plenty of fluids. Over-the-counter medications may help.';
+                } else {
+                    response = 'I am not a doctor, but please consult a healthcare professional for medical advice.';
+                }
+
+                chatBox.innerHTML += `<div class="bot-message"><strong>Bot:</strong> ${response}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+            }
+        }
+    </script>
+</body>
+</html>
