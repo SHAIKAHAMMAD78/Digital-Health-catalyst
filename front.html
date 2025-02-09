@@ -48,44 +48,7 @@
             width: 300px;
             z-index: 1000;
         }
-        .chat-box {
-            height: 80px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            background-color: #c6acac;
-        }
-        .input-container {
-            display: flex;
-        }
-        .input-container input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .input-container button {
-            padding: 10px;
-            background: #35424a;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
-        .input-container button:hover {
-            background: #e8491d;
-        }
-        .user-message {
-            text-align: right;
-            margin: 5px 0;
-        }
-        .bot-message {
-            text-align: left;
-            margin: 5px 0;
-        }
+        
         .service-buttons {
             display: flex;
             justify-content: center;
@@ -157,6 +120,86 @@
             background-color: #004494;
             transform: translateY(1px);
         }
+
+
+
+
+        /*bot css*/
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            
+        }
+        .chatbot-logo {
+            width: 50px;  /* Adjust the size of the logo */
+            height: auto;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1050;  /* Ensure it's above chat content */
+        }
+        .chat-container {
+            background-image: url("https://miro.medium.com/v2/resize:fit:1400/1*viGhVLaYS1uhGh0_ZHu2uQ.png");
+            background: #dc985d;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            height: 300px;
+            z-index: 1000;
+            max-height: 80%;
+            overflow-y: auto;
+        }
+        .chat-container .message {
+            margin-bottom: 20px;
+        }
+        .chat-container .user-message {
+            
+            text-align: left;
+            margin: 5px 0;
+        
+            color: #fff;
+            background-color: #35424a;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 75%;
+            margin-left: auto;
+        }
+        .chat-container .bot-message {
+            
+            text-align: left;
+            margin: 5px 0;
+            color: #35424a;
+            background-color: #e8e8e8;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 75%;
+            margin-left: auto;
+        }
+        input[type="text"] {
+            width: calc(100% - 80px);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px ;
+            border-radius: 5px;
+            background-color: #35424a;
+            color: white;
+            border:#9cc8e3;
+        }
+        button:hover {
+            background-color: #e8491d;
+        }
         
     </style>
 </head>
@@ -168,18 +211,18 @@
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
+            <a href="admin_login.php">Admin Login</a>
         </nav>
     </header>
     <div class="hero">
         <h2>Your Health Matters</h2>
     </div>
-    <div class="chat-container">
-        <h2>Chat with Our Medical Bot</h2>
-        <div class="chat-box" id="chat-box"></div>
-        <div class="input-container">
-            <input type="text" id="user-input" placeholder="Ask your medical question...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+    <div class="chat-container" id="chatbox">
+        <!-- Chat messages will appear here -->
+        <img src="https://media.istockphoto.com/id/1401811766/vector/a-cute-round-robot-wearing-a-stethoscope-new-technologies-and-lifestyle.jpg?s=612x612&w=0&k=20&c=KcnoJHezDoLSrUMXHpAP4KBjxMd2XECUHG0irdLyhmE=" alt="Chatbot Logo" class="chatbot-logo" />
+        <center><h2>Hi! User I'm Medical Chatbot</h2>
+        <input type="text" id="user-input" placeholder="How can i help You Today ?" />
+        <button onclick="sendMessage()">Send</button></center>
     </div>
     
     <div class="service-buttons">
@@ -188,33 +231,115 @@
         
     </div>
     <footer>
-        <p>&copy; 2023 Your Website. All Rights Reserved.</p>
+        <p>&copy; 2025 Your Website. All Rights Reserved.</p>
     </footer>
     <script>
+        // Function to display messages in the chatbox
+        function displayMessage(message, sender) {
+            const chatbox = document.getElementById('chatbox');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+            messageDiv.innerHTML = message;
+            chatbox.appendChild(messageDiv);
+            chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
+        }
+
+        // Function to handle user input
         function sendMessage() {
-            const input = document.getElementById('user-input');
-            const chatBox = document.getElementById('chat-box');
-            const userMessage = input.value;
-
-            if (userMessage) {
-                chatBox.innerHTML += `<div class="user-message"><strong>You:</strong> ${userMessage}</div>`;
-                input.value = '';
-
-                // Enhanced predefined responses
-                let response = '';
-                if (userMessage.toLowerCase().includes('headache')) {
-                    response = 'For headaches, consider staying hydrated and resting in a dark room.';
-                } else if (userMessage.toLowerCase().includes('fever')) {
-                    response = 'For fever, ensure you stay hydrated and consider taking fever-reducing medication.';
-                } else if (userMessage.toLowerCase().includes('cold')) {
-                    response = 'For a cold, rest and drink plenty of fluids. Over-the-counter medications may help.';
-                } else {
-                    response = 'I am not a doctor, but please consult a healthcare professional for medical advice.';
-                }
-
-                chatBox.innerHTML += `<div class="bot-message"><strong>Bot:</strong> ${response}</div>`;
-                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim()) {
+                // Display user message
+                displayMessage(userInput, 'user');
+                // Respond with bot's answer
+                setTimeout(() => {
+                    const botResponse = getBotResponse(userInput);
+                    displayMessage(botResponse, 'bot');
+                }, 1000);
             }
+            // Clear the input field
+            document.getElementById('user-input').value = '';
+        }
+
+        // Function to return bot's response
+        function getBotResponse(input) {
+            const lowerCaseInput = input.toLowerCase();
+            let response = '';
+
+            // Basic medical questions
+            if (lowerCaseInput.includes('fever')) {
+                response = "Fever is often caused by infections, like the flu or a cold. Rest and hydration are important, and you should seek medical advice if it persists.";
+            } else if (lowerCaseInput.includes('headache')) {
+                response = "Headaches can be caused by stress, dehydration, lack of sleep, or even an underlying medical condition. Over-the-counter pain relief may help.";
+            } else if (lowerCaseInput.includes('cold')) {
+                response = "Cold symptoms include a runny nose, sore throat, and cough. Drink fluids and get rest. If symptoms worsen, consult a doctor.";
+            } else if (lowerCaseInput.includes('diabetes')) {
+                response = "Diabetes is a condition where the body cannot properly use or store sugar. Managing it typically involves medication, a healthy diet, and exercise.";
+            } else if (lowerCaseInput.includes('cough')) {
+                response = "Coughs can be caused by viral infections, allergies, or environmental factors. Drinking warm fluids and taking cough medicine may help.";
+            } else if (lowerCaseInput.includes('chest pain')) {
+                response = "Chest pain could indicate a serious condition like heart problems. It's important to seek immediate medical attention if you experience severe chest pain.";
+            } else if (lowerCaseInput.includes('nausea')) {
+                response = "Nausea can be caused by various factors, such as food poisoning, stress, or pregnancy. Stay hydrated and avoid heavy foods until it passes.";
+            } else if (lowerCaseInput.includes('vomiting')) {
+                response = "Vomiting can be caused by infections, food poisoning, or other health issues. Drink fluids and rest, and see a doctor if it continues.";
+            } else if (lowerCaseInput.includes('fatigue')) {
+                response = "Fatigue can be caused by lack of sleep, stress, or an underlying health condition. Rest, good nutrition, and proper hydration may help.";
+            } else if (lowerCaseInput.includes('diarrhea')) {
+                response = "Diarrhea can be caused by infections, food intolerance, or stress. Stay hydrated and seek medical help if it persists.";
+            } else if (lowerCaseInput.includes('constipation')) {
+                response = "Constipation is often caused by a lack of fiber in the diet, dehydration, or a lack of physical activity. Eating fiber-rich foods may help.";
+            } else if (lowerCaseInput.includes('allergy')) {
+                response = "Allergies can result in symptoms like sneezing, itching, or swelling. Avoid allergens and consider using antihistamines for relief.";
+            } else if (lowerCaseInput.includes('rash')) {
+                response = "A rash could be caused by an allergic reaction, an infection, or an underlying medical condition. If the rash persists, consult a doctor.";
+            } else if (lowerCaseInput.includes('anxiety')) {
+                response = "Anxiety can cause physical symptoms such as increased heart rate, shortness of breath, and dizziness. Mindfulness techniques and counseling can help.";
+            } else if (lowerCaseInput.includes('depression')) {
+                response = "Depression is a serious mental health condition that can affect mood, energy, and sleep. Seek support from a healthcare provider if needed.";
+            } else if (lowerCaseInput.includes('insomnia')) {
+                response = "Insomnia can result from stress, anxiety, or other factors. Try creating a relaxing bedtime routine and limit screen time before sleep.";
+            } else if (lowerCaseInput.includes('asthma')) {
+                response = "Asthma is a chronic condition that affects the airways. Inhalers can help manage symptoms, but it's important to consult a doctor for long-term care.";
+            } else if (lowerCaseInput.includes('stroke')) {
+                response = "A stroke occurs when blood flow to the brain is interrupted. Seek immediate medical help if you suspect a stroke.";
+            } else if (lowerCaseInput.includes('heart attack')) {
+                response = "A heart attack can cause chest pain, shortness of breath, and nausea. If you suspect a heart attack, seek emergency medical attention immediately.";
+            } else if (lowerCaseInput.includes('high blood pressure')) {
+                response = "High blood pressure can lead to heart disease. Lifestyle changes, such as reducing salt intake, can help manage it.";
+            } else if (lowerCaseInput.includes('cancer')) {
+                response = "Cancer is a group of diseases involving abnormal cell growth. Early detection is key, and you should seek medical advice for proper diagnosis.";
+            } else if (lowerCaseInput.includes('arthritis')) {
+                response = "Arthritis is inflammation of the joints. Symptoms include pain and stiffness. Managing weight, exercise, and medications can help.";
+            } else if (lowerCaseInput.includes('osteoporosis')) {
+                response = "Osteoporosis is a condition that causes bones to become weak and brittle. It's important to get enough calcium and vitamin D and to exercise regularly.";
+            } else if (lowerCaseInput.includes('pneumonia')) {
+                response = "Pneumonia is an infection that inflames the air sacs in one or both lungs. It's important to get medical treatment if you experience symptoms like difficulty breathing.";
+            } else if (lowerCaseInput.includes('migraine')) {
+                response = "Migraines are severe headaches that can cause nausea, vomiting, and sensitivity to light. Medication and lifestyle changes can help manage migraines.";
+            } else if (lowerCaseInput.includes('blurry vision')) {
+                response = "Blurry vision can be a symptom of many conditions, including refractive errors or diabetes. It's important to consult an eye specialist.";
+            } else if (lowerCaseInput.includes('hiv')) {
+                response = "HIV is a virus that attacks the immune system. It's important to get tested and consult a healthcare provider for treatment and prevention.";
+            } else if (lowerCaseInput.includes('hepatitis')) {
+                response = "Hepatitis is an inflammation of the liver, often caused by viruses. There are different types of hepatitis, and treatment depends on the cause.";
+            } else if (lowerCaseInput.includes('allergic reaction')) {
+                response = "An allergic reaction can cause swelling, hives, or difficulty breathing. Seek medical help if you experience severe symptoms.";
+            } else if (lowerCaseInput.includes('UTI')) {
+                response = "A urinary tract infection (UTI) can cause pain during urination and lower abdominal discomfort. Drinking plenty of water and seeking antibiotics can help.";
+            } else if (lowerCaseInput.includes('toothache')) {
+                response = "Toothaches can be caused by tooth decay or gum disease. It's important to see a dentist to determine the cause and get proper treatment.";
+            } else if (lowerCaseInput.includes('ear infection')) {
+                response = "Ear infections can cause pain and fever. Warm compresses and over-the-counter pain relievers may help, but consult a doctor for antibiotics if needed.";
+            } else if (lowerCaseInput.includes('indigestion')) {
+                response = "Indigestion can cause discomfort in the stomach area. Avoid large meals and try antacids for relief. If symptoms persist, consult a doctor.";
+            } else if (lowerCaseInput.includes('severe pain')) {
+                response = "Severe pain could be a symptom of an underlying condition. It's important to seek medical attention immediately if you experience sudden, severe pain.";
+            } else {
+                response = "I'm not sure about that. Please consult a healthcare professional for more accurate information.";
+            }
+
+            return response;
         }
     </script>
 </body>

@@ -1,3 +1,28 @@
+<?php
+include("signcon.php");
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE email='$email'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user'] = $row['name'];
+            header("Location: front.html");
+        } else {
+            echo "<script>alert('Invalid password!');</script>";
+        }
+    } else {
+        echo "<script>alert('User not found!');</script>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +61,9 @@
             cursor: pointer;
             width: 100%;
         }
-        
+        .att:hover {
+            background-color: #66aee1;
+        }
         .signup-link {
             margin-top: 15px;
             display: block;
@@ -48,36 +75,14 @@
 <body>
     <div class="form-container">
         <h2>Login to Your Account</h2>
-        <input type="text" id="login-id" placeholder="Email" required>
-        <input type="password" id="login-password" placeholder="Password" required>
-        <div class="att">
-            <a href="front.html">Log in</a>
-
-        </div>
-        <a href="signup.html" class="signup-link">Don't have an account? Sign Up</a>
-        
+        <form method="POST" action="">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="att">Log in</button>
+        </form>
+        <a href="signup.php" class="signup-link">Don't have an account? Sign Up</a>
     </div>
-    <script>
-        function login() {
-           /* const id = document.getElementById('login-id').value;
-            const password = document.getElementById('login-password').value;*/
-
-            /*// Validation
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(id)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            if (password.length < 6) {
-                alert('Password must be at least 6 characters long.');
-                return;
-            }*/
-
-            /*// Add validation and login logic here
-            alert('Login successful  ' + id);
-            window.location.href = "front.html"; // Redirect to front.html*/
-        }
-    </script>
 </body>
 </html>
+
+
