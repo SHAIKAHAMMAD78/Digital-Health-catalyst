@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,10 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background-color:rgb(194, 206, 202);
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
         }
         .form-container {
             background: #ffffff;
@@ -43,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             padding: 30px;
             max-width: 400px;
-            margin: auto;
+            width: 100%; /* Make sure it takes up 100% of available space up to max-width */
+            text-align: center;
         }
         input {
             padding: 10px;
@@ -64,11 +69,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .att:hover {
             background-color: #66aee1;
         }
-        .signup-link {
+        .signup-link, .forgot-password {
             margin-top: 15px;
             display: block;
             color: #35424a;
             text-decoration: none;
+            font-weight: bold;
+        }
+        .forgot-password {
+            background-color: skyblue;
+            padding: 5px 10px; /* Reduced padding to make it smaller */
+            border-radius: 5px;
+            color: white;
+            font-size: 14px; /* Reduced font size */
+            margin: 10px 0;
+        }
+        .forgot-password:hover {
+            background-color: #66aee1;
+        }
+        .signup-btn {
+            padding: 10px;
+            background: #7bbee8;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .signup-btn:hover {
+            background-color: #66aee1;
         }
     </style>
 </head>
@@ -79,10 +109,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit" class="att">Log in</button>
+
+            <!-- Forgot Password link placed between Login and Sign Up buttons -->
+            <a href="forgot_password.php" class="forgot-password">Forgot Password</a>
+
+            <!-- Sign Up Button -->
+            <button class="signup-btn" onclick="window.location.href='signup.php'">Don't have an account? Sign Up</button>
         </form>
-        <a href="signup.php" class="signup-link">Don't have an account? Sign Up</a>
     </div>
 </body>
 </html>
+
+
 
 

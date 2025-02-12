@@ -12,7 +12,10 @@ if (!isset($_SESSION['admin'])) {
 <head>
     <title>Admin Panel</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background: #f4f4f4; }
+        body { 
+            font-family: Arial, sans-serif; text-align: center; background: #f4f4f4;
+            background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjg3MC10YW5nLTM2XzEuanBn.jpg');
+         }
         .container { width: 80%; margin: auto; }
         .nav { display: flex; justify-content: space-around; background: #35424a; padding: 15px; }
         .nav a { color: white; text-decoration: none; font-size: 18px; }

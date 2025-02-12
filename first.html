@@ -12,20 +12,19 @@
             font-family: 'Poppins', sans-serif;
         }
         body {
-           background: linear-gradient(to right, #3a6186, #89253e);
+            background: linear-gradient(to right, #3a6186, #89253e);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             flex-direction: column;
-           
+            height: 100vh;
         }
         .welcome {
             width: 100%;
-            text-align: top;
+            text-align: center;
             background: rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 10px 10px 10px 10px;
+            padding: 10px;
             font-size: 20px;
             font-weight: bold;
             overflow: hidden;
@@ -52,7 +51,6 @@
             box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
             color: white;
             margin-top: 20px;
-            position: relative;
         }
         .content h1 {
             font-size: 32px;
@@ -106,25 +104,25 @@
         }
         .prev { left: 10px; }
         .next { right: 10px; }
-
-        /* "Join Us" Link Styling */
-        .join-us {
-            display: block;
-            margin-top: 30px;
+        
+        .login-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .login-buttons a {
             font-size: 20px;
             color: white;
             text-decoration: none;
             background-color: #89253e;
             padding: 10px 20px;
             border-radius: 25px;
-            width: 200px;
-            margin-left: auto;
-            margin-right: auto;
             text-align: center;
             box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
             transition: background-color 0.3s;
         }
-        .join-us:hover {
+        .login-buttons a:hover {
             background-color: #3a6186;
         }
     </style>
@@ -144,15 +142,13 @@
                 <img src="https://wpamelia.com/wp-content/uploads/2020/09/Names-that-Include-the-Word-Hospital1.jpg" alt="Hospital 1">
                 <img src="https://img.lovepik.com/bg/20231217/Serene-Hospital-Scene-with-Newborn-Mother-and-Baby-Boy-in_2598313_wh1200.jpg" alt="Hospital 2">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREbZUY26dD8sFi28usTpjLG9dUce0LcELjqg&s" alt="Diagnosis Center 1">
-                <img src="https://www.vrdiagnostics.in/blog/wp-content/uploads/2024/11/diagnostic-center-noida.jpg" alt="Diagnosis Center 2">
-                <img src="https://www.oncologysystems.com/wp-content/uploads/2023/11/Philips-MRI.jpg" alt="Diagnosis Center 2">
-                <img src="https://www.smart-academy.in/wp-content/uploads/2021/03/Operation-Theatre-Technician.jpeg" alt="Diagnosis Center 2">
-                <img src="https://media.istockphoto.com/id/864573868/photo/medical-team-performing-surgical-operation-in-modern-operating-room.jpg?s=612x612&w=0&k=20&c=zXF_9Ras9TchDAEksAbaUzsB3a6ObdUU8gZAAVb93OI=" alt="Diagnosis Center 2">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQErQZRDpUOwTpBfGanJCuKQ2GZ-oGp-Mcwiw&s" alt="Diagnosis Center 2">
             </div>
             <button class="next" onclick="moveSlide(1)">&#10095;</button>
         </div>
-        <a href="signup.php" class="join-us">Join Us</a> <!-- Added Join Us Link -->
+    </div>
+    <div class="login-buttons">
+        <a href="admin_login.php">Admin Login</a>
+        <a href="login.php">User Login</a>
     </div>
     <script>
         let index = 0;

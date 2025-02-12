@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <?php
-//$hashed_password = password_hash("shaik123", PASSWORD_DEFAULT);
-//$sql = "INSERT INTO admin (email, password) VALUES ('shaik@gmail.com', '$hashed_password')";
-//$conn->query($sql);
+  //hashed_password = password_hash("shaik123", PASSWORD_DEFAULT);
+  //$sql = "INSERT INTO admin (email, password) VALUES ('shaik@gmail.com', '$hashed_password')";
+  //$conn->query($sql);
 ?>
