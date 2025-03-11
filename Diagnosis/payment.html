@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Page</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; }
+        .container { width: 50%; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        .payment-method { display: none; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Complete Your Payment</h2>
+        <p id="selectedPrice">Total Amount: ₹0</p>
+        
+        <div class="form-group">
+            <label for="paymentMethod">Select Payment Method:</label>
+            <select id="paymentMethod" onchange="showPaymentMethod()">
+                <option value="">Select Payment Method</option>
+                <option value="debit">Debit Card</option>
+                <option value="upi">UPI Scanner</option>
+            </select>
+        </div>
+        
+        <div id="debitCardSection" class="payment-method">
+            <h3>Debit Card Details</h3>
+            <input type="text" placeholder="Card Number" required>
+            <input type="text" placeholder="Expiry Date (MM/YY)" required>
+            <input type="text" placeholder="CVV" required>
+        </div>
+        
+        <div id="upiSection" class="payment-method">
+            <h3>UPI Payment</h3>
+            <p>Choose a UPI App:</p>
+            <select>
+                <option value="gpay">Google Pay</option>
+                <option value="phonepe">PhonePe</option>
+                <option value="paytm">Paytm</option>
+            </select>
+            <p>Scan the QR Code for Payment:</p>
+            <img src="qr-code-placeholder.png" alt="QR Code" width="200">
+        </div>
+        
+        <button onclick="confirmPayment()">Pay Now</button>
+    </div>
+
+    <script>
+        function showPaymentMethod() {
+            document.getElementById('debitCardSection').style.display = 'none';
+            document.getElementById('upiSection').style.display = 'none';
+            
+            const selectedMethod = document.getElementById('paymentMethod').value;
+            if (selectedMethod === 'debit') {
+                document.getElementById('debitCardSection').style.display = 'block';
+            } else if (selectedMethod === 'upi') {
+                document.getElementById('upiSection').style.display = 'block';
+            }
+        }
+
+        function confirmPayment() {
+            alert('Payment Successful!');
+            window.location.href = 'success.html';
+        }
+        
+        // Fetch price from URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const price = params.get('price');
+        if (price) {
+            document.getElementById('selectedPrice').textContent = `Total Amount: ₹${price}`;
+        }
+    </script>
+</body>
+</html>

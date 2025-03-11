@@ -107,14 +107,52 @@ $conn->close();
 <body>
     <div class="form-container">
         <h2>Sign Up</h2>
-        <form method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="text" name="mobile" placeholder="Mobile" required pattern="[0-9]{10}" title="Enter a 10-digit mobile number">
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
+        <form id="signupForm" method="POST" action="signup.php">
+            <input type="text" name="name" id="name" placeholder="Name" required>
+            <input type="text" name="mobile" id="mobile" placeholder="Mobile" required pattern="[0-9]{10}" title="Enter a 10-digit mobile number">
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
             <button type="submit">Sign Up</button>
             <a href="login.php" class="login-link">Already a user? Log in</a>
         </form>
     </div>
+    
+    <!-- Include Email.js Library -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+    (function() {
+        emailjs.init("l3PaM_Eo2GAz9P0lE"); // Replace with your actual Email.js Public Key
+    })();
+
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Stop form from submitting immediately
+
+        let userName = document.getElementById("name").value;
+        let userEmail = document.getElementById("email").value;
+        let userMobile = document.getElementById("mobile").value;
+
+        let templateParams = {
+            from_email: "ahammadshaik608@gmail.com", // Replace with your actual service email
+            to_email: userEmail, // Send to the user's email
+            from_name: "Your Service Team",
+            user_name: userName,
+            user_email: userEmail,
+            user_mobile: userMobile,
+            message: `Hello Admin,\n\nNew USer Signup!\n\n SignUp details:\nEmail: ${userEmail}\nMobile: ${userMobile}\n\nThank you \n\nBest Regards,\nYour Service Team`
+        };
+
+        emailjs.send("service_3xzr6jg", "template_ewzvjdi", templateParams)
+            .then(response => {
+                alert("Signup successful! A confirmation email has been sent.");
+                document.getElementById("signupForm").submit(); // Submit form after email is sent
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Failed to send signup details. Please try again.");
+            });
+    });
+</script>
+
 </body>
 </html>

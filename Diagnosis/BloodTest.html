@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Test Diagnostics - Bangalore</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-header img {
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .left-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .right-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 1em;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #e0e0e0;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+        }
+
+        .carousel-slide img {
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .carousel-nav button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .carousel-nav button:hover {
+            color: #007bff;
+        }
+
+        /* Main Content Styles */
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Big Container for Small Containers */
+        .big-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        .big-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .container-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Small Container Styles */
+        .small-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .small-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .small-container img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .small-container h3 {
+            margin: 15px 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .small-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .small-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="left-header">
+            <img src="https://www.shutterstock.com/image-vector/blood-test-tube-cartoon-vector-600nw-2431506631.jpg" alt="Apollo Diagnostics Logo">
+            <h3>BLOOD TESTS</h3>
+        </div>
+        <div class="right-header">
+            <div class="search-bar">
+                <input type="text" placeholder="Search For types of Tests">
+                <button>Q</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="diagnosis-Main.html">Home</a></li>
+            <li><a href="Blood-health-risk.html">Health Risk</a></li>
+            <li><a href="Blood-health-cond.html">Health Conditions</a></li>
+            <li><a href="">Book Appointment</a></li>
+        </ul>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="content">
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="https://www.medylife.com/blog/wp-content/uploads/2019/06/Preparing-Mentally-For-a-Blood-Test.jpg" alt="Carousel Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://images.newscientist.com/wp-content/uploads/2023/08/10141554/SEI_166500668.jpg" alt="Carousel Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/040/180/298/small_2x/blood-donor-cover-brochure-set-in-flat-design-poster-templates-with-cute-drop-characters-test-tubes-with-der-liquid-droppers-cells-medical-gloves-other-symbols-of-donation-illustration-vector.jpg" alt="Carousel Image 3">
+            </div>
+            <div class="carousel-nav">
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>What is Blood Testing?</h1>
+        <p>Blood testing is a medical procedure where a sample of blood is analyzed to assess overall health, detect diseases, monitor organ function, and evaluate the effectiveness of treatments. It helps diagnose conditions like infections, anemia, diabetes, and cholesterol levels. Common tests include complete blood count (CBC), blood sugar tests, and lipid profiles. It is a quick, reliable way to gain insights into a person's health.</p>
+    </div>
+
+    <!-- Big Container for Small Containers -->
+    <div class="big-container">
+        <h2>Related Tests</h2>
+        <div class="container-wrapper">
+            <!-- Small Container 1 -->
+            <div class="small-container">
+                <img src="https://media.istockphoto.com/id/857094826/photo/cbc-test.jpg?s=612x612&w=0&k=20&c=UF63j9XWR81qfgBrkGRS_go5JCRo4QHIfssmbqxcd8A=" alt="Skin Prick Test">
+                <h3>Complete Blood Count (CBC)</h3>
+                <button onclick="window.location.href='Blood-cbc.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 2 -->
+            <div class="small-container">
+                <img src="https://www.shutterstock.com/image-photo/blood-sample-tube-analysis-bmp-600nw-2120017835.jpg" alt="Intradermal Test">
+                <h3>Basic Metabolic Panel (BMP)</h3>
+                <button onclick="window.location.href='Blood-bmp.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 3 -->
+            <div class="small-container">
+                <img src="https://www.shutterstock.com/image-photo/blood-sample-tube-analysis-cmp-600nw-2120158061.jpg" alt="Patch Test">
+                <h3>Comprehensive Metabolic Panel (CMP)</h3>
+                <button onclick="window.location.href='Blood-cmp.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 4 -->
+            <div class="small-container">
+                <img src="https://www.shutterstock.com/image-photo/blood-sample-lipid-profile-test-260nw-1064047634.jpg" alt="Specific IgE Blood Test">
+                <h3> Lipid Panel</h3>
+                <button onclick="window.location.href='Blood-lp.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 5 -->
+            <div class="small-container">
+                <img src="https://e7.pngegg.com/pngimages/183/416/png-clipart-diabetes-mellitus-blood-sugar-health-glucose-test-blood-miscellaneous-angle.png" alt="Oral Food Challenge">
+                <h3> Blood Glucose Test</h3>
+                <button onclick="window.location.href='Blood-gt.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://www.agappe.com/media/mageplaza/blog/post/s/p/special_day_175_-_web.jpg" alt="Oral Food Challenge">
+                <h3> Thyroid Function Tests</h3>
+                <button onclick="window.location.href='Blood-ty.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6_V1xoqEW8jfyRs0wxMc9h65nehQOvdge1w&s" alt="Oral Food Challenge">
+                <h3>Coagulation Panel (Clotting Tests)</h3>
+                <button onclick="window.location.href='Blood-cp.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://www.bio-rad.com/sites/default/files/2023-07/DG23-0117-Specialties-InfectiousDisease-US-Images-03b.jpg" alt="Oral Food Challenge">
+                <h3>Infectious Disease Tests</h3>
+                <button onclick="window.location.href='Blood-id.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://media.istockphoto.com/id/1390278401/photo/blood-sample-for-study-of-levels-of-hormone-tests.jpg?s=612x612&w=0&k=20&c=mlLQfESiqBAuzK8DCTkn78cSt7vFUhesZpDk1wDz6KQ=" alt="Oral Food Challenge">
+                <h3> Hormone Tests</h3>
+                <button onclick="window.location.href='Blood-ht.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://media.istockphoto.com/id/1381205346/photo/doctor-with-blood-tube-for-vitamins-minerals-test-in-lab.jpg?s=612x612&w=0&k=20&c=r8X-2_t4P3o_TWA8js_i1r_8MbmSr9je-DQPDhzD2iw=" alt="Oral Food Challenge">
+                <h3>Vitamin and Mineral Tests</h3>
+                <button onclick="window.location.href='Blood-vm.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://images.apollo247.in/pd-cms/cms/2025-02/WhatsApp%20Image%202025-02-14%20at%2012.21.25.jpg?tr=q-80,f-webp,w-400,dpr-2.5,c-at_max%201000w" alt="Oral Food Challenge">
+                <h3>Iron Tests</h3>
+                <button onclick="window.location.href='Blood-iron.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://news.cancerconnect.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cg_faces:center%2Cq_auto:good%2Cw_768/MTc5OTc1MDg4NzM4NTQyOTM2/image-placeholder-title.png" alt="Oral Food Challenge">
+                <h3>Tumor Markers</h3>
+                <button onclick="window.location.href='Blood-tm.html'">Enquire</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        const slides = document.querySelectorAll(".carousel-slide");
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.display = "none");
+            slides[n].style.display = "block";
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+        setInterval(nextSlide, 4000);
+
+        nextButton.addEventListener("click", nextSlide);
+        prevButton.addEventListener("click", prevSlide);
+    </script>
+</body>
+</html>

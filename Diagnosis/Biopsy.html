@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>biopsy Test Diagnostics - Bangalore</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-header img {
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .left-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .right-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 1em;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #e0e0e0;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+        }
+
+        .carousel-slide img {
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .carousel-nav button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .carousel-nav button:hover {
+            color: #007bff;
+        }
+
+        /* Main Content Styles */
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Big Container for Small Containers */
+        .big-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        .big-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .container-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Small Container Styles */
+        .small-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .small-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .small-container img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .small-container h3 {
+            margin: 15px 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .small-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .small-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="left-header">
+            <img src="https://www.shutterstock.com/image-vector/biopsy-icon-vectoreditable-strokelinear-style-600nw-2492886295.jpg" alt="Apollo Diagnostics Logo">
+            <h3>BIOPSY TESTS</h3>
+        </div>
+        <div class="right-header">
+            <div class="search-bar">
+                <input type="text" placeholder="Search For types of Tests">
+                <button>Q</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="diagnosis-Main.html">Home</a></li>
+            <li><a href="">Health Risk</a></li>
+            <li><a href="">Health Conditions</a></li>
+            <li><a href="">Book Appointment</a></li>
+        </ul>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="content">
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="https://static.wixstatic.com/media/b95f33_f823df24533e4440812248a5470d2dec~mv2_d_2500_1500_s_2.jpg/v1/fill/w_560,h_334,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/MEME%20BX.jpg" alt="Carousel Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.relainstitute.com/wp-content/uploads/2022/11/690.jpg" alt="Carousel Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2014/02/24/12/19/r7_bonemarrowaspiration.jpg" alt="Carousel Image 3">
+            </div>
+            <div class="carousel-nav">
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>What is Biopsy Testing?</h1>
+        <p>A biopsy is a medical test where a small tissue sample is taken for examination under a microscope. It helps diagnose cancer, infections, and other diseases. The sample is collected using a needle, surgery, or endoscopy. Biopsies can be performed on organs like the skin, liver, lungs, and breast. The results help doctors determine treatment plans and disease severity</p>
+    </div>
+
+    <!-- Big Container for Small Containers -->
+    <div class="big-container">
+        <h2>Related Tests</h2>
+        <div class="container-wrapper">
+            <!-- Small Container 1 -->
+            <div class="small-container">
+                <img src="https://media.istockphoto.com/id/1406646662/vector/biopsy-device-icon-in-flat-style-syringe-vector-illustration-on-isolated-background-medical.jpg?s=612x612&w=0&k=20&c=gTefjmL62Oe0CC8OgNR868-dUJFceGi3Jzq3Rtaq9tI=" alt="Skin Prick Test">
+                <h3>Needle Biopsy</h3>
+                <button onclick="window.location.href='Allergy-spi.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 2 -->
+            <div class="small-container">
+                <img src="https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2013/11/15/17/35/ca00083_-ds00439_-my00169_im03540_sn7_excisional_biopsy_jpg.jpg" alt="Intradermal Test">
+                <h3>Excisional & Incisional Biopsy</h3>
+                <button onclick="window.location.href='page2.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 3 -->
+            <div class="small-container">
+                <img src="https://skintel.co.nz/wp-content/uploads/PunchBiopsyDual-1024x678.png" alt="Patch Test">
+                <h3>Punch Biopsy</h3>
+                <button onclick="window.location.href='page3.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 4 -->
+            <div class="small-container">
+                <img src="https://as2.ftcdn.net/jpg/05/06/90/15/1000_F_506901533_f6NuhXETA9jXMLJZWJ3jFObneS0zGO37.jpg" alt="Specific IgE Blood Test">
+                <h3>Lung Biopsy</h3>
+                <button onclick="window.location.href='page1.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 5 -->
+            <div class="small-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/9710/9710844.png" alt="Oral Food Challenge">
+                <h3>Kidney Biopsy </h3>
+                <button onclick="window.location.href='page1.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://cdn2.vectorstock.com/i/1000x1000/54/66/bone-biopsy-rgb-color-icon-vector-36665466.jpg" alt="Oral Food Challenge">
+                <h3>Bone Marrow Biopsy</h3>
+                <button onclick="window.location.href='page1.html'">Enquire</button>
+            </div>
+            <div class="small-container">
+                <img src="https://www.shutterstock.com/image-vector/prostate-biopsy-color-icon-cancer-260nw-1304983735.jpg" alt="Oral Food Challenge">
+                <h3>Prostate Biopsy</h3>
+                <button onclick="window.location.href='page1.html'">Enquire</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        const slides = document.querySelectorAll(".carousel-slide");
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.display = "none");
+            slides[n].style.display = "block";
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+        setInterval(nextSlide, 4000);
+
+        nextButton.addEventListener("click", nextSlide);
+        prevButton.addEventListener("click", prevSlide);
+    </script>
+</body>
+</html>

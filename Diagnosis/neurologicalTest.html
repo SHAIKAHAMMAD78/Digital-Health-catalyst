@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>neurological Test Diagnostics - Bangalore</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .left-header img {
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .left-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .right-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            font-size: 1em;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #e0e0e0;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+        }
+
+        .carousel-slide img {
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 10px;
+        }
+
+        .carousel-nav button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .carousel-nav button:hover {
+            color: #007bff;
+        }
+
+        /* Main Content Styles */
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            color: #666;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Big Container for Small Containers */
+        .big-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 95%;
+            max-width: 1200px;
+        }
+
+        .big-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .container-wrapper {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Small Container Styles */
+        .small-container {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .small-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .small-container img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .small-container h3 {
+            margin: 15px 0;
+            color: #333;
+            font-size: 1.2em;
+        }
+
+        .small-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .small-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="left-header">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/011/718/509/small_2x/brain-logo-template-design-brainstorm-logo-ideas-neurology-logo-think-idea-concept-free-vector.jpg" alt="Apollo Diagnostics Logo">
+            <h3>NEUROLOGICAL TESTS</h3>
+        </div>
+        <div class="right-header">
+            <div class="search-bar">
+                <input type="text" placeholder="Search For types of Tests">
+                <button>Q</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="diagnosis-Main.html">Home</a></li>
+            <li><a href="neurological-health-risk.html">Health Risk</a></li>
+            <li><a href="neurological-heath-cond.html">Health Conditions</a></li>
+            <li><a href="">Book Appointment</a></li>
+        </ul>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="content">
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0UdxTz2tyOKUufga0CpwnWSuypdx-hk0bkA&s" alt="Carousel Image 1">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.osmosis.org/_next/image?url=https%3A%2F%2Fd16qt3wv6xm098.cloudfront.net%2F0DyYwBiaSG2lGOFJf340eNwSRo6uxXuM%2F_.jpg&w=3840&q=75" alt="Carousel Image 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://media.proprofs.com/images/QM/user_images/2503852/-Neuro-Exam-.webp" alt="Carousel Image 3">
+            </div>
+            <div class="carousel-nav">
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>What is Neurological Testing?</h1>
+        <p>Neurological testing assesses the brain, spinal cord, and nerves to diagnose conditions like strokes, epilepsy, multiple sclerosis, and nerve disorders. It includes imaging tests (MRI, CT scan), electrical activity tests (EEG, EMG), and cerebrospinal fluid analysis (lumbar puncture). These tests help identify abnormalities in brain function, nerve damage, or circulation issues. Neurological exams also evaluate cognitive abilities, reflexes, and motor skills. Early diagnosis through these tests improves treatment and management of neurological diseases.</p>
+    </div>
+
+    <!-- Big Container for Small Containers -->
+    <div class="big-container">
+        <h2>Related Tests</h2>
+        <div class="container-wrapper">
+            <!-- Small Container 1 -->
+            <div class="small-container">
+                <img src="https://static.vecteezy.com/system/resources/previews/006/948/845/non_2x/concept-of-human-brain-and-electroencephalography-recording-vector.jpg" alt="Skin Prick Test">
+                <h3>EEG (Electroencephalogram)</h3>
+                <button onclick="window.location.href='Allergy-spi.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 2 -->
+            <div class="small-container">
+                <img src="https://drpoornimashah.com/wp-content/uploads/2021/10/EMG-NC-Study.jpg" alt="Intradermal Test">
+                <h3>EMG (Electromyography) & Nerve Conduction Study (NCV)</h3>
+                <button onclick="window.location.href='page2.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 3 -->
+            <div class="small-container">
+                <img src="https://cdn.cdnparenting.com/articles/2018/08/1130483270-H.webp" alt="Patch Test">
+                <h3>Lumbar Puncture (Spinal Tap)</h3>
+                <button onclick="window.location.href='page3.html'">Enquire</button>
+            </div>
+
+            <!-- Small Container 4 -->
+            <div class="small-container">
+                <img src="https://e8n4z9h7.rocketcdn.me/wp-content/uploads/2023/03/carotid_ultrasound_02.jpg" alt="Specific IgE Blood Test">
+                <h3>Carotid Ultrasound</h3>
+                <button onclick="window.location.href='page1.html'">Enquire</button>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        const slides = document.querySelectorAll(".carousel-slide");
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.display = "none");
+            slides[n].style.display = "block";
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+        setInterval(nextSlide, 4000);
+
+        nextButton.addEventListener("click", nextSlide);
+        prevButton.addEventListener("click", prevSlide);
+    </script>
+</body>
+</html>

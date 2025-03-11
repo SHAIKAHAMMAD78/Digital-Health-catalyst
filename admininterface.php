@@ -99,7 +99,7 @@
         <!-- Navigation -->
         <div class="nav">
             <a href="doctors.php">Doctors</a>
-            <a href="appointments.php">Appointments</a>
+            <a href="Diagnosis_Appointments.html">Appointments</a>
             <a href="usersignupdetails.php">New Users</a>
         </div>
 
