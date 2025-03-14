@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Experts</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .doctors-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .doctor-card {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .doctor-info img {
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .doctor-details h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .experience {
+            background-color: #cce5ff;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            color: #007bff;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .book-appointment {
+            margin-top: 30px;
+        }
+
+        .book-appointment button {
+            background-color: #e67742;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SPARSH <span>HOSPITAL</span></div>
+        <ul>
+            <li><a href="Dermatology.html">Back</a></li>          
+        </ul>
+    </nav>
+
+    <div class="doctors-container">
+        <div class="doctor-card">
+            <div class="doctor-info">
+                <img src="https://www.rajagirihospital.com/userfiles/Doctor/d1efce69edbb4648973ca74f37f9b404.jpg" alt="Dr Sushmitha">
+                <div class="doctor-details">
+                    <h3>Dr. Sushmitha</h3>
+                    <span class="experience">Dermatology</span>
+                    <p><strong>MBBS; MD(DVL)</strong></p>
+                    <p>📍 Sparsh Hospital, HSR Layout</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="doctor-card">
+            <div class="doctor-info">
+                <img src="https://parumalahospital.com/wp-content/uploads/2023/12/Dr-Joyal-website.jpg" alt="Dr Shashi Kumar">
+                <div class="doctor-details">
+                    <h3>Dr. Shashi Kumar</h3>
+                    <span class="experience">Dermatology</span>
+                    <p><strong>MBBS; Dermatosurgery</strong></p>
+                    <p>📍 Sparsh Hospital, Yelahanka</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="doctor-card">
+            <div class="doctor-info">
+                <img src="https://media.istockphoto.com/id/1329569957/photo/happy-young-female-doctor-looking-at-camera.jpg?s=612x612&w=0&k=20&c=7Wq_Y2cl0T4op6Wg_3DFc-xtZfCqTTDvfaXkPGyrHDM=" alt="Dr Adhithi Shetty">
+                <div class="doctor-details">
+                    <h3>Dr. Adhithi Shetty</h3>
+                    <span class="experience">Dermatology</span>
+                    <p><strong>MBBS; Dermatosurgery</strong></p>
+                    <p>📍 Sparsh Hospital, Banashankari</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="book-appointment">
+        <button onclick="window.location.href='AppointmentBackend/appointment.html'">BOOK AN APPOINTMENT</button>
+    </div>
+</body>
+</html>

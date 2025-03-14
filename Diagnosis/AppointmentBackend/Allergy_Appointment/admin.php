@@ -1,5 +1,8 @@
 <?php
-include 'db_connect.php';
+require 'db_connect.php';
+
+$sql = "SELECT * FROM allergy_tests ORDER BY created_at ASC";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -7,99 +10,88 @@ include 'db_connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Appointments</title>
+    <title>Admin Panel - Appointments</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
             background-color: #f4f4f4;
-            padding: 20px;
-        }
-        .container {
-            width: 90%;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            text-align: center;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        table, th, td {
-            border: 1px solid #ddd;
+        th, td {
             padding: 10px;
             text-align: left;
+            border-bottom: 1px solid #ddd;
         }
         th {
             background-color: #28a745;
             color: white;
         }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #3498db; /* Blue color */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background: #2980b9; /* Darker blue on hover */
+}
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>All Appointments</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Patient Name</th>
-                <th>Age</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Test Type</th>
-                <th>Test Center</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Payment</th>
-                <th>Booking Date</th>
-            </tr>
-
-            <?php
-            $result = $conn->query("SELECT * FROM appointments ORDER BY id ASC");
+    <h2>Appointment Records</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Test Name</th>
+            <th>Center Name</th> 
+            <th>Appointment Date</th>
+            <th>Appointment Time</th>
+            <th>Payment Method</th>
+            <th>Amount</th>
+            <th>Booked At</th>
+        </tr>
+        <?php while ($row = $result->fetch_assoc()) : ?>
+        <tr>
+            <td><?= $row["id"] ?></td>
+            <td><?= $row["patient_name"] ?></td>
+            <td><?= $row["patient_age"] ?></td>
+            <td><?= $row["patient_phone"] ?></td>
+            <td><?= $row["patient_email"] ?></td>
+            <td><?= $row["test_type"] ?></td>
+            <td><?= $row["test_center"] ?></td>
             
-            $counter = 1;
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    // Decode JSON if stored as JSON
-                    $centerData = json_decode($row['testCenter'], true);
-
-                    // Extract center name & price
-                    if (is_array($centerData) && isset($centerData['name'])) {
-                        $centerName = $centerData['name'];  // ✅ Only center name
-                    } else {
-                        $centerName = $row['testCenter'];  // ✅ If not JSON, use direct value
-                    }
-
-                    echo "<tr>
-                        <td>{$counter}</td>  
-                        <td>{$row['patientName']}</td>
-                        <td>{$row['patientAge']}</td>
-                        <td>{$row['patientPhone']}</td>
-                        <td>{$row['patientEmail']}</td>
-                        <td>{$row['testType']}</td>
-                        <td>{$centerName}</td>  <!-- ✅ Only center name -->
-                        <td>₹{$row['amount']}</td>
-                        <td>{$row['testDate']}</td>
-                        <td>{$row['testTime']}</td>
-                        <td>{$row['paymentMethod']}</td>
-                        <td>{$row['bookingDate']}</td>
-                    </tr>";
-
-                    $counter++;
-                }
-            } else {
-                echo "<tr><td colspan='10' style='text-align:center;'>No appointments found</td></tr>";
-            }
-
-            $conn->close();
-            ?>
-        </table>
-    </div>
+            
+            <td><?= $row["test_date"] ?></td>
+            <td><?= $row["test_time"] ?></td>
+            <td><?= $row["payment_method"] ?></td>
+            <td>₹<?= $row["amount"] ?></td>
+            <td><?= $row["created_at"] ?></td>
+        </tr>
+        <?php endwhile; ?>
+    </table>
+    <center><a href="http://localhost/final%20year%20project-2025/Diagnosis_Appointments.html" class="back-button">Back</a></center>
 </body>
 </html>
+
+<?php $conn->close(); ?>

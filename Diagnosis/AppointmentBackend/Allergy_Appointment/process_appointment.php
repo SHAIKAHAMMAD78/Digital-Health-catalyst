@@ -1,42 +1,51 @@
 <?php
-include 'db_connect.php';
+require 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $patientName = $_POST["patientName"];
-    $patientAge = $_POST["patientAge"];
-    $patientPhone = $_POST["patientPhone"];
-    $patientEmail = $_POST["patientEmail"];
-    $testType = $_POST["testType"];
-    $testCenter = $_POST["testCenter"];
-    $testDate = $_POST["testDate"];
-    $testTime = $_POST["testTime"];
-    $paymentMethod = $_POST["paymentMethod"];
-    $amount = $_POST["amount"]; // Retrieve price from form submission
+    $patient_name = $_POST["patientName"];
+    $patient_age = $_POST["patientAge"];
+    $patient_phone = $_POST["patientPhone"];
+    $patient_email = $_POST["patientEmail"];
+    $test_type = $_POST["testType"];
+    $doctor_name = $_POST["testCenter"]; // Storing only doctor name
+    $appointment_date = $_POST["testDate"];
+    $appointment_time = $_POST["testTime"];
+    $payment_method = $_POST["paymentMethod"];
+    $amount = $_POST["amount"];
 
-    // Check for duplicate entry with same test date and time
-    $stmtCheck = $conn->prepare("SELECT * FROM appointments WHERE testDate = ? AND testTime = ?");
-    $stmtCheck->bind_param("ss", $testDate, $testTime);
-    $stmtCheck->execute();
-    $result = $stmtCheck->get_result();
+    // Check if appointment time has already passed
+    $currentDateTime = new DateTime();
+    $selectedDateTime = new DateTime("$appointment_date $appointment_time");
 
-    if ($result->num_rows > 0) {
-        // Duplicate entry exists
-        echo "<p style='color: red;'>Error: An appointment is already booked for this date and time.</p>";
-    } else {
-        // Insert new appointment if no duplicate found
-        $stmt = $conn->prepare("INSERT INTO appointments (patientName, patientAge, patientPhone, patientEmail, testType, testCenter, testDate, testTime, paymentMethod, amount) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sisssssssi", $patientName, $patientAge, $patientPhone, $patientEmail, $testType, $testCenter, $testDate, $testTime, $paymentMethod, $amount);
-
-        if ($stmt->execute()) {
-            echo "<p style='color: green;'>Appointment booked successfully! Your test will cost ₹$amount.</p>";
-        } else {
-            echo "<p style='color: red;'>Error: " . $stmt->error . "</p>";
-        }
-
-        $stmt->close();
+    if ($selectedDateTime < $currentDateTime) {
+        echo "<script>alert('You cannot book an appointment for a past time!'); window.history.back();</script>";
+        exit();
     }
 
-    $stmtCheck->close();
+    // Check for duplicate appointment
+    $stmt = $conn->prepare("SELECT * FROM allergy_tests WHERE test_center = ? AND test_date = ? AND test_time = ?");
+    $stmt->bind_param("sss", $doctor_name, $appointment_date, $appointment_time);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        echo "<script>alert('This time slot is already booked for the selected doctor. Please choose another time.'); window.history.back();</script>";
+        exit();
+    }
+    $stmt->close();
+
+    // Insert the new appointment
+    $stmt = $conn->prepare("INSERT INTO allergy_tests (patient_name, patient_age, patient_phone, patient_email, test_type ,test_center, test_date, test_time, payment_method, amount) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sisssssssi", $patient_name, $patient_age, $patient_phone, $patient_email, $test_type, $doctor_name, $appointment_date, $appointment_time, $payment_method, $amount);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Appointment booked successfully!'); window.location.href='http://localhost/final%20year%20project-2025/Diagnosis/diagnosis-Main.html';</script>";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    $stmt->close();
     $conn->close();
 }
 ?>

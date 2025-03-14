@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Tests</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .test-link {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: 0.3s;
+            width: 180px;
+            text-align: center;
+        }
+        .test-link:hover {
+            background-color: #0056b3;
+        }
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;}
+    </style>
+</head>
+<body>
+
+    <h2>List of Hospitals</h2>
+    <!-- Back Button -->
+    <a href="http://localhost/final%20year%20project-2025/admininterface.php" class="back-btn">⬅ Back</a>
+    <div class="container">
+        <a href="Hospitals/Sparsh Hospital/AppointmentBackend/admin.php" class="test-link">Sparsh Hospitals</a>
+        <a href="http://localhost/final%20year%20project-2025/Hospitals/Raksha%20Hospital/AppointmentBackend/admin.php" class="test-link">Raksha Hospitals</a>
+        <a href="Diagnosis/AppointmentBackend/Allergy_Appointment/admin.php" class="test-link">Urine Test</a>
+        <a href="appointment.html?test=Stool Test" class="test-link">Stool Test</a>
+        <a href="appointment.html?test=Image Test" class="test-link">Image Test</a>
+        <a href="appointment.html?test=Cardiac Test" class="test-link">Cardiac Test</a>
+        <a href="appointment.html?test=Neurology Test" class="test-link">Neurology Test</a>
+        <a href="appointment.html?test=Pulmonary Test" class="test-link">Pulmonary Test</a>
+        <a href="appointment.html?test=Endoscopy Test" class="test-link">Endoscopy Test</a>
+        <a href="appointment.html?test=Diabetes" class="test-link">Diabetes</a>
+        <a href="appointment.html?test=Gut Health" class="test-link">Gut Health</a>
+    </div>
+
+</body>
+</html>

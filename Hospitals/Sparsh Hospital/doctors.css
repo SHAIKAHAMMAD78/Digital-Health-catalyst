@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f8f8;
+    padding: 20px;
+}
+nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav .logo span {
+    color: #e67742;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    background: #004085;
+    color: white;
+    padding: 15px;
+    min-width: 220px;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.dropdown a {
+    display: block;
+    color: white;
+    padding: 8px 0;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background: #fc0303;
+    padding-left: 5px;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+.sub-dropdown{
+    display:none;
+    position: absolute;
+            left: 100%;
+            top: 0;
+            background: #004085;
+            min-width: 180px;
+            box-shadow: 0px 4px 8px rgba(3, 3, 220, 0.338);
+}
+.dropdown li {
+    position: relative;
+}
+
+.dropdown li:hover .sub-dropdown {
+    display: block;
+}
+
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 50px;
+    background: url('https://www.shutterstock.com/image-photo/doctor-utilizing-advanced-digital-tablet-600nw-2481904799.jpg') no-repeat center center/100%;
+    height: 400px;
+    color: rgb(12, 1, 1);
+    text-align: left;
+    margin-top: 60px;
+}
+
+.hero-text {
+    position: absolute;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    color: #f3ecec;
+    font-weight: bold;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 1450px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.back-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.back-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.doctor-card {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.doctor-info {
+    display: flex;
+    align-items: center;
+}
+
+.doctor-info img {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.doctor-details h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.experience {
+    background-color: #cce5ff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    color: #007bff;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.appointment {
+    text-align: center;
+}
+
+.appointment p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.appointment button {
+    background-color: #e67742;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Raksha Health Care</title>
+  <link rel="shortcut icon" href="img/title.png" type="image/x-icon">
+  
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex justify-content-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope"></i> <a href="mailto:contact@example.com">rakshahealthcare@hotmail.com</a>
+        <i class="bi bi-phone"></i>  +91 7847803456/6364142225
+      </div>
+      <div class="d-none d-lg-flex social-links align-items-center">
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> 
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html"> <img src="data:image/jpeg;base64,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" alt="Logo" class="logoo">Raksha-Health Care</a></h1>
+    
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="" href="http://localhost/final%20year%20project-2025/Hospitals/hospitals.html">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>       
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="#appointment" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Home Section ======= -->
+  <section id="home" class="d-flex align-items-center">
+    <div class="container">
+      <h1>Welcome to Raksha <br>Healthcare</h1>
+      <h2>We are team of Specialized Doctors.<br>"Your devotion and care bring healing, comfort and hope."</h2>
+      <a href="#about" class="btn-get-started scrollto">Learn More</a>
+    </div>
+  </section><!-- End Home -->
+<br><br><br><br><br><br><br><br>
+  <main id="main">
+    
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4 class="title"><a href=""> Normal checkup</a></h4>
+              <p class="description">  
+                Routine health examination conducted twice a month to detect potential issues early.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="fas fa-dna"></i></div>
+              <h4 class="title"><a href="">Blood Test</a></h4>
+              <p class="description"> 
+                A diagnostic test performed weekly to analyze health conditions and detect abnormalities.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="fas fa-temperature-high"></i></div>
+              <h4 class="title"><a href="">Body temperature</a></h4>
+              <p class="description"> 
+                Regular monitoring of body heat levels, with a normal range around 37.6°C (98.6°F).</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="fas fa-hand-holding-medical"></i></div>
+              <h4 class="title"><a href="">Medicine use</a></h4>
+              <p class="description">Medications should be taken 10-12 times as prescribed, with dosages between 8-12 units.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Featured Services Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>About Us</h2>
+          <p>In the year 2009 in suburban of Mumbai a new hospital namely Raksha Hospital. Beginning with initial bed strength of a mere 20 beds, Raksha Hospital has today grown by leaps and bounds, into bigger and best hospitals in the suburbs. Today Raksha Hospital has expanded into a hi-tech 40 bedded hospital with all the advanced diagnostics facilities, top class medical care, the best of doctors, medical equipment, paramedical staff, quality service and plenty of medical experience and expertise. The hospital is situated in one of the prime location in Malad (West) i.e. Marve Charkop Junction.The hospital working with all qualified staffs with dedication, determination, proper hard work of Staff to provide the best services to all the patients. The Hospital having its own pathology lab, X-Ray Facility with in-house pharmacy & 24 hrs emergency ambulance service, 24 hrs CCTV surveillance with 10 days recording facility which is also connected to the internet FREE wifi connectivity.</p>
+        </div>
+
+    <div class="row">
+    <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center
+     align-items-stretch position-relative">
+    <a href="https://youtu.be/eG7XVdVlDAM?si=ubMKVOriG5S2mBAj" class="glightbox play-btn mb-4"></a>
+          </div>
+
+    <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch
+     justify-content-center py-5 px-lg-5">
+            
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-heart"></i></div>
+              <h4 class="title"><a href="">HEALTH IS WEALTH</a></h4>
+              <p class="description">  
+                Good health is the key to a happy and successful life.  
+                Without it, even the greatest wealth loses its meaning.  
+                Prioritizing health ensures a brighter future.</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-health"></i></div>
+              <h4 class="title"><a href="">EMERGENCY</a></h4>
+              <p class="description"> 
+                Hospital emergencies handle critical and life-threatening cases with urgent care.  
+                Doctors and medical staff work swiftly to stabilize patients.  
+                Immediate treatment can save lives in critical situations.</p>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-help-circle"></i></div>
+              <h4 class="title"><a href="">SERVICES </a></h4>
+              <p class="description"> 
+                Hospitals provide medical care, diagnostics, and emergency treatments.  
+                They offer surgeries, consultations, and specialized healthcare services.  
+                Advanced facilities ensure patient recovery and well-being.</p>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+   <!-- ======= Counts Section ======= -->
+   <section id="counts" class="counts">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row no-gutters">
+
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+            <i class="fas fa-user-md"></i>
+            <span data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Doctors</strong>, There are more than 95 specialist doctors around india. </p>
+            <a href="#">Find out more &raquo;</a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+            <i class="far fa-hospital"></i>
+            <span data-purecounter-start="0" data-purecounter-end="36" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Departments</strong>, Around 36 Departments were there in Raksha-Health Care</p>
+            <a href="#">Find out more &raquo;</a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+            <i class="fas fa-flask"></i>
+            <span data-purecounter-start="0" data-purecounter-end="23" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Research Lab</strong>, Around 23 Research Lab were there in Raksha-Health Care</p>
+            <a href="#">Find out more &raquo;</a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+          <div class="count-box">
+            <i class="fas fa-award"></i>
+            <span data-purecounter-start="0" data-purecounter-end="250" data-purecounter-duration="1" class="purecounter"></span>
+            <p><strong>Awards</strong>, More than 250 awards won by Raksha</p>
+            <a href="#">Find out more &raquo;</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Counts Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Hospitals provide comprehensive medical services, including diagnosis, treatment, and specialized surgical care across various departments. They offer 24/7 emergency and critical care services, ensuring immediate response for trauma, ICU, and urgent medical needs. Additionally, hospitals support patients with essential services like pharmacy, laboratory testing, radiology, rehabilitation, and counseling to ensure holistic healthcare.</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4><a href="">Regular Checkup</a></h4>
+              <p>Regular check-ups help detect health issues early and ensure overall well-being through routine tests and consultations.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-pills"></i></div>
+              <h4><a href="">Medicine</a></h4>
+              <p>Raksha Hospital provides comprehensive medicine services, including accurate diagnosis, effective treatment, and preventive care to ensure patient well-being and recovery.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-hospital-user"></i></div>
+              <h4><a href="">Pharmeologist</a></h4>
+              <p>A pharmacologist at Raksha Hospital specializes in researching and developing safe and effective medications, ensuring proper drug usage, interactions, and patient safety in treatment plans.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-dna"></i></div>
+              <h4><a href="">Blood Test</a></h4>
+              <p>Raksha Hospital offers accurate and reliable blood testing services for diagnosis, health monitoring, and disease prevention.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-wheelchair"></i></div>
+              <h4><a href="">Disabled Person</a></h4>
+              <p>Raksha Hospital provides specialized care, rehabilitation, and assistive services to support the well-being of disabled individuals.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+            <div class="icon-box">
+              <div class="icon"><i class="fas fa-notes-medical"></i></div>
+              <h4><a href="">Health Post</a></h4>
+              <p>The Health Post at Raksha Hospital offers basic healthcare services, including consultations, screenings, and health monitoring for the community.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Appointment Section ======= -->
+     <center>
+      <section id="appointment" class="appointment-container">
+        <div class="con">
+          <h2>Book Raksha Hospital Appointment</h2>
+          <form id="appointmentForm" action="AppointmentBackend/process_appointment.php" method="POST">
+              <section class="session">
+                  <h3>Patient Information</h3>
+                  <label for="patientName">Name:</label>
+                  <input type="text" id="patientName" name="patientName" required>
+                  <label for="patientAge">Age:</label>
+                  <input type="number" id="patientAge" name="patientAge" required>
+                  <label for="patientPhone">Phone:</label>
+                  <input type="text" id="patientPhone" name="patientPhone" required>
+                  <label for="patientEmail">Email:</label>
+                  <input type="email" id="patientEmail" name="patientEmail" required>
+              </section>
+          
+              <section class="session">
+                  <h3>Service Selection</h3>
+                  <label>Select Test:
+                      <select id="testType" name="testType" required>
+                          <option value="">Select</option>
+                          <option value="Neurologist">Neurologist</option>
+                          <option value="Dermatology">Dermatology</option>
+                          <option value="Allergist">Dentistry</option>
+                          <option value="Physiotherapist">Cardiology</option>
+                      </select>
+                  </label>
+                  <label>Select Doctor:
+                      <select id="testCenter" name="testCenter" required>
+                          <option value="">Select Doctor</option>
+                      </select>
+                  </label>
+                  <p><strong>Center Details:</strong></p>
+                  <p id="centerDetails"></p>
+                  <label>Select Date: <input type="date" id="testDate" name="testDate" required></label>
+                  <label>Select Time:
+                      <select id="testTime" name="testTime" required>
+                          <option value="">Select a Time</option>
+                      </select>
+                  </label>
+                  <input type="hidden" id="appointmentAmount" name="amount">
+              </section>
+          
+              <section class="session">
+                  <h3>Payment</h3>
+                  <label>Select Payment Method:
+                      <select id="paymentMethod" name="paymentMethod" required>
+                          <option value="">Select</option>
+                          <option value="debit">Debit Card</option>
+                          <option value="gpay">Google Pay</option>
+                      </select>
+                  </label>
+                  <div id="gpayQR" style="display:none;">
+                      <p>Scan to Pay:</p>
+                      <img id="qrCode" src="" alt="QR Code">
+                  </div>
+              </section>
+          
+              <button type="submit">Book Appointment</button>
+          </form>
+      </div>
+  
+      
+      <script>
+        document.getElementById("testDate").setAttribute("min", new Date().toISOString().split("T")[0]);
+
+          const testCenterData = {
+              Neurologist: [
+             { name: "Dr.Ramesh", price: 999, times: ["8:00AM", "10:00AM", "12:00PM"] },
+             { name: "Dr.Rajesh kumar", price: 999, times: ["10:00AM", "11:30AM", "1:00PM"] },
+             { name: "Dr.Aditi shetty", price: 999, times: ["8:30AM", "10:30AM", "12:00PM", "2:30PM", "4:30PM", "6:00PM"] }
+            ],
+            Dermatology: [
+              { name: "Dr. Revathi", price: 1299, times: ["11:00AM", "1:00PM", "2:00PM"] },
+              { name: "Dr. Pasupathi", price: 1299, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM"] }
+            ],
+            Allergist: [
+             { name: "Dr. Gopal", price: 1399, times: ["11:00AM", "1:00PM", "2:00PM"] },
+             { name: "Dr. Gomathi", price: 1399, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM"] }
+           ],
+            Physiotherapist: [
+              { name: "Dr. Deepak", price: 1599, times: ["11:00AM", "1:00PM", "2:00PM"] },
+              { name: "Dr. Hari", price: 1599, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM"] }
+            ]
+         };
+
+          document.getElementById("testType").addEventListener("change", function() {
+            const test = this.value;
+            const centerDropdown = document.getElementById("testCenter");
+            centerDropdown.innerHTML = "<option value=''>Select Doctor</option>";
+
+            if (test && testCenterData[test]) {
+              testCenterData[test].forEach(center => {
+              const option = document.createElement("option");
+              option.value = center.name;
+              option.textContent = center.name;
+              option.dataset.price = center.price;
+              centerDropdown.appendChild(option);
+            });
+         }
+       });
+
+        document.getElementById("testCenter").addEventListener("change", function() {
+          const selectedOption = this.options[this.selectedIndex];
+          const doctorName = selectedOption.value;
+          const doctorPrice = selectedOption.dataset.price;
+
+          document.getElementById("centerDetails").textContent = `Selected: ${doctorName}, ₹${doctorPrice}`;
+          document.getElementById("appointmentAmount").value = doctorPrice;
+
+          const timeDropdown = document.getElementById("testTime");
+          timeDropdown.innerHTML = "<option value=''>Select Time</option>";
+
+          const testType = document.getElementById("testType").value;
+          const doctorData = testCenterData[testType]?.find(doc => doc.name === doctorName);
+
+          if (doctorData) {
+            doctorData.times.forEach(time => {
+            const option = document.createElement("option");
+            option.value = time;
+            option.textContent = time;
+            timeDropdown.appendChild(option);
+          });
+        }
+       });
+
+        document.getElementById("paymentMethod").addEventListener("change", function() {
+          const qrDiv = document.getElementById("gpayQR");
+          const amount = document.getElementById("appointmentAmount").value;
+
+          if (this.value === "gpay" && amount) {
+            document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Pay ₹${amount}`;
+           qrDiv.style.display = "block";
+          } else {
+            qrDiv.style.display = "none";
+          }
+       });
+      </script>
+      <script src="main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+      
+    </center><!-- End Appointment Section -->
+
+    
+
+    <!-- ======= Doctors Section ======= -->
+    <section id="doctors" class="doctors">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Doctors</h2>
+         
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="https://images.jdmagicbox.com/v2/comp/mumbai/n9/022pxx22.xx22.140722121539.t5n9/catalogue/dr-ravindra-dargainya-raksha-hospital--malad-west-mumbai-dermatologists-3h3tc7l.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4><a href="https://www.practo.com/mumbai/doctor/dr-ravindra-dargainya-dermatologist-cosmetologist-3?specialization=Dermatologist&practice_id=700596"> Ravindra Dargainya </h4></a>
+                <span>Dermatologist</span>
+                <a href="Doc1.html"><button class="doc1" >Learn More</button></a>
+                <p>17 Years Experience Overall  (15 years as specialist)</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="https://img.freepik.com/premium-photo/medical-concept-indian-beautiful-female-doctor-white-coat-with-stethoscope-waist-up-medical-student-woman-hospital-worker-looking-camera-smiling-studio-blue-background_185696-621.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4><a href="https://www.practo.com/mumbai/doctor/dr-aditi-agrawal-general-surgeon?specialization=General%20Surgeon&practice_id=700596"> Aditi Agrawal</h4></a>
+                <span>Neurologist</span>
+               <a href="Doc2.html"><button class="doc1" >Learn More</button></a>
+                <p>20 Years Experience Overall  (13 years as specialist)</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 mt-4 mt-lg-0">
+            <div class="member d-flex align-items-start">
+              <div class="pic"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSer2lRKMRE7F3DIXfi4u5rQDgoV80doRCbeg&s" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4><a href="https://www.practo.com/mumbai/doctor/malvika-1-physiotherapist?specialization=Physiotherapist&practice_id=700596"> Malvika Agrawal</h4></a>
+                <span>Physiotherapist</span>
+                <a href="Doc3.html"><button class="doc1" >Learn More</button></a>
+                <p>15 Years Experience Overall  (8 years as specialist)</p>
+                <div class="social">
+                  <a href=""><i class="ri-twitter-fill"></i></a>
+                  <a href=""><i class="ri-facebook-fill"></i></a>
+                  <a href=""><i class="ri-instagram-fill"></i></a>
+                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Doctors Section -->
+
+   
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p> Here is the location for Raksha multispeciality hosptial</p>
+        </div>
+      </div>
+
+      <!--Google map-->
+      <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=670&amp;height=363&amp;hl=en&amp;q=Raksha multispeciality hospital mumbai malad west&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.fnfgo.com/">FNF Mods</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:363px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:363px;}.gmap_iframe {height:363px!important;}</style></div>
+      
+      
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Raksha-Healthcare</h3>
+              <p>
+                1st Floor, D-11, Asmita Jyoti Housing Society, Marve road, Near Athrava College, Malad West, Mumbai, Maharashtra 400095<br>
+                <br><br>
+                <strong>Phone:</strong> 022 4264 1181<br>
+                <strong>Email:</strong> info@rakshahospitals.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>  
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#doctor">Doctors</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Regular Checkup</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Pharmeologist</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Blood Test</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Disabled Person</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Health Post</a></li>
+            </ul>
+          </div>
+
+         
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>RAKSHA-CARE</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="">Ashwanth</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="vendor/php-email-form/validate.js"></script>
+  <script src="vendor/purecounter/purecounter.js"></script>
+  <script src="vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

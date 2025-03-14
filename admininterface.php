@@ -98,9 +98,10 @@
     <div class="container">
         <!-- Navigation -->
         <div class="nav">
-            <a href="doctors.php">Doctors</a>
-            <a href="Diagnosis_Appointments.html">Appointments</a>
-            <a href="usersignupdetails.php">New Users</a>
+           
+            <a href="Diagnosis_Appointments.html">Diagnosis Appointments</a>
+            <a href="Hospital_Appointments.html">Hospital Appointments</a>
+            <a href="usersignupdetails.php">Users</a>
         </div>
 
         <!-- Main content -->

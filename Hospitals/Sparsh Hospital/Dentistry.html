@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anaesthesiology - SPARSH Hospital</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+        nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav .logo span {
+    color: #e67742;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Parent Dropdown */
+.dropdown {
+    display: none;
+    position: absolute;
+    background: #004085;
+    color: white;
+    padding: 10px 0;
+    min-width: 220px;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.dropdown a {
+    display: block;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown a:hover {
+    background: #fc0303;
+    padding-left: 5px;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+/* Fix for Sub-dropdown */
+.dropdown li {
+    position: relative;
+}
+
+.sub-dropdown {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: #004085;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(3, 3, 220, 0.338);
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+/* --- NEW FIX TO KEEP THE SUBDROPDOWN OPEN --- */
+.dropdown li:hover > .sub-dropdown {
+    display: block;
+}
+
+.sub-dropdown:hover {
+    display: block;
+}
+
+/* --- ADDING A BUFFER TO PREVENT IT FROM DISAPPEARING --- */
+.dropdown li {
+    padding-right: 15px; /* Ensures cursor moves smoothly */
+}
+
+.sub-dropdown {
+    margin-left: -5px; /* Brings the sub-dropdown closer to the parent */
+}
+        .hero-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            background: url('https://t4.ftcdn.net/jpg/06/88/62/37/360_F_688623756_xbY1xgAzQVLNYvjPHvKdrECpmIJYXXz5.jpg') no-repeat center center/cover;
+            height: 400px;
+            color: rgb(12, 1, 1);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .hero-text {
+            position: absolute;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hero-text {
+            text-align: center;
+            margin-top: -140px; /* Move items slightly up */
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            color: #121111;
+            font-weight: bold;
+        }
+
+        .hero-text h2 {
+            font-size: 32px;
+            color: #423f3f;
+            margin-top: 10px;
+        }
+        .content {
+            padding: 40px;
+            max-width: 800px;
+            margin: auto;
+            color: #333;
+        }
+
+        .content h2 {
+            color: #0056b3;
+            margin-bottom: 15px;
+            margin-top: 40px;
+        }
+        .info-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+            height: 200px;
+        }
+        .info-box {
+            display: flex;  
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            background: linear-gradient(to right, #b0c4de, #d3d3d3);
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .info-box img {
+            width: 50px;
+            margin-right: 15px;
+        }
+
+        .info-box a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #0056b3;
+            font-weight: bold;
+        }
+        .specialties-section {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .specialties-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .specialty-box {
+            border: 2px solid #0077cc;
+            padding: 20px;
+            width: 200px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .specialty-box img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .specialty-box h3 {
+            color: #0077cc;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">SPARSH <span>HOSPITAL</span></div>
+        <ul>
+            <li><a href="home.html">Back</a></li>          
+        </ul>
+    </nav>
+    
+    <section class="hero-section">
+        <div class="hero-text">
+            <img src="https://cdn-icons-png.flaticon.com/128/1471/1471741.png" alt="Anaesthesiology Icon" width="60">
+            <h1>Dentistry</h1>
+            <h2>Hospital in Bangalore</h2>
+        </div>
+    </section>
+    <section class="content">
+        <h2>Overview - Best Dental Hospitals In Bangalore</h2>
+        <p>Dentistry is all about keeping your smile healthy. It’s not just about fixing tooth problems, but it helps prevent them too. You can visit a dental hospital for an oral check-up, a thorough cleaning, or advanced treatments like fillings and crowns. Dentistry is important because it keeps both your mouth and your overall health in check. Regular dental care helps prevent problems like cavities, gum disease, and tooth loss, which can lead to bigger health problems down the road. Hence, it is important that you find the best dental care for your unique needs.</p>
+    
+        <h2>We Specialise in the Treatment of</h2>
+        <p>1.General Dentistry</p>
+        <p>2.Oral Surgery</p>
+        <p>3.Temporomandibular Disorders</p>
+        <p>4.Endodontics</p>
+        <p>5.Crowns</p>
+        <p>6.Implants</p>
+        <p>7.Root Canal</p>
+
+        <h2>Why Choose SPARSH Hospital for  Dentistry </h2>
+        <p>At SPARSH’s Department of Dentistry, we offer comprehensive care ranging from routine check-ups to more advanced treatments. As one of the best dental hospitals in Bangalore, we handle a wide range of services, including extractions, root canal, dental implants, or cosmetic procedures like teeth whitening and bridging. Our team is committed to providing the best dental care ensuring that your experience is both comfortable and effective.</p>
+
+
+    </section>
+    <section class="info-boxes">
+        <div class="info-box">
+            <img src="https://cdn-icons-png.flaticon.com/128/8815/8815112.png" alt="Find a Doctor">
+            <a href="dentdoc.html">Find a Doctor</a>
+        </div>
+        <div class="info-box">
+            <img src="https://cdn-icons-png.flaticon.com/128/3802/3802241.png" alt="Locate Us">
+            <a href="#">Our Specialties</a>
+        </div>
+    </section>
+    <section class="specialties-section">
+        <h2>Other Specialties</h2>
+        <div class="specialties-container">
+            <div class="specialty-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/10462/10462742.png" alt="Bariatric Sciences">
+                <h3>Anesthesiology</h3>
+            </div>
+            <div class="specialty-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/2923/2923396.png" alt="Bone Marrow Transplant">
+                <h3>Dermatology</h3>
+            </div>
+            <div class="specialty-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/2785/2785861.png" alt="Cardiac Sciences">
+                <h3>Cardiac Sciences</h3>
+            </div>
+            <div class="specialty-box">
+                <img src="https://cdn-icons-png.flaticon.com/128/3044/3044897.png" alt="Critical Care Medicine">
+                <h3>Dentistry</h3>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,53 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule Appointment</title>
-    <link rel="stylesheet" href="doc1.css">
-</head>
-<body>
+.container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px;
+            background-color: #fff;
+        }
+        .text-content {
+            width: 50%;
+        }
+        h1 {
+            color: #008080;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-top: 60px;
+        }
+        .icon {
+            font-size: 30px;
+            margin-right: 15px;
+        }
+        .image-content {
+            width: 40%;
+        }
+        .image-content img {
+            width: 100%;
+            border-radius: 10px;
+        }
 
-<div class="appointment-container">
-    <h2>Schedule Appointment</h2>
 
-    <div class="doctor-card">
-        <img src="doctor.jpg" alt="Dr Venkata Rao Abbineni">
-        <div class="doctor-info">
-            <h3>Dr Venkata Rao Abbineni</h3>
-            <p>📍 Health City Jubilee Hills</p>
+         <div class="container">
+        <div class="text-content">
+            <h1>About Raksha Hospital</h1>
+            <p>Welcome to Raksha Hospital, where we are committed to providing the highest quality healthcare to our patients. 
+                Our team of experienced physicians, nurses, and support staff are dedicated to meeting the needs of our community.</p>
+            <div class="feature">
+                <span class="icon">🔧</span>
+                <div>
+                    <h3>Support for All Ages</h3>
+                    <p>We understand that everyone goes through difficult times and may need extra support to get through them.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="icon">💖</span>
+                <div>
+                    <h3>Personalized Care</h3>
+                    <p>We believe that everyone deserves individualized and compassionate care that is tailored to their unique needs.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="icon">📋</span>
+                <div>
+                    <h3>A Lifetime of Trust & Records</h3>
+                    <p>We understand the importance of keeping your personal and financial records organized and safe.</p>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="image-content">
+            <img src="https://media.istockphoto.com/id/1189305225/photo/successful-doctor-at-conference.jpg?s=612x612&w=0&k=20&c=zxwiv1esh0fC8ildFPaRUjXh5UXeV51-QOB-MYc9yn8=" alt="Doctor Pointing">
+        </div>
 
-    <h4>Select the Dates</h4>
-    <div class="date-picker">
-        <button class="arrow">&lt;</button>
-        <div class="date select">Thu<br><span>06 Feb</span></div>
-        <div class="date Selected">Fri<br><span>07 Feb</span></div>
-        <div class="date">Sat<br><span>08 Feb</span></div>
-        <div class="date">Mon<br><span>10 Feb</span></div>
-        <div class="date">Tue<br><span>11 Feb</span></div>
-        <div class="date">Wed<br><span>12 Feb</span></div>
-        <button class="arrow">&gt;</button>
-    </div>
 
-    <div class="slots">
-        <h4>🌙 Morning Slots</h4>
-        <p class="no-slots">No slots available</p>
 
-        <h4>☀️ Afternoon Slots</h4>
-        <p class="no-slots">No slots available</p>
-    </div>
-
-    <div class="buttons">
-        <a href="doctors.html">
-        <button class="cancel">Cancel</button> 
-        </a>
-         <button class="proceed" disabled>Proceed</button>
-
-    </div>
-</div>
-
-</body>
-</html>
-
+        <!-- Extracting only Doctor Name -->
+            <?php
+                $doctorData = json_decode($row["doctor_name"], true);
+                $doctorName = isset($doctorData["name"]) ? $doctorData["name"] : $doctorName;
+            ?>
+            <td><?= $doctorName ?></td>
