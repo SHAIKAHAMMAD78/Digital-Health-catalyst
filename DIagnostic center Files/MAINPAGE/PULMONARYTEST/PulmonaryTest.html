@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulmonary Test Diagnostics | Precision Testing Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --primary-light: #e8f1f8;
+            --secondary: #4a90e2;
+            --accent: #ff7e5f;
+            --light: #f9fbfd;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --white: #ffffff;
+            --success: #27ae60;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 6px;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-info a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #ff6a45;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--white) 100%);
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background-color: var(--white);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 20%;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: var(--light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Tests Section */
+        .tests {
+            padding: 5rem 2rem;
+            background-color: var(--primary-light);
+        }
+
+        .tests-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .test-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .test-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .test-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .test-card:hover .test-image img {
+            transform: scale(1.05);
+        }
+
+        .test-content {
+            padding: 1.5rem;
+        }
+
+        .test-content h3 {
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .test-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 4rem 2rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 5px;
+        }
+
+        .footer-col p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-container, .header-container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://www.shutterstock.com/image-vector/functional-pulmonary-test-black-line-260nw-1833624013.jpg" alt="Blood Diagnostics Logo">
+                <div class="logo-text">
+                    <h1>Pulmonary Diagnostics</h1>
+                    <p>Precision Testing Center</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/diagnosis-Main.html">Home</a></li>
+                    <li><a href="pulmonary-heath-risk.html">Health Risks</a></li>
+                    <li><a href="pulomary-heath-condtion.html">Conditions</a></li>
+                    
+                </ul>
+            </nav>
+            <a href="appointment-pulmonary.html" class="btn">Book Appointment</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Comprehensive Pulmonary Testing Services</h1>
+                <p>Accurate results with our state-of-the-art diagnostic technology and expert pathologists to help you understand and manage your health.</p>
+                <div class="hero-buttons">
+                    <a href="appointment-pulmonary.html" class="btn btn-accent">Schedule a Test</a>
+                    <a href="#tests" class="btn btn-outline">View Tests</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://cdn.nddmed.com/posts/2024/what-to-expect-1080x720.webp" alt="Blood Testing">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <div class="section-header">
+                <h2>Why Choose Our Pulmonary Testing Center?</h2>
+                <p>Advanced lung function testing with expert analysis for accurate respiratory health assessment.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Advanced Technology</h3>
+                    <p>State-of-the-art laboratory equipment for precise and reliable test results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Expert Pathologists</h3>
+                    <p>Board-certified specialists with years of experience in diagnostic testing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Fast Results</h3>
+                    <p>Most test results available within 24-48 hours through our online portal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tests Section -->
+    <section class="tests" id="tests">
+        <div class="tests-container">
+            <div class="section-header">
+                <h2>Our Pulmonary Testing Services</h2>
+                <p>Comprehensive range of tests to evaluate your health and detect potential conditions.</p>
+            </div>
+            <div class="tests-grid">
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://www.ruralhealthinfo.org/rural-monitor/wp-content/uploads/2019/11/spirometry-graphic-1200.jpg" alt="Complete Blood Count">
+                    </div>
+                    <div class="test-content">
+                        <h3>Spirometry</h3>
+                        <p>A lung function test that measures airflow to diagnose and monitor conditions like asthma and COPD.</p>
+                        <a href="pulmonary-sp.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://max-website20-images.s3.ap-south-1.amazonaws.com/Pulmonary_Function_Tests_PFT_994697ce80.jpg" alt="Metabolic Panel">
+                    </div>
+                    <div class="test-content">
+                        <h3>Pulmonary Function</h3>
+                        <p>A set of tests that measure lung capacity and airflow to diagnose and monitor respiratory conditions</p>
+                        <a href="pulmonary-pf.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://www.e7health.com/files/blogs/chest-x-ray-29.jpg" alt="Metabolic Panel">
+                    </div>
+                    <div class="test-content">
+                        <h3>Chest X-ray</h3>
+                        <p>A quick and non-invasive imaging test to assess lung health and detect respiratory conditions.</p>
+                        <a href="pulmonary-cx.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo1b5XN1m6K4nx0meGwfHcCTPKZAC1XO4wFw&s" alt="Lipid Panel">
+                    </div>
+                    <div class="test-content">
+                        <h3>CT Scan (Chest Computed Tomography)</h3>
+                        <p>A detailed imaging test that provides cross-sectional views of the lungs to diagnose respiratory conditions.</p>
+                        <a href="pulmonary-ct.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh2MDNDol_yff52fnUbzflpwHYQ-XcYKs4Mw&s" alt="Glucose Test">
+                    </div>
+                    <div class="test-content">
+                        <h3>Arterial Blood Gas (ABG) Test</h3>
+                        <p>A test that measures oxygen, carbon dioxide, and pH levels in arterial blood to assess lung function and acid-base balance</p>
+                        <a href="pulmonary-abg.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Wrist-oximeter.jpg" alt="Thyroid Test">
+                    </div>
+                    <div class="test-content">
+                        <h3>Pulse Oximetry</h3>
+                        <p>A quick, non-invasive test that measures oxygen levels in the blood to assess respiratory function</p>
+                        <a href="pulmonary-po.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://ecgtraining.co.uk/wp-content/uploads/sites/3/2019/07/111-2.jpg" alt="Glucose Test">
+                    </div>
+                    <div class="test-content">
+                        <h3>Peak Flow Measurement</h3>
+                        <p>A simple test that measures how fast you can exhale, helping monitor asthma and lung function</p>
+                        <a href="pulmonary-pf.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="test-image">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCV1dWnwBzDbmb5cKy1AYdjwFP6pwLCwsfDA&s" alt="Thyroid Test">
+                    </div>
+                    <div class="test-content">
+                        <h3>Diffusion Capacity Test (DLCO)</h3>
+                        <p>A test that measures how well the lungs transfer oxygen into the blood, helping diagnose lung conditions</p>
+                        <a href="pulmoanry-dlco.html" class="btn">Enquire</a>
+                    </div>
+                </div>
+                 
+                    
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Ready to Take Control of Your Health?</h2>
+            <p>Schedule your Urine test today and get accurate results to better understand your health status.</p>
+            <a href="appointment-pulmonary.html" class="btn btn-accent">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About Us</h3>
+                <p>Pulmonary Diagnostics Center is a premier facility specializing in comprehensive Pulmonary testing and analysis, serving patients with care and precision.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="diagnosis-Main.html">Home</a></li>
+                    <li><a href="pulmonary-heath-risk.html">Health Risks</a></li>
+                    <li><a href="pulomary-heath-condtion.html">Conditions</a></li>
+                    <li><a href="appointment-pulmonary.html">Appointments</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Diagnostic St, Bangalore</li>
+                    <li><i class="fas fa-phone"></i> +91 80 1234 5678</li>
+                    <li><i class="fas fa-envelope"></i> info@blooddiagnostics.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Pulmonary Diagnostics Center. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script for mobile menu toggle would go here
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation effects or other interactive elements
+            const testCards = document.querySelectorAll('.test-card');
+            
+            testCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

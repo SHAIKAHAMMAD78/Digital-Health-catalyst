@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Diabetes Risks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --secondary: #4a90e2;
+            --accent: #ff7e5f;
+            --light: #f9fbfd;
+            --dark: #2c3e50;
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .home-button {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 3rem;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            padding: 0.8rem 0 0.8rem 1.5rem;
+            position: relative;
+        }
+
+        ul li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="DiabitiesTest.html" class="home-button"><i class="fas fa-arrow-left"></i> Home</a>
+        <h1>Understanding Diabetes Risks</h1>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>What Is Diabetes?</h2>
+            <p>Diabetes is a chronic disease that affects how the body processes blood sugar (glucose). High blood sugar levels can lead to serious health complications if not managed properly.</p>
+        </section>
+
+        <section class="section">
+            <h2>Types of Diabetes</h2>
+            <ul>
+                <li><strong>Type 1 Diabetes:</strong> An autoimmune condition where the body attacks insulin-producing cells.</li>
+                <li><strong>Type 2 Diabetes:</strong> A metabolic disorder where the body becomes resistant to insulin.</li>
+                <li><strong>Gestational Diabetes:</strong> Occurs during pregnancy and increases the risk of developing type 2 diabetes later in life.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Causes & Risk Factors</h2>
+            <ul>
+                <li>Poor diet high in sugar and unhealthy fats</li>
+                <li>Obesity and lack of physical activity</li>
+                <li>Family history of diabetes</li>
+                <li>High blood pressure and cholesterol levels</li>
+                <li>Hormonal changes, especially during pregnancy</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Symptoms to Watch For</h2>
+            <ul>
+                <li>Frequent urination</li>
+                <li>Extreme thirst and hunger</li>
+                <li>Unexplained weight loss</li>
+                <li>Fatigue and blurry vision</li>
+                <li>Slow healing of wounds and infections</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Diabetes Health Awareness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

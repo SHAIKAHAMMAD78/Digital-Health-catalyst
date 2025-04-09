@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allergy Test Appointment</title>
+    <title>Sparsh Hospitals Appointment</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,6 +63,22 @@
             width: 150px;
             margin-top: 10px;
         }
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-btn:hover {
+            background-color: #0056b3;}
     </style>
 </head>
 <body>
@@ -124,6 +140,9 @@
             </section>
         
             <button type="submit">Book Appointment</button>
+            
+            <!-- Back Button -->
+    <a href="http://localhost/final%20year%20project-2025/Hospitals/Sparsh%20Hospital/home.html" class="back-btn">⬅ Back</a>
         </form>
         
         <script>
@@ -207,67 +226,7 @@
                 }
             });
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-<script>
-    (function() {
-        emailjs.init("l3PaM_Eo2GAz9P0lE"); // Replace with your actual Email.js Public Key
-    })();
-
-    document.getElementById("appointmentForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Stop form from submitting immediately
-        let formData = new FormData(this);
-        fetch("process_appointment.php", {
-            method: "POST",
-            body: formData
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    sendEmail();
-                } 
-            })
-            
-
-        let userName = document.getElementById("patientName").value;
-        let userEmail = document.getElementById("patientEmail").value;
-        let userMobile = document.getElementById("patientPhone").value;
-        let usercenterdeatils = document.getElementById("centerDetails").textContent;
-        let userTestType = document.getElementById("testType").value;
-        let userTestDate = document.getElementById("testDate").value;
-        let userTestTime = document.getElementById("testTime").value;
-
-        let templateParams = {
-            from_email: "ahammadshaik608@gmail.com", // Replace with your actual service email
-            from_name: "Your Service Team",
-            user_name: userName,
-            user_email: userEmail,
-            user_mobile: userMobile,
-            message: `Hello Admin,\n\nNew Hospital Appointment Booked!\n
-            \n Patient Details :\n 
-            Name : ${userName}\n
-            Email: ${userEmail}\n
-            Mobile: ${userMobile}\n
-            Test Name :${userTestType}\n
-            Center Details :${usercenterdeatils}\n
-            Date : ${userTestDate}\n
-            Time : ${userTestTime}\n
-            \n\n
-            Thank you \n\nBest Regards,\nYour Service Team`
-        };
-
-        emailjs.send("service_3xzr6jg", "template_ewzvjdi", templateParams)
-            .then(response => {
-                alert("Appointment successful! A confirmation email has been sent to Admin.");
-                document.getElementById("appointmentForm").submit(); // Submit form after email is sent
-                window.location.href='http://localhost/final%20year%20project-2025/Hospitals/Sparsh%20Hospital/home.html';
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("Failed to send signup details. Please try again.");
-            });
-    });
-</script>
+       
 
         
     

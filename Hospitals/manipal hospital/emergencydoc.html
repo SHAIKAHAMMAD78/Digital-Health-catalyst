@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipal Hospital - Our Doctors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8f;
+            --secondary: #e63946;
+            --accent: #4cc9f0;
+            --dark: #1a2a3a;
+            --light: #f8f9fa;
+            --success: #2a9d8f;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: white;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-button a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateX(-3px);
+        }
+        
+        .doctors-section {
+            padding: 80px 8%;
+            background-color: #f1f7fc;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.75rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .doctors-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            position: relative;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .doctor-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .doctor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .doctor-card:hover .doctor-img img {
+            transform: scale(1.05);
+        }
+        
+        .specialty-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: white;
+        }
+        
+        .pediatrics {
+            background-color: #4cc9f0;
+        }
+        
+        .gynecology {
+            background-color: #e63946;
+        }
+        
+        .orthopedic {
+            background-color: #2a9d8f;
+        }
+        
+        .emergency {
+            background-color: #f4a261;
+        }
+        
+        .doctor-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .doctor-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .doctor-info p.specialty {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .doctor-info p.location {
+            color: #666;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .check-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .check-btn:hover {
+            background-color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        .specialty-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding: 0 25px;
+            background-color: rgba(42, 92, 143, 0.05);
+            border-radius: 0 0 15px 15px;
+        }
+        
+        .specialty-details.active {
+            max-height: 500px;
+            padding: 25px;
+        }
+        
+        .specialty-details h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .specialty-details ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .specialty-details li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .specialty-details li::before {
+            content: "•";
+            color: var(--primary);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-appointment-container {
+            text-align: center;
+            margin: 40px;
+        }
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 8% 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .footer-logo {
+            width: 180px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-col p {
+            opacity: 0.9;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .doctors-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="home.html">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+    <section class="doctors-section">
+        <div class="section-title">
+            <h2>Our Specialist Doctors</h2>
+            <p>Meet our team of highly qualified and experienced medical professionals dedicated to your health.</p>
+        </div>
+        
+        <div class="doctors-container">
+
+            
+            <!-- Emergency Medicine Doctors -->
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/041/900/695/small/handsome-indian-male-doctor-holding-empty-white-or-blank-dropper-bottle-photo.jpg" alt="Dr. Rohit Malhotra">
+                    <span class="specialty-badge emergency">Emergency</span>
+                </div>
+                <div class="doctor-info">
+                    <h3>Dr. Rohit Malhotra</h3>
+                    <p class="specialty">Emergency Physician</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Delhi</p>
+                    <button class="check-btn">Check</button>
+                </div>
+                <div class="specialty-details">
+                    <h4>Emergency Medicine Specialization</h4>
+                    <ul>
+                        <li>Trauma care</li>
+                        <li>Cardiac emergencies</li>
+                        <li>Toxicology</li>
+                        <li>Pediatric emergencies</li>
+                        <li>Critical care</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="doctor-card">
+                <div class="doctor-img">
+                    <img src="https://i.pinimg.com/474x/29/3b/b5/293bb5c342dbb64de73e141c92cc6186.jpg" alt="Dr. Sanjay Kapoor">
+                    <span class="specialty-badge emergency">Emergency</span>
+                </div>
+                <div class="doctor-info">
+                    <h3>Dr. Sanjay Kapoor</h3>
+                    <p class="specialty">Trauma Specialist</p>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Hyderabad</p>
+                    <button class="check-btn">Check</button>
+                </div>
+                <div class="specialty-details">
+                    <h4>Emergency Medicine Specialization</h4>
+                    <ul>
+                        <li>Advanced life support</li>
+                        <li>Disaster medicine</li>
+                        <li>Emergency ultrasound</li>
+                        <li>Resuscitation</li>
+                        <li>Emergency procedures</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="book-appointment-container">
+                <a href="appoinment.html" class="btn btn-primary">Book Appointment</a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="https://www.manipalhospitals.com/wp-content/themes/manipal/images/logo-white.png" alt="Manipal Hospital Logo" class="footer-logo">
+                <p>Delivering excellence in healthcare through advanced technology, expert doctors and compassionate care since 1991.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Specialties</a></li>
+                    <li><a href="#">Doctors</a></li>
+                  
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Pediatrics</a></li>
+                    <li><a href="#">Gynecology</a></li>
+                    <li><a href="#">Orthopedics</a></li>
+                    <li><a href="#">Emergency Medicine</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Manipal Hospital, 98, HAL Old Airport Rd, Kodihalli, Bengaluru, Karnataka 560017</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Emergency: +91 80 2502 4111</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Appointments: +91 80 2502 4444</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@manipalhospitals.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Open 24/7 - 365 days</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Manipal Hospitals. All Rights Reserved. | <a href="#" style="color: var(--accent);">Privacy Policy</a> | <a href="#" style="color: var(--accent);">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkButtons = document.querySelectorAll('.check-btn');
+            
+            checkButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const card = this.closest('.doctor-card');
+                    const details = card.querySelector('.specialty-details');
+                    
+                    // Close all other open details first
+                    document.querySelectorAll('.specialty-details').forEach(item => {
+                        if (item !== details && item.classList.contains('active')) {
+                            item.classList.remove('active');
+                            item.previousElementSibling.querySelector('.check-btn').textContent = 'Check';
+                        }
+                    });
+                    
+                    // Toggle current details
+                    details.classList.toggle('active');
+                    this.textContent = details.classList.contains('active') ? 'Hide' : 'Check';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

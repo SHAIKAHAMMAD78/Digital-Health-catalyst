@@ -59,3 +59,25 @@ body {
 .check-btn:hover {
     background-color: #218838;
 }
+.back-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border: 2px solid #0056b3; /* Added visible border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #0056b3;
+    border-color: #003f7f; /* Border color changes on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}

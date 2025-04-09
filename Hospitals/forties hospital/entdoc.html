@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forties Hospital - Our Doctors</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #00796B;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: #004D40;
+      transform: translateX(-5px);
+    }
+
+    .back-button i {
+      margin-right: 5px;
+    }
+
+    h1 {
+      color: #00796B;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+
+    .doctor-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .doctor-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .doctor-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .doctor-card:hover .doctor-image img {
+      transform: scale(1.1);
+    }
+
+    .doctor-info {
+      padding: 20px;
+      position: relative;
+    }
+
+    .doctor-specialty {
+      position: absolute;
+      top: -15px;
+      right: 20px;
+      background-color: #00796B;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .doctor-name {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+      color: #00796B;
+    }
+
+    .doctor-qualification {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .doctor-rating {
+      color: #FFC107;
+      margin-bottom: 10px;
+    }
+
+    .doctor-experience {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+
+    /* Book Appointment Button */
+    .appointment-section {
+      text-align: center;
+      margin: 50px 0;
+    }
+
+    .book-appointment {
+      display: inline-block;
+      background-color: #00796B;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .book-appointment:hover {
+      background-color: #004D40;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #004D40;
+      color: white;
+      padding: 50px 20px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #B2DFDB;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column ul li a {
+      color: #B2DFDB;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: white;
+    }
+
+    .footer-column p {
+      color: #B2DFDB;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      color: white;
+      background: rgba(255,255,255,0.1);
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #B2DFDB;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="home.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    
+    <h1>Our Expert Doctors For ENT</h1>
+    
+    <div class="doctors-grid">
+     
+      
+      <!-- Doctor 2 -->
+      <div class="doctor-card" onclick="openModal('dr2')">
+        <div class="doctor-image">
+          <img src="https://img.freepik.com/free-photo/hospital-healthcare-workers-covid-19-treatment-concept-young-doctor-scrubs-making-daily-errands-clinic-listening-patient-symptoms-look-camera-professional-physician-curing-diseases_1258-57233.jpg?semt=ais_hybrid&w=740" alt="Dr. Michael Chen">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">ENT</div>
+          <h3 class="doctor-name">Dr. Michael Chen</h3>
+          <p class="doctor-qualification">MS, DLO, FRCS</p>
+          <div class="doctor-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <span>(245)</span>
+          </div>
+          <p class="doctor-experience">15+ years experience</p>
+        </div>
+      </div>
+      
+      <!-- Doctor 6 -->
+      <div class="doctor-card" onclick="openModal('dr6')">
+        <div class="doctor-image">
+          <img src="https://t4.ftcdn.net/jpg/06/38/43/49/360_F_638434994_9GqzoaGx9TngLvCPUc8tfz1kvdcc7sKs.jpg" alt="Dr. David Kim">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">ENT</div>
+          <h3 class="doctor-name">Dr. David Kim</h3>
+          <p class="doctor-qualification">MS, DLO</p>
+          <div class="doctor-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <span>(154)</span>
+          </div>
+          <p class="doctor-experience">9+ years experience</p>
+        </div>
+      </div>
+      
+      
+      
+     
+      
+      <!-- Doctor 10 -->
+      <div class="doctor-card" onclick="openModal('dr10')">
+        <div class="doctor-image">
+          <img src="https://images.unsplash.com/photo-1612349316228-5942a9b489c2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1hbGUlMjBkb2N0b3J8ZW58MHx8MHx8fDA%3D" alt="Dr. Daniel Lee">
+        </div>
+        <div class="doctor-info">
+          <div class="doctor-specialty">ENT</div>
+          <h3 class="doctor-name">Dr. Daniel Lee</h3>
+          <p class="doctor-qualification">MS, DLO, FRCS</p>
+          <div class="doctor-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <span>(276)</span>
+          </div>
+          <p class="doctor-experience">17+ years experience</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="appointment-section">
+      <a href="appointment.html" class="book-appointment">Book an Appointment</a>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Forties Hospital</h3>
+        <p>Delivering excellence in healthcare with compassion and cutting-edge technology since 1985.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Doctors</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Specialties</h3>
+        <ul>
+          <li><a href="#">Pulmonology</a></li>
+          <li><a href="#">ENT</a></li>
+          <li><a href="#">Diabetology</a></li>
+          <li><a href="#">Gastroenterology</a></li>
+          <li><a href="#">Cardiology</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>123 Medical Drive, Health City</p>
+        <p>Phone: +1 234 567 890</p>
+        <p>Emergency: +1 234 567 891</p>
+        <p>Email: info@fortieshospital.com</p>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Forties Hospital. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Function to open modal
+    function openModal(doctorId) {
+      document.getElementById(doctorId).style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    // Function to close modal
+    function closeModal() {
+      const modals = document.querySelectorAll('.doctor-modal');
+      modals.forEach(modal => {
+        modal.style.display = 'none';
+      });
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.doctor-modal');
+      modals.forEach(modal => {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+    
+    // Specialty tab functionality
+    const tabs = document.querySelectorAll('.specialty-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Here you would filter doctors by specialty in a real application
+        // For this demo, we're just changing the active tab
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipal Hospital - Excellence in Healthcare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8f;
+            --secondary: #e63946;
+            --accent: #4cc9f0;
+            --dark: #1a2a3a;
+            --light: #f8f9fa;
+            --success: #2a9d8f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 20px 8%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            height: 55px;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            position: relative;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+            border-radius: 3px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: rgba(42, 92, 143, 0.1);
+            color: var(--primary);
+            padding-left: 25px;
+        }
+        
+        .dropdown-content a::after {
+            display: none;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(26, 42, 58, 0.85), rgba(26, 42, 58, 0.85)), 
+                        url('https://scontent.fblr4-5.fna.fbcdn.net/v/t39.30808-6/472855520_2336411213386479_2032462560165387535_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=qTILDHDDiy0Q7kNvwF3zig0&_nc_oc=AdlSz7FQ8LAcw6l5BMCLQL2xnmbLNR80xkUIYX2w2J032qR7Ulql-ehaW9DLIFRJMbqaTNTo-EoAwpdfby8OMvTD&_nc_zt=23&_nc_ht=scontent.fblr4-5.fna&_nc_gid=LYLE5ZpmIvsJSMmhhRUjOg&oh=00_AYHfpJ6am6B-o1LmyHHvLqv9S1i5Z4jRSmNZgH17csIfgA&oe=67F6BC6D') no-repeat center center/cover;
+            color: white;
+            padding: 0 8%;
+            text-align: left;
+        }
+        
+        .hero-text {
+            max-width: 650px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.75rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+            border: 2px solid var(--secondary);
+        }
+        
+        .hero-btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.4);
+        }
+        
+        .section {
+            padding: 100px 8%;
+            text-align: center;
+        }
+        
+        .section h2 {
+            font-size: 2.75rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            width: 300px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(42, 92, 143, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .card:hover .card-icon {
+            background-color: var(--primary);
+            transform: rotateY(180deg);
+        }
+        
+        .card-icon img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        
+        .card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            transition: all 0.3s;
+        }
+        
+        .card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .card-link {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .card:hover h4,
+        .card:hover p {
+            color: white;
+        }
+        
+        .card:hover {
+            background: var(--primary);
+        }
+        
+        .card:hover .card-link {
+            color: white;
+        }
+        
+        .appointment-btn {
+            margin-top: 60px;
+        }
+        
+        .appointment-btn a {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(42, 92, 143, 0.3);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            border: 2px solid var(--primary);
+        }
+        
+        .appointment-btn a:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(42, 92, 143, 0.4);
+        }
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 8% 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 5%;
+            }
+            
+            .hero-section {
+                height: auto;
+                padding: 100px 5%;
+                text-align: center;
+            }
+            
+            .hero-text {
+                max-width: 100%;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 80px 5%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 5%;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            
+            .section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                background-color: transparent;
+                padding: 0;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            
+            .dropdown-content a {
+                padding: 8px 0;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <img class="logo" src="https://play-lh.googleusercontent.com/L9uLGVxk2q5M8UUsLzOOe_x1laWXzlg0JWBuhURIESckR-gQZgaLd85RM48OOhPoouo" alt="Manipal Hospital Logo">
+        <div class="nav-links">
+            
+            <a href="http://localhost/final%20year%20project-2025/Hospitals/hospitals.html">Hospitals</a>
+            <div class="dropdown">
+                <a href="#">Medical <i class="fas fa-chevron-down" style="font-size: 0.8em;"></i></a>
+                <div class="dropdown-content">
+                    <a href="gynocology.html">Gynecology</a>
+                    <a href="pediatric.html">Pediatrics</a>
+                    <a href="emergency.html">Emergency Care</a>
+                    <a href="orthopedic.html">Orthopedic</a>
+                </div>
+            </div>
+            <a href="doctors.html">Doctors</a>
+            <a href="aboutus.html">About Us</a>
+            <a href="contactus.html">Contact</a>
+        </div>
+    </nav>
+    
+    <section class="hero-section">
+        <div class="hero-text">
+            <h1>Manipal Hospitals</h1>
+            <h2>Exceptional Healthcare for You and Your Family</h2>
+            <p>Manipal Hospitals brings world-class healthcare services with cutting-edge technology and compassionate care. Our team of specialists is dedicated to your well-being.</p>
+            <a href="appoinment.html" class="hero-btn">Book an Appointment</a>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Our Specialties</h2>
+        <p class="section-description">We offer comprehensive medical services across various specialties to cater to all your healthcare needs.</p>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/1833/1833840.png" alt="Gynecology">
+                </div>
+                <h4>Gynecology</h4>
+                <p>Comprehensive women's health services including prenatal care, fertility treatments, and minimally invasive surgeries.</p>
+                <a href="gynocology.html" class="card-link">Learn More →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/12024/12024588.png" alt="Pediatrics">
+                </div>
+                <h4>Pediatrics</h4>
+                <p>Specialized care for infants, children and adolescents in a child-friendly environment with expert pediatricians.</p>
+                <a href="pediatric.html" class="card-link">Learn More →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/10695/10695210.png" alt="Emergency">
+                </div>
+                <h4>Emergency Care</h4>
+                <p>24/7 emergency services with rapid response times, advanced trauma care and critical care specialists.</p>
+                <a href="emergency.html" class="card-link">Learn More →</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/670/670848.png" alt="Orthopedic">
+                </div>
+                <h4>Orthopedic</h4>
+                <p>Advanced treatments for bone and joint disorders including sports medicine and joint replacement surgeries.</p>
+                <a href="orthopedic.html" class="card-link">Learn More →</a>
+            </div>
+        </div>
+    </section>
+    
+    
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Manipal Hospitals</h3>
+                <p>Delivering excellence in healthcare through advanced technology, expert doctors and compassionate care since 1991.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="hospital.html">Hospitals</a></li>
+                    <li><a href="doctors.html">Doctors</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="gynecology.html">Gynecology</a></li>
+                    <li><a href="pediatrics.html">Pediatrics</a></li>
+                    <li><a href="emergency.html">Emergency Care</a></li>
+                    <li><a href="orthopedic.html">Orthopedic</a></li>
+                    <li><a href="cardiology.html">Cardiology</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Manipal Hospital, 98, HAL Old Airport Rd, Kodihalli, Bengaluru, Karnataka 560017</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 80 2502 4444</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@manipalhospitals.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Open 24/7 for emergency services</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Manipal Hospitals. All Rights Reserved. | <a href="#" style="color: var(--accent);">Privacy Policy</a> | <a href="#" style="color: var(--accent);">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>

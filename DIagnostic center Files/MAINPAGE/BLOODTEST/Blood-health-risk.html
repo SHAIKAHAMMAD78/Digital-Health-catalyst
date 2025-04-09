@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Blood Health Risks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --secondary: #4a90e2;
+            --accent: #ff7e5f;
+            --light: #f9fbfd;
+            --dark: #2c3e50;
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .home-button {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 3rem;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            padding: 0.8rem 0 0.8rem 1.5rem;
+            position: relative;
+        }
+
+        ul li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="BloodTest.html" class="home-button"><i class="fas fa-home"></i> Home</a>
+        <h1>Understanding Blood Health Risks</h1>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>What Are Blood-Related Health Risks?</h2>
+            <p>Blood disorders can range from mild conditions like anemia to life-threatening diseases such as leukemia, hemophilia, and thrombosis.</p>
+        </section>
+
+        <section class="section">
+            <h2>Common Blood Disorders</h2>
+            <ul>
+                <li><strong>Anemia:</strong> A condition with insufficient healthy red blood cells, causing fatigue and weakness.</li>
+                <li><strong>Hemophilia:</strong> A rare disorder where blood does not clot properly, leading to excessive bleeding.</li>
+                <li><strong>Blood Clots:</strong> Clots can block blood flow, leading to strokes or heart attacks.</li>
+                <li><strong>Leukemia:</strong> A type of cancer affecting blood-forming tissues.</li>
+                <li><strong>Sickle Cell Disease:</strong> A genetic disorder causing misshapen red blood cells.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Causes & Risk Factors</h2>
+            <ul>
+                <li>Genetic predisposition</li>
+                <li>Poor diet lacking iron, vitamin B12, or folate</li>
+                <li>Chronic diseases such as diabetes</li>
+                <li>Exposure to toxins or radiation</li>
+                <li>Infections affecting the blood</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Symptoms to Watch For</h2>
+            <ul>
+                <li>Unexplained fatigue and weakness</li>
+                <li>Frequent infections</li>
+                <li>Excessive bruising or prolonged bleeding</li>
+                <li>Pale or yellowish skin</li>
+                <li>Shortness of breath and dizziness</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Blood Health Diagnostics. All rights reserved.</p>
+    </footer>
+</body>
+</html>

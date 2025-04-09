@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergy Test Appointment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2a5c8f;
+            --secondary-color: #6c757d;
+            --accent-color: #e63946;
+            --light-color: #f8f9fa;
+            --dark-color: #1a2a3a;
+            --success-color: #2a9d8f;
+            --border-radius: 10px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .back-button a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateX(-3px);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+        
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 650px;
+            margin: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+        }
+        
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e1e5eb;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+        
+        .required:after {
+            content: " *";
+            color: var(--accent-color);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1px solid #d8e2ef;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(42, 92, 143, 0.2);
+            background-color: white;
+        }
+        
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(42, 92, 143, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(42, 92, 143, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        button:hover::after {
+            transform: translateX(0);
+        }
+        
+        #gpayQR {
+            display: none;
+            text-align: center;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 1.5rem;
+            border: 1px dashed #d8e2ef;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        #gpayQR img {
+            width: 200px;
+            margin: 1rem auto;
+            border: 1px solid #e1e5eb;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .center-details {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .center-details i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .price-tag {
+            background-color: var(--success-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-left: 10px;
+            font-size: 0.85rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="home.html">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+    <div class="container">
+        <h2>Book Your Appointment</h2>
+        <form id="appointmentForm" action="process_appointment.php" method="POST">
+            <section>
+                <h3><i class="fas fa-user"></i> Patient Information</h3>
+                <div class="form-group">
+                    <label for="patientName" class="required">Full Name:</label>
+                    <input type="text" id="patientName" name="patientName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientAge" class="required">Age:</label>
+                    <input type="number" id="patientAge" name="patientAge" placeholder="Enter your age" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientPhone" class="required">Phone Number:</label>
+                    <input type="text" id="patientPhone" name="patientPhone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="patientEmail" class="required">Email Address:</label>
+                    <input type="email" id="patientEmail" name="patientEmail" placeholder="Enter your email" required>
+                </div>
+            </section>
+        
+            <section>
+                <h3><i class="fas fa-stethoscope"></i> Service Selection</h3>
+                <div class="form-group">
+                    <label for="testType" class="required">Select Test Type:</label>
+                    <select id="testType" name="testType" required>
+                        <option value="">-- Select Test Type --</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Gynecology">Gynecology</option>
+                        <option value="Orthopedic">Orthopedic</option>
+                        <option value="EmergencyMedicine">Emergency Medicine</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="testCenter" class="required">Select Doctor:</label>
+                    <select id="testCenter" name="testCenter" required>
+                        <option value="">-- Select Doctor --</option>
+                    </select>
+                </div>
+                <div class="center-details" id="centerDetails">
+                    <i class="fas fa-info-circle"></i>
+                    <span>No doctor selected</span>
+                </div>
+                <div class="form-group">
+                    <label for="testDate" class="required">Select Appointment Date:</label>
+                    <input type="date" id="testDate" name="testDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="testTime" class="required">Select Appointment Time:</label>
+                    <select id="testTime" name="testTime" required>
+                        <option value="">-- Select Time Slot --</option>
+                    </select>
+                </div>
+                <input type="hidden" id="appointmentAmount" name="amount">
+            </section>
+        
+            <section>
+                <h3><i class="fas fa-credit-card"></i> Payment</h3>
+                <div class="form-group">
+                    <label for="paymentMethod" class="required">Payment Method:</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">-- Select Payment Method --</option>
+                        <option value="debit">Debit Card</option>
+                        <option value="gpay">Google Pay</option>
+                    </select>
+                </div>
+                <div id="gpayQR">
+                    <p>Scan to Pay with Google Pay:</p>
+                    <img id="qrCode" src="" alt="QR Code">
+                    <p style="font-size: 0.9rem; color: var(--secondary-color);">Complete payment to confirm your appointment</p>
+                </div>
+            </section>
+        
+            <button type="submit">
+                <i class="fas fa-calendar-check"></i> Confirm Appointment
+            </button>
+        </form>
+    </div>
+        
+    <script>
+        document.getElementById("testDate").setAttribute("min", new Date().toISOString().split("T")[0]);
+    
+        const testCenterData = {
+            Pediatrics: [
+                { name: "Dr. Rajesh Verma", price:1150 , times: ["8:00AM", "10:00AM", "12:00PM"] },
+                { name: "Dr.Priya Nair", price: 1150, times: ["10:00AM", "11:30AM", "1:00PM"] },
+                { name: "Dr.Anjali Patel", price: 1150, times: ["10:00AM", "11:30AM", "1:00PM"] },
+            ],
+            Gynecology: [
+                { name: "Dr. Sunita Reddy", price: 700, times: ["11:00AM", "1:00PM", "2:00PM"] },
+                { name: "Dr. Brunda R", price: 700, times: ["11:00AM", "1:00PM", "2:00PM"] },
+                { name: "Dr. Neha Gupta", price: 700, times: ["11:00AM", "1:00PM", "2:00PM"] },
+            ],
+            Orthopedic: [
+                { name: "Dr. Arjun Singh", price:999 , times:["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+                { name: "Dr. Vikram Sharma", price:999 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"] },
+            ],
+            EmergencyMedicine: [
+                { name: "Dr. Rohith Malhotra", price:899, times: ["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM"] },
+                { name: "Dr. Sanjay Kapoor", price:899 , times: ["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"] },
+            ]
+        };
+    
+        document.getElementById("testType").addEventListener("change", function() {
+            const test = this.value;
+            const centerDropdown = document.getElementById("testCenter");
+            centerDropdown.innerHTML = "<option value=''>-- Select Doctor --</option>";
+    
+            if (test && testCenterData[test]) {
+                testCenterData[test].forEach(center => {
+                    const option = document.createElement("option");
+                    option.value = center.name;
+                    option.textContent = center.name;
+                    option.dataset.price = center.price;
+                    centerDropdown.appendChild(option);
+                });
+            }
+            
+            // Reset details and time slots when test type changes
+            document.getElementById("centerDetails").innerHTML = `<i class="fas fa-info-circle"></i><span>No doctor selected</span>`;
+            document.getElementById("testTime").innerHTML = "<option value=''>-- Select Time Slot --</option>";
+            document.getElementById("gpayQR").style.display = "none";
+        });
+    
+        document.getElementById("testCenter").addEventListener("change", function() {
+            const selectedOption = this.options[this.selectedIndex];
+            const doctorName = selectedOption.value;
+            const doctorPrice = selectedOption.dataset.price;
+            
+            const centerDetails = document.getElementById("centerDetails");
+            centerDetails.innerHTML = `
+                <i class="fas fa-user-md"></i>
+                <span>Selected: ${doctorName}</span>
+                <span class="price-tag">₹${doctorPrice}</span>
+            `;
+            
+            document.getElementById("appointmentAmount").value = doctorPrice;
+    
+            const timeDropdown = document.getElementById("testTime");
+            timeDropdown.innerHTML = "<option value=''>-- Select Time Slot --</option>";
+    
+            const testType = document.getElementById("testType").value;
+            const doctorData = testCenterData[testType].find(doc => doc.name === doctorName);
+            
+            if (doctorData) {
+                doctorData.times.forEach(time => {
+                    const option = document.createElement("option");
+                    option.value = time;
+                    option.textContent = time;
+                    timeDropdown.appendChild(option);
+                });
+            }
+        });
+    
+        document.getElementById("paymentMethod").addEventListener("change", function() {
+            const qrDiv = document.getElementById("gpayQR");
+            const amount = document.getElementById("appointmentAmount").value;
+    
+            if (this.value === "gpay" && amount) {
+                document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Pay ₹${amount}`;
+                qrDiv.style.display = "block";
+            } else {
+                qrDiv.style.display = "none";
+            }
+        });
+    </script>
+    
+</body>
+</html>

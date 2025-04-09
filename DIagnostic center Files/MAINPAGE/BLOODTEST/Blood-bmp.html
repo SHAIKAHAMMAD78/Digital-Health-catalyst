@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Metabolic Panel(BMP)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a7f8a;
+            --primary-light: #e1f5fe;
+            --accent: #ff7043;
+            --light: #ffffff;
+            --dark: #37474f;
+            --gray: #eceff1;
+            --text: #455a64;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #006064);
+            color: var(--light);
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://lotusdiagnostic.com/wp-content/uploads/2023/05/D1n3meBW0AAcwgN.jpeg') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        nav {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo i {
+            font-size: 1.4rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .filter-section {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .filter-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            background-color: var(--gray);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .center-card {
+            background-color: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
+        }
+        
+        .center-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .card-doctor {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card-details {
+            margin: 1rem 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+        }
+        
+        .detail-item i {
+            color: var(--primary);
+            margin-right: 0.7rem;
+            margin-top: 0.2rem;
+            min-width: 1rem;
+        }
+        
+        .action-btns {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: #006064;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            background-color: rgba(255,255,255,0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Floating Home Button */
+        .home-button {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .home-button:hover {
+            background: #1a6168;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .centers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-btns {
+                flex-direction: column;
+            }
+            
+            .home-button {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Home Button -->
+    <button class="home-button" onclick="window.location.href='bloodTest.html'">🏠</button>
+    
+    <header>
+        <div class="header-content">
+            <h1>Basic Metabolic Panel(BMP)</h1>
+            <p class="subtitle">Find certified dermatology centers in Bangalore for comprehensive patch testing</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-allergy"></i>
+                BLOOD CARE:
+            </a>
+            <div class="nav-links">
+                <a href="BloodTest.html">Home</a>
+                <a href="Blood-bmp-blog.html">Blog</a>
+                <a href="contact-us.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="filter-section">
+            <h3 class="filter-title">Filter Centers</h3>
+            <div class="filter-options">
+                <button class="filter-btn active">All</button>
+               
+            </div>
+        </div>
+        
+        <div class="centers-grid">
+            <!-- SurgiDerma Hospital -->
+            <div class="center-card">
+                <img src="https://static.wixstatic.com/media/8b9445_00794e9df2c3486892fedc2c9cc1bc93~mv2.png/v1/fit/w_2500,h_1330,al_c/8b9445_00794e9df2c3486892fedc2c9cc1bc93~mv2.png" alt="SurgiDerma Hospital" class="card-image">
+                <div class="card-badge">24/7</div>
+                <div class="card-content">
+                    <h3 class="card-title">SurgiDerma Hospital</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Spandhana
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kalyan Nagar, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Open 24 Hours</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>All days of the week</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>surgiderma.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3000
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:08050620427'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//No.+5ac,+927,+5th+A+Cross+Rd,+HRBR+Layout+1st+Block,+Babusabpalya,+Kalyan+Nagar,+Bengaluru,+Karnataka+560043/@13.0226817,77.5655219,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae172e833b6bc5:0x75be1a6f1639ca29!2m2!1d77.6479238!2d13.0226947?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Amrutha Diagnostic Center -->
+            <div class="center-card">
+                <img src="https://content.jdmagicbox.com/v2/comp/bangalore/u1/080pxx80.xx80.150708225422.m1u1/catalogue/amruth-diagnostic-centre-yelahanka-bangalore-diagnostic-centres-ghl2feyvei.jpg" alt="Amrutha Diagnostic Center" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Amrutha Diagnostic Center</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Davyanshi
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka New Town, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>9:00 AM - 9:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>All days of the week</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>labamruth@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3100
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+919980042671'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir/13.1810872,77.5733936/amrutha+diagnostic+centre+yelahanka/@13.1384283,77.5357055,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae1863ae645f95:0xedc0f1eeef3f09e7!2m2!1d77.5832999!2d13.0934127?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RS Diagnostic Center -->
+            <div class="center-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtXKrXx0JX1QwuBpIGN87QBB66nDDQRoOA6A&s" alt="RS Diagnostic Center" class="card-image">
+                <div class="card-badge">Popular</div>
+                <div class="card-content">
+                    <h3 class="card-title">RS Diagnostic Center</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Thanu Shree
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>7:00 AM - 11:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>All days of the week</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>support@rsdiagnosticcentre.in</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3400
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:9980211104'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//SANJEEVINI+CLINIC,+KEMPANNA+COMPLEX,+YELAHANKA,+near+VENKATESHWARA+BEKERY,+Nagenahalli,+Bengaluru,+Karnataka+560064/@13.1311282,77.4914504,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae1980cb82bd33:0xf6fa765a4cf0b33b!2m2!1d77.5738523!2d13.1311413?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Takshvi Diagnostic Center -->
+            <div class="center-card">
+                <img src="https://content3.jdmagicbox.com/v2/comp/bangalore/q2/080pxx80.xx80.220312233432.l9q2/catalogue/takshvi-healthcare-yelahanka-bangalore-diagnostic-centres-juxc4pk091.jpg" alt="Takshvi Diagnostic Center" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Takshvi Diagnostic Center</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Harshitha Reddy
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>All days of the week</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3500
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:8460257609'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//03,+3JV2%2B3CX+good+shepherd+church+backside,+Brindavana+Krishna+nilaya,+6th+Cross+Rd,+shivanahalli,+Yelahanka,+Bengaluru,+Karnataka+560064/@13.0927219,77.5187302,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae184c3f995a83:0x43b4f2e9b636932!2m2!1d77.6011321!2d13.092735?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Aster Labs -->
+            <div class="center-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlsgTFLsGTUrccoo9kOJ4KTXmEjPWJL98izA&s" alt="Aster Labs" class="card-image">
+                <div class="card-badge">Fast Results</div>
+                <div class="card-content">
+                    <h3 class="card-title">Aster Labs</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Kavya 
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka New Town, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>9:00 AM - 7:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>All days of the week</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@asterbangalore.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3200
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+918077777777'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//348%2F5,+SHOP+4%265+,+1ST+PHASE,+8TH+B+MAIN+ROAD,+10th+B+Cross+Rd,+Yelahanka+New+Town,+Bengaluru,+Karnataka+560064/@13.0981963,77.4985278,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae19a900f92361:0xa41c13006b84b6bd!2m2!1d77.5809297!2d13.0982094?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Orange Health Labs -->
+            <div class="center-card">
+                <img src="https://etimg.etb2bimg.com/photo/91942638.cms" alt="Orange Health Labs" class="card-image">
+                <div class="card-badge">Best Value</div>
+                <div class="card-content">
+                    <h3 class="card-title">Orange Health Labs</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Shravanthi
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ejipura, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6:00 AM - 10:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>All days of the week</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@orangehealth.in</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3000
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:09008111144'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//2nd+floor,+912,+80+Feet+Rd,+6th+Block,+Ejipura,+Bengaluru,+Karnataka+560095/@12.9380419,77.544151,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae151899650db7:0xe9891378daae6449!2m2!1d77.6265529!2d12.9380548?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About Blood Care</h3>
+                <p>We connect patients with trusted Blood testing centers across Bangalore, providing transparent pricing and appointment information.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/your.username"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/yourusername"><i class="fab fa-twitter"></i></a>
+                    <a href="instagram.com/yourusername"><i class="fab fa-instagram"></i></a>
+                   
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="BloodTest.html">Home</a>
+                <a href="Blood-bmp-blog.html">Blog</a>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> skandagowda943@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 BloodCare. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

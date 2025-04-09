@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulmonology Department - Forties Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #005f8c;
+            --secondary: #00a0e1;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #6c757d;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+        .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #00796B;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: #004D40;
+      transform: translateX(-5px);
+    }
+
+    .back-button i {
+      margin-right: 5px;
+    }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Content */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* Conditions Section */
+        .conditions {
+            background-color: var(--white);
+        }
+        
+        .condition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .condition-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .condition-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .condition-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .condition-card ul {
+            list-style-position: inside;
+        }
+        
+        .condition-card li {
+            margin-bottom: 8px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f0f4f8;
+        }
+        
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Doctors Section */
+        .doctors {
+            background-color: var(--white);
+        }
+        
+        .doctor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .doctor-card {
+            text-align: center;
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doctor-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doctor-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .doctor-card p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .doctor-card .quote {
+            font-style: normal;
+            color: var(--dark);
+            position: relative;
+            padding: 15px;
+            background: var(--white);
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+        
+        .doctor-card .quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent);
+            position: absolute;
+            top: -20px;
+            left: 5px;
+            opacity: 0.3;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f0f4f8;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card .quote {
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card .quote::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-light:hover {
+            background: #e6f7ff;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="home.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Pulmonology & Respiratory Care</h1>
+            <p>Expert diagnosis and treatment for all lung conditions. Breathe easier with our specialized care.</p>
+            <a href="appointment.html" class="btn">Schedule an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Conditions Section -->
+    <section class="section conditions">
+        <div class="container">
+            <h2 class="section-title">Conditions We Treat</h2>
+            <div class="condition-grid">
+                <div class="condition-card">
+                    <h3>Chronic Respiratory Diseases</h3>
+                    <ul>
+                        <li>Chronic Obstructive Pulmonary Disease (COPD)</li>
+                        <li>Asthma</li>
+                        <li>Pulmonary Fibrosis</li>
+                        <li>Bronchiectasis</li>
+                        <li>Cystic Fibrosis</li>
+                    </ul>
+                </div>
+                <div class="condition-card">
+                    <h3>Lung Infections</h3>
+                    <ul>
+                        <li>Pneumonia</li>
+                        <li>Tuberculosis (TB)</li>
+                        <li>Bronchitis</li>
+                        <li>COVID-19 Respiratory Complications</li>
+                    </ul>
+                </div>
+                <div class="condition-card">
+                    <h3>Other Pulmonary Conditions</h3>
+                    <ul>
+                        <li>Lung Cancer</li>
+                        <li>Pleural Effusion</li>
+                        <li>Pulmonary Hypertension</li>
+                        <li>Sleep Apnea</li>
+                        <li>Occupational Lung Diseases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services">
+        <div class="container">
+            <h2 class="section-title">Diagnostic & Treatment Services</h2>
+            
+            <div class="service-tabs">
+                <button class="tab-btn active" data-tab="diagnostics">Diagnostics</button>
+                <button class="tab-btn" data-tab="treatments">Treatments</button>
+            </div>
+            
+            <div id="diagnostics" class="tab-content active">
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>Pulmonary Function Tests</h3>
+                        <p>Comprehensive breathing tests to measure lung capacity, airflow, and gas exchange.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Bronchoscopy</h3>
+                        <p>Minimally invasive procedure to examine airways and collect tissue samples.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>CT Scans & X-rays</h3>
+                        <p>Advanced imaging for detailed views of lung structure and abnormalities.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Sleep Studies</h3>
+                        <p>Overnight monitoring to diagnose sleep apnea and other breathing disorders.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="treatments" class="tab-content">
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>Medication Management</h3>
+                        <p>Personalized treatment plans with inhalers, biologics, and other therapies.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Oxygen Therapy</h3>
+                        <p>Supplemental oxygen for patients with chronic breathing difficulties.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Pulmonary Rehabilitation</h3>
+                        <p>Supervised exercise and education program to improve lung function.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Minimally Invasive Procedures</h3>
+                        <p>Thoracentesis, bronchial thermoplasty, and other advanced interventions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Patient Success Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "After struggling with shortness of breath, Forties Hospital's pulmonary rehab program gave me my life back. I can now walk without gasping!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D." class="author-img">
+                        <div class="author-info">
+                            <h4>John D.</h4>
+                            <p>COPD Patient</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "The personalized asthma plan reduced my flare-ups dramatically. I finally feel in control of my breathing."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria S." class="author-img">
+                        <div class="author-info">
+                            <h4>Maria S.</h4>
+                            <p>Asthma Patient</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "The sleep study diagnosed my severe apnea. With CPAP therapy, I now wake up refreshed and have more energy."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Robert T." class="author-img">
+                        <div class="author-info">
+                            <h4>Robert T.</h4>
+                            <p>Sleep Apnea Patient</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Breathe Better?</h2>
+            <p>Our pulmonology team is here to help you with all your respiratory health needs. Schedule an appointment today.</p>
+            <a href="pulmodoc.html" class="btn btn-light">Find Doctor</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Forties Hospital</h3>
+                    <p>Providing exceptional healthcare services with compassion and innovation since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Doctors</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Departments</h3>
+                    <ul>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Oncology</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="#">Pulmonology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@fortieshospital.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8am-8pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Forties Hospital. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

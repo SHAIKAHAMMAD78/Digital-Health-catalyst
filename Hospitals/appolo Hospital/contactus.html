@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Contact Information</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: white;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-button a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateX(-3px);
+        }
+        
+        .back-button i {
+            margin-right: 5px;
+        }
+        
+        /* New Header Styles */
+        .contact-header {
+            background-color: #2a6496;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .contact-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .main-content {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .phone-numbers {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #2a6496;
+        }
+        
+        .address {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .description {
+            margin-bottom: 30px;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .image-credit {
+            font-size: 0.9rem;
+            color: #999;
+            margin-bottom: 30px;
+        }
+        
+        .call-now-btn {
+            display: inline-block;
+            background-color: #2a6496;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .call-now-btn:hover {
+            background-color: #1d4b75;
+        }
+        
+        .sidebar {
+            width: 300px;
+            background-color: #2a6496;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .price-tag {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-right: 15px;
+        }
+        
+        .discount-price {
+            color: #ffcc00;
+        }
+        
+        .arrow-down {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="home.html">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+    <!-- New Contact Header Section -->
+    <header class="contact-header">
+        <h1>Contact</h1>
+        <p>Get in touch with our medical team for appointments, inquiries, or emergency services</p>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <div class="phone-numbers">
+                001-234-5678<br>
+                001-987-7654
+            </div>
+            
+            <div class="address">
+                Headquartered: Chennai.
+            </div>
+            
+            <div class="description">
+                Apollo Hospitals Enterprise Limited is an Indian multinational healthcare group headquartered in Chennai. 
+            </div>
+            
+            <div class="image-credit">
+                Image by Freepik
+            </div>
+            
+            <a href="tel:0012345678" class="call-now-btn">CALL NOW</a>
+        </div>
+        
+        <div class="sidebar">
+            <h3>CALL US</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> 1 (234) 557-891</p>
+                <p><i class="fas fa-phone"></i> 1 (234) 987-654</p>
+            </div>
+            
+            <h3>LOCATION</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i>Rajajinagar,Vijaynagar,RR Nagar</p>
+            </div>
+            
+            <h3>HOURS</h3>
+            <div class="contact-info">
+                <p><i class="fas fa-clock"></i>24/7hrs</p>
+                
+            </div>
+            
+            
+        </div>
+    </div>
+</body>
+</html>

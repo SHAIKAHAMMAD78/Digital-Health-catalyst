@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Prick Test (SPT) | Bangalore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a7f8a;
+            --primary-light: #e1f5fe;
+            --accent: #ff7043;
+            --light: #ffffff;
+            --dark: #37474f;
+            --gray: #eceff1;
+            --text: #455a64;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #006064);
+            color: var(--light);
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.drpatrickwalsh.com.au/wp-content/uploads/2016/09/allergy_testing-1-1160x600.jpg') center/cover;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        nav {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo i {
+            font-size: 1.4rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .filter-section {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .filter-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .filter-btn {
+            background-color: var(--gray);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .center-card {
+            background-color: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
+        }
+        
+        .center-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .card-doctor {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card-details {
+            margin: 1rem 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+        }
+        
+        .detail-item i {
+            color: var(--primary);
+            margin-right: 0.7rem;
+            margin-top: 0.2rem;
+            min-width: 1rem;
+        }
+        
+        .action-btns {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            background-color: #006064;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            background-color: rgba(255,255,255,0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Floating Home Button */
+        .home-button {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .home-button:hover {
+            background: #1a6168;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .centers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-btns {
+                flex-direction: column;
+            }
+            
+            .home-button {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Home Button -->
+    <button class="home-button" onclick="window.location.href='AllergyTest.html'">🏠</button>
+    
+    <header>
+        <div class="header-content">
+            <h1>Skin Prick Test (SPT)</h1>
+            <p class="subtitle">Find certified allergy testing centers in Bangalore with verified pricing and availability</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-allergy"></i>
+                ALLERGY CARE:
+            </a>
+            <div class="nav-links">
+                <a href="AllergyTest.html">Home</a>
+                <a href="Allergy-Sip-blog.html">Blog</a>
+                <a href="contact-us.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="filter-section">
+            <h3 class="filter-title">Filter Centers</h3>
+            <div class="filter-options">
+                <button class="filter-btn active">All</button>
+               
+                
+            </div>
+        </div>
+        
+        <div class="centers-grid">
+            <!-- Apollo Diagnostics -->
+            <div class="center-card">
+                <img src="https://apollodiagnostics.in/images/defaultBlog.jpg" alt="Apollo Hospitals" class="card-image">
+                <div class="card-badge">Popular</div>
+                <div class="card-content">
+                    <h3 class="card-title">Apollo Diagnostics</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Ramesh Kumar
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>8:00 AM - 8:00 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>ALL-DAYS</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@apollohospitals.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2500
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+917993517708'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//61%2F5,+Harohalli,+Rishi+Landscape+Building,+Shop+No:+4,+Doddaballapur+Main+Road+Nagenahalli,+Cross,+Yelahanka,+Bengaluru,+Karnataka+560064/@13.128592,77.4899551,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae19a948614e6f:0x699ebf960ef44557!2m2!1d77.572357!2d13.1286051?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Manipal Hospitals -->
+            <div class="center-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/Manipal_Hospitals_%28logo%29.png" alt="Manipal Hospitals" class="card-image">
+                <div class="card-badge">24/7</div>
+                <div class="card-content">
+                    <h3 class="card-title">Manipal Hospitals</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Anjali Rao
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Magadi Road, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>24 Hours (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>ALL-DAYS</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@manipalhospitals.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2800
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+918076543210'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//9th+cross,+Magadi+Rd,+Cholourpalya,+Bengaluru,+Karnataka+560023/@12.9701468,77.4665795,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae3da33e37eb8b:0x326ed9eec49939cb!2m2!1d77.5489814!2d12.9701598?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fortis Hospitals -->
+            <div class="center-card">
+                <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=700,fit=crop,q=95/YKb17g4NDnFey92Q/logo_transparent-ts1570380384-AVL345L3NbCV7yXr.png" alt="Fortis Hospitals" class="card-image">
+                <div class="card-badge">Best Value</div>
+                <div class="card-content">
+                    <h3 class="card-title">Fortis Hospitals</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Vikram Singh
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cunningham Road, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>8:30 AM - 6:30 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Mon, Tue, Wed, Fri, Sat</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>help@fortishealthcare.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3100
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+918088888888'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//Fortis+Hospital,+14,+Cunningham+Rd,+Vasanth+Nagar,+Bengaluru,+Karnataka+560052/@12.9882036,77.5119037,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae166847800b0f:0x5670f48c68782ac8!2m2!1d77.5943056!2d12.9882166?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Narayana Health -->
+            <div class="center-card">
+                <img src="https://cdn.hexahealth.com/Image/1700650386685-928246322.jpg" alt="Narayana Health" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Narayana Health</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Priya Menon
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Hosur Road, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>9:00 AM - 5:00 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Mon, Tue, Wed, Fri, Sat</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@narayanahealth.org</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2100
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+918066666666'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//258%2FA,+Hosur+Road+Anekal,+Taluk,+Bommasandra+Industrial+Area,+Bengaluru,+Karnataka+560099/@12.8095687,77.6130069,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae6c346a0d90ed:0xe2a68e910c408e3a!2m2!1d77.6954088!2d12.8095815?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Columbia Asia Hospital -->
+            <div class="center-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Columbia_Asia_Logo.jpg" alt="Columbia Asia Hospital" class="card-image">
+                <div class="card-badge">Fast Results</div>
+                <div class="card-content">
+                    <h3 class="card-title">Columbia Asia Hospital</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Arjun Reddy
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Manayata Tech Park, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>8:00 AM - 6:00 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>ALL-DAYS</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@columbiaasia.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹1950
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+918099999999'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//E1,+Ground,+Beech,+below+Escape+Food+Court+Embassy,+Manayata+Tech+Park,+Thanisandra,+Bengaluru,+Karnataka+560045/@13.0506738,77.5389742,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae1764e333c09b:0x17c394e3549604f8!2m2!1d77.6213761!2d13.0506868?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Aster CMI Hospital -->
+            <div class="center-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlsgTFLsGTUrccoo9kOJ4KTXmEjPWJL98izA&s" alt="Aster CMI Hospital" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Aster Labs</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Sneha Sharma
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka New Town, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>9:00 AM - 7:00 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Mon, Tue, Wed, Fri, Sat</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@asterbangalore.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2800
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+918077777777'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//348%2F5,+SHOP+4%265+,+1ST+PHASE,+8TH+B+MAIN+ROAD,+10th+B+Cross+Rd,+Yelahanka+New+Town,+Bengaluru,+Karnataka+560064/@13.0981963,77.4985278,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae19a900f92361:0xa41c13006b84b6bd!2m2!1d77.5809297!2d13.0982094?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About AllergyCare</h3>
+                <p>We connect patients with trusted allergy testing centers across Bangalore, providing transparent pricing and appointment information.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/your.username"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/your_username"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="AllergyTest.html">Home</a>
+                <a href="Allergy-Sip-blog.html">Blog</a>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</p>
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> info@allergycare.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 AllergyCare. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

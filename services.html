@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | Digital Health Catalyst</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f2fe, #fce7f3);
+      padding: 20px;
+      color: #333;
+    }
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    .back-button button {
+      background-color: #ffffff;
+      border: 2px solid #6366f1;
+      color: #6366f1;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .back-button button:hover {
+      background-color: #6366f1;
+      color: white;
+    }
+    h1 {
+      text-align: center;
+      color: #2563eb;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #6b7280;
+      margin-bottom: 40px;
+    }
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+    .service-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+    .service-card h3 {
+      color: #9333ea;
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
+    .service-card p {
+      font-size: 1rem;
+      color: #555;
+    }
+    .quotes {
+      text-align: center;
+      margin-top: 60px;
+      font-style: italic;
+      color: #7c3aed;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Back Button -->
+  <div class="back-button">
+    <a href="front.html">
+    <button >← Back</button>
+    </a>
+  </div>
+
+  <!-- Page Heading -->
+  <h1>Our Services</h1>
+  <p class="subtitle">Empowering Healthcare, Elevating Lives.</p>
+
+  <!-- Services Section -->
+  <div class="services-container">
+
+    <!-- Hospital Services -->
+    <div class="service-card">
+      <img src="https://static.vecteezy.com/system/resources/previews/011/640/711/non_2x/simple-modern-hospital-logo-with-healthcare-medical-template-vector.jpg" alt="Hospital Logo">
+      <h3>Hospital Services</h3>
+      <p>State-of-the-art facilities, compassionate care, and expert medical teams — ensuring you receive the best treatments 24/7.</p>
+    </div>
+
+    <!-- Diagnosis Services -->
+    <div class="service-card">
+      <img src="https://img.icons8.com/fluency/96/microscope.png" alt="Diagnosis Logo">
+      <h3>Diagnosis Services</h3>
+      <p>Advanced diagnostic solutions from allergy tests to full body scans, empowering accurate and early detection of health issues.</p>
+    </div>
+
+    <!-- Emergency Care -->
+    <div class="service-card">
+      <img src="https://img.icons8.com/fluency/96/ambulance.png" alt="Emergency Logo">
+      <h3>Emergency Care</h3>
+      <p>Fast and reliable emergency response services available anytime, because your life matters every second.</p>
+    </div>
+
+    <!-- Telemedicine -->
+    <div class="service-card">
+      <img src="https://static.vecteezy.com/system/resources/previews/043/212/921/non_2x/modern-blue-and-green-logo-with-cross-design-a-contemporary-logo-for-a-telemedicine-service-minimalist-simple-modern-logo-design-free-vector.jpg" alt="Telemedicine Logo">
+      <h3>Telemedicine</h3>
+      <p>Consult with our doctors from the comfort of your home — quick, easy, and secure online health consultations.</p>
+    </div>
+
+  </div>
+
+  <!-- Quotes Section -->
+  <div class="quotes">
+    <p>"Health is the crown on the well person's head that only the ill person can see."</p>
+    <p>"Technology and healthcare together are redefining possibilities."</p>
+  </div>
+
+</body>
+</html>

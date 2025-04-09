@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intradermal Test - Collage Blog</title>
+    <style>
+        :root {
+            --primary: #1a6f8b;
+            --secondary: #e3f2fd;
+            --accent: #ff7043;
+            --light: #ffffff;
+            --dark: #263238;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #0d4b63);
+            color: var(--light);
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .home-button:hover {
+            background-color: var(--accent);
+            color: var(--light);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+        
+        .collage-item {
+            background-color: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
+        }
+        
+        .collage-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .collage-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .collage-item:hover::before {
+            opacity: 1;
+        }
+        
+        .collage-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        
+        .collage-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .collage-item .content {
+            padding: 1.5rem;
+        }
+        
+        .collage-item h2 {
+            color: var(--primary);
+            margin: 0 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .collage-item p {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0;
+        }
+        
+        .collage-item .content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 4rem 1rem 2rem;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .collage-grid {
+                grid-template-columns: 1fr;
+                padding: 0.5rem;
+            }
+            
+            .home-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Allergy-it.html" class="home-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+            </svg>
+            Home
+        </a>
+        <h1>Intradermal Testing</h1>
+    </header>
+
+    <div class="container">
+        <div class="collage-grid">
+            <div class="collage-item">
+                <img src="https://www.signaturemedicalgroup.com/webres/Image/News/h9991640_001.jpg" alt="Introduction to Intradermal Test">
+                <div class="content">
+                    <h2>What is an Intradermal Test?</h2>
+                    <p>The Intradermal Test is a diagnostic method used to detect allergies by injecting small amounts of allergens into the skin.</p>
+                </div>
+            </div>
+
+            <div class="collage-item">
+                <img src="https://d7v2qby5rod6l.cloudfront.net/wp-content/uploads/2022/04/Allergy-Sinus-Testing-1536x1024.jpeg" alt="How Intradermal Test Works">
+                <div class="content">
+                    <h2>How Does It Work?</h2>
+                    <p>A small amount of allergen is injected into the dermis layer of the skin to observe any allergic reaction.</p>
+                </div>
+            </div>
+
+            <div class="collage-item">
+                <img src="https://www.labtestpk.com/wp-content/uploads/2024/01/Creative-Modern-Medical-Business-Card-27.webp" alt="Uses of Intradermal Test">
+                <div class="content">
+                    <h2>Why is It Important?</h2>
+                    <p>This test is especially useful for identifying allergies that may not be detected by a standard skin prick test.</p>
+                </div>
+            </div>
+
+            <div class="collage-item">
+                <img src="https://media.springernature.com/lw685/springer-static/image/chp%3A10.1007%2F978-3-030-36335-2_28/MediaObjects/27762_6_En_28_Fig1_HTML.jpg" alt="Benefits of Intradermal Test">
+                <div class="content">
+                    <h2>Benefits of Intradermal Test</h2>
+                    <p>Provides a more accurate allergy diagnosis and helps tailor personalized treatment plans.</p>
+                </div>
+            </div>
+
+            <div class="collage-item">
+                <img src="https://cdn.slidesharecdn.com/ss_thumbnails/intradermalinjection-slideshare-200621055037-thumbnail.jpg?width=640&height=640&fit=bounds" alt="Preparing for Intradermal Test">
+                <div class="content">
+                    <h2>How to Prepare</h2>
+                    <p>Avoid antihistamines before the test and inform your doctor about any medications you take.</p>
+                </div>
+            </div>
+
+            <div class="collage-item">
+                <img src="https://www.researchgate.net/publication/331606044/figure/fig3/AS:734296222466050@1552081270246/ntradermal-allergic-skin-test-results-showed-positive-reaction-to-10-mg-ml-triamcinolone.png" alt="Understanding Results">
+                <div class="content">
+                    <h2>Understanding Results</h2>
+                    <p>Results are typically available within 15-30 minutes, helping doctors determine the best course of action.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Allergy Diagnostics. All rights reserved.</p>
+    </footer>
+</body>
+</html>

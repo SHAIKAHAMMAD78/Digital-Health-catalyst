@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manipal Hospital - Pediatrics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #00539C;
+      --secondary: #FFD662;
+      --light: #f9f9f9;
+      --dark: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .back-button a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateX(-3px);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+
+    header {
+  background:
+              url('https://cimsmathura.com/wp-content/uploads/2023/07/pediatrics-fly.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .section-title {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--secondary);
+      padding-bottom: 10px;
+    }
+
+    .info-text {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .highlight-box {
+      background-color: #e6f0fa;
+      padding: 20px;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    .highlight-box strong {
+      color: var(--primary);
+    }
+    .find-doctors-btn {
+  display: inline-block;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.find-doctors-btn:hover {
+  background-color: #e6bb00;
+  transform: translateY(-2px);
+}
+
+
+    footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 60px;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="home.html">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+
+  <header>
+    <h1>Pediatrics Department</h1>
+    <p>Expert care for your little ones — because their health means everything.</p>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Overview</h2>
+    <p class="info-text">
+      The Pediatrics Department at <strong>Manipal Hospital</strong> offers world-class healthcare services for infants, children, and adolescents. With a team of compassionate pediatricians and pediatric specialists, we ensure that every child receives personalized and comprehensive care tailored to their unique developmental needs.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Our Pediatric Units include:</strong>
+      <ul>
+        <li>General Pediatrics</li>
+        <li>Neonatal Intensive Care (NICU)</li>
+        <li>Pediatric Intensive Care (PICU)</li>
+        <li>Child Nutrition & Development</li>
+        <li>Pediatric Surgery</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Why Choose Us?</h2>
+    <p class="info-text">
+      At Manipal Hospital, we combine advanced medical technology with a child-friendly environment to reduce stress and promote healing. Our pediatricians work closely with families, offering guidance and support through each stage of your child’s growth and development.
+    </p>
+
+    <div class="highlight-box">
+      <strong>Highlights:</strong>
+      <ul>
+        <li>24/7 Emergency Pediatric Care</li>
+        <li>Vaccination and Immunization Programs</li>
+        <li>Experienced Pediatric Surgeons</li>
+        <li>In-house Diagnostics & Labs</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Contact & Appointments</h2>
+    <p class="info-text">
+      📞 <strong>Call us:</strong> 1800-102-5555<br/>
+      📍 <strong>Visit us:</strong> Manipal Hospitals across Bengaluru, Chennai, Delhi, Pune, and more.<br/>
+      💬 <strong>Email:</strong> pediatrics@manipalhospitals.com
+    </p>
+  </div>
+
+  <div style="text-align: center; margin: 40px 0;">
+    <a href="pediadoc.html" class="find-doctors-btn">Find Doctors</a>
+  </div>
+  
+
+  <footer>
+    <p>&copy; 2025 Manipal Hospital. All Rights Reserved.</p>
+    <p>
+      Visit our <a href="https://www.manipalhospitals.com/" target="_blank">official website</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+</body>
+</html>

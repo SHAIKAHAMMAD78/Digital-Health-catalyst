@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appoi Diagnostics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --primary-light: #e8f1f8;
+            --secondary: #4a90e2;
+            --accent: #ff7e5f;
+            --light: #f9fbfd;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --white: #ffffff;
+            --danger: #e74c3c;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --transition: all 0.25s ease;
+        }
+        .booking-container {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            
+            /* New: Round edges on the right */
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            transition: var(--transition);
+        }
+        
+        /* Smooth hover effect */
+        .booking-container:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        /* Improve Image Section */
+        .booking-image {
+            background: linear-gradient(rgba(42, 92, 141, 0.6), rgba(42, 92, 141, 0.8)),
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            color: var(--white);
+            
+            /* New: Round the left edges */
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        
+        /* Make the form area soft */
+        .booking-form {
+            padding: 3rem;
+            background-color: var(--light);
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+        
+        /* Buttons with smooth effect */
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent) 0%, #ff5a36 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+        
+        button:hover {
+            background-color: #ff6a45;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .home-button {
+            background-color: rgba(255,255,255,0.2);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+        }
+
+        .booking-container {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .booking-image {
+            background: linear-gradient(rgba(42, 92, 141, 0.7), rgba(42, 92, 141, 0.7)), 
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem;
+            color: var(--white);
+        }
+
+        .booking-image h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .booking-image p {
+            margin-bottom: 1rem;
+            opacity: 6;
+        }
+
+        .benefits-list {
+            margin-top: 2rem;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefits-list i {
+            color: var(--accent);
+        }
+
+        .booking-form {
+            padding: 3rem;
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--primary);
+        }
+
+        .form-section h3 i {
+            color: var(--accent);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius);
+            font-family: 'Open Sans', sans-serif;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(42, 92, 141, 0.2);
+        }
+
+        .center-details {
+            background-color: var(--primary-light);
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 1.2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Payment Method Sections */
+        #gpayQR {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background-color: var(--primary-light);
+            border-radius: var(--radius);
+        }
+
+        #gpayQR p {
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        #gpayQR img {
+            width: 180px;
+            height: 180px;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius);
+            padding: 0.5rem;
+            background-color: var(--white);
+        }
+
+        #debitCardForm {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background-color: var(--primary-light);
+            border-radius: var(--radius);
+        }
+
+        #debitCardForm h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .card-icons {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icons img {
+            height: 30px;
+            width: auto;
+        }
+
+        .expiry-cvv {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #ff6a45;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--gray);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-image {
+                display: none;
+            }
+            
+            .booking-form {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .home-button {
+                margin-bottom: 1rem;
+            }
+            
+            .booking-form {
+                padding: 1.5rem;
+            }
+            
+            .expiry-cvv {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="" alt="Allergy Diagnostics Logo">
+                <div class="logo-text">
+                    <h1>Image Diagnostics</h1>
+                    <p>Precision Testing Center</p>
+                </div>
+            </div>
+            <a href="Imagingtest.html" class="home-button">
+                <i class="fas fa-home"></i> Home
+            </a>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="booking-container">
+            <div class="booking-image">
+                <h2>Book Your Image Test</h2>
+                <p>Schedule your appointment with our specialists for accurate diagnosis and personalized treatment.</p>
+                
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check-circle"></i> Same-day appointments available</li>
+                    <li><i class="fas fa-check-circle"></i> Expert Image Test and technicians</li>
+                    <li><i class="fas fa-check-circle"></i> State-of-the-art diagnostic equipment</li>
+                    <li><i class="fas fa-check-circle"></i> Comfortable testing environment</li>
+                    <li><i class="fas fa-check-circle"></i> Quick and accurate results</li>
+                </ul>
+            </div>
+            
+            <form id="appointmentForm" action="process_appointment.php" method="POST">
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Patient Information</h3>
+                    <label for="patientName">Name:</label>
+                    <input type="text" id="patientName" name="patientName" required>
+                    <label for="patientAge">Age:</label>
+                    <input type="number" id="patientAge" name="patientAge" required>
+                    <label for="patientPhone">Phone:</label>
+                    <input type="text" id="patientPhone" name="patientPhone" required>
+                    <label for="patientEmail">Email:</label>
+                    <input type="email" id="patientEmail" name="patientEmail" required>
+                </div>
+
+            <div class="form-section">
+                    <h3><i class="fas fa-flask"></i> Allergy Test Selection</h3>
+                <!-- Hidden Inputs to Store Price and Center Name -->
+                <input type="hidden" id="centerName" name="centerName">
+                <input type="hidden" id="appointmentAmount" name="amount">
+            
+                <label>Select Test:
+                    <select id="testType" name="testType" required>
+                        <option value="">Select</option>
+                        
+                        <option value="">Select</option>
+                        <option value="X_ray">X-ray</option>
+                        <option value="Ultrasounds">Ultrasounds</option>
+                        <option value="Computed_Tomography">Computed Tomography</option>
+                        <option value="Magnetic_Resonance ">Magnetic Resonance </option>
+                        <option value="Mammography">Mammography</option>
+                        <option value="Positron_Emission ">Positron Emission Tomography (PET Scan)</option>
+                        <option value="Fluoroscopy">Fluoroscopy</option>
+                        <option value="Nuclear_Medicine_Scans">Nuclear Medicine Scans</option>
+                        <option value="Dexa_Scan ">Dexa Scan </option>
+                        <option value="Endoscopy_Capsule_Endoscopy">Endoscopy & Capsule Endoscopy</option>
+                    </select>
+                </label>
+            
+                <label>Select Center:
+                    <select id="testCenter" name="testCenter" required>
+                        <option value="">Select Center</option>
+                    </select>
+                </label>
+            
+                <div class="center-details" id="centerDetails">
+                    Please select a test and center to see details
+                </div>
+            
+                <label>Select Date:
+                    <input type="date" id="testDate" name="testDate" required>
+                </label>
+            
+                <label>Select Time:
+                    <select id="testTime" name="testTime" required>
+                        <option value="">Select a Time</option>
+                    </select>
+                </label>
+                <div class="form-section">
+                    <h3><i class="fas fa-credit-card"></i> Payment</h3>
+                    <label>Select Payment Method:
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Select</option>
+                            <option value="debit">Debit Card</option>
+                            <option value="gpay">Google Pay</option>
+                        </select>
+                    </label>
+                    <input type="hidden" id="appointmentCenterName" name="centerName">
+
+                    <!-- Debit Card Form -->
+                    <div id="debitCardForm">
+                        <h4>Enter Debit Card Details</h4>
+                        <div class="card-icons">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visa/visa-original.svg" alt="Visa">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mastercard/mastercard-original.svg" alt="Mastercard">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" alt="Apple Pay">
+                        </div>
+                        
+                        <label for="cardNumber">Card Number:</label>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                        
+                        <label for="cardName">Name on Card:</label>
+                        <input type="text" id="cardName" placeholder="John Doe" required>
+                        
+                        <div class="expiry-cvv">
+                            <div>
+                                <label for="expiryDate">Expiry Date:</label>
+                                <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                            </div>
+                            <div>
+                                <label for="cvv">CVV:</label>
+                                <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- GPay QR Code -->
+                    <div id="gpayQR">
+                        <p>Scan to Pay:</p>
+                        <img id="qrCode" src="" alt="Google Pay QR Code">
+                    </div>
+                </div>
+                <button type="submit" onclick="submitForm()">Book Appointment</button>
+            </div>
+            </form>
+            
+            <script>
+                document.getElementById("testDate").setAttribute("min", new Date().toISOString().split("T")[0]);
+
+        
+            const testCenterData = {
+             
+          X_ray : [
+            { name: "Radial Diagnostics", price:2499 , times:["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"]  },
+                { name: "Amrutha diagnostic Center", price:2399 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Pooja Diagnostic Centre", price:2999 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM"] },
+                { name: "Jai Maruthi Diagnostic Centre", price:3214 , times: ["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+                { name: "Orange Health Labs", price:3000 , times: ["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+                { name: "Jana Scans & Diagnostics", price:3499 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:30PM","7:30PM"]},
+                { name: "Bengaluru Allergy Centre", price:2500 , times: ["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"] }
+            ],
+               
+            Ultrasounds : [
+            { name: "SurgiDerma Hospital Skin Hair Laser Plastic surgery", price:2390 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Amrutha diagnostic Center", price:1999 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "RS Diagnostic center", price:3256 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Takshvi Diagnostic Center", price:2345 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Aster Labs", price:3800 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]  },
+                { name: "Orange Health Labs", price:2000 , times: ["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+               
+            ],
+               
+            Computed_Tomography : [
+            { name: "Apollo Diagnostics", price:2500 , times:["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM"]  },
+                { name: "Manipal Hospitals", price:2800 , times:["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM","6:00PM"]   },
+                { name: "Fortis Hospitals", price:3100 , times:["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"]  },
+                { name: "Narayana Health", price:2100 , times: ["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"] },
+                { name: "Columbia Asia Hospital", price:1950 , times: ["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"] },
+                { name: "Aster Labs", price:2800 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]  }
+            ],
+               
+            Magnetic_Resonance : [
+            { name: "Aster Labs", price:3100 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]   },
+                { name: "Columbia Asia Hospital", price:3800 , times:["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM"]  },
+                { name: "Apollo Diagnostics", price:3500 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM"] },
+                { name: "Manipal Hospitals", price:2900 , times:["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"]  },
+                { name: "Bengaluru Allergy Centre", price:2500 , times: ["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"] },
+                { name: "Dr Lal PathLabs ", price:3200 , times:["8:00AM", "10:00AM", "12:00PM","2:00PM"]  },
+                { name: "Orange Health Labs", price:3000 , times:["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"]  }
+            ],
+            Mammography : [
+            { name: "Radial Diagnostics", price:2499 , times:["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"]  },
+                { name: "Amrutha diagnostic Center", price:2399 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Pooja Diagnostic Centre", price:2999 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM"] },
+                { name: "Jai Maruthi Diagnostic Centre", price:3214 , times: ["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+                { name: "Orange Health Labs", price:3000 , times: ["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+                { name: "Jana Scans & Diagnostics", price:3499 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:30PM","7:30PM"]},
+                { name: "Bengaluru Allergy Centre", price:2500 , times: ["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"] }
+            ],
+               
+                
+            
+            Positron_Emission :[
+            { name: "Aster Labs", price:3100 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]   },
+                { name: "Columbia Asia Hospital", price:3800 , times:["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM"]  },
+                { name: "Apollo Diagnostics", price:3500 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM"] },
+                { name: "Manipal Hospitals", price:2900 , times:["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"]  },
+                { name: "Bengaluru Allergy Centre", price:2500 , times: ["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"] },
+                { name: "Dr Lal PathLabs ", price:3200 , times:["8:00AM", "10:00AM", "12:00PM","2:00PM"]  },
+                { name: "Orange Health Labs", price:3000 , times:["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"]  }
+            
+
+            ],
+            Fluoroscopy :[
+            { name: "Apollo Diagnostics", price:2500 , times:["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM"]  },
+                { name: "Manipal Hospitals", price:2800 , times:["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM","6:00PM"]   },
+                { name: "Fortis Hospitals", price:3100 , times:["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"]  },
+                { name: "Narayana Health", price:2100 , times: ["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"] },
+                { name: "Columbia Asia Hospital", price:1950 , times: ["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"] },
+                { name: "Aster Labs", price:2800 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]  }
+            
+
+            ],
+            Nuclear_Medicine_Scans :[
+            { name: "Apollo Diagnostics", price:2500 , times:["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM"]  },
+                { name: "Manipal Hospitals", price:2800 , times:["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM","6:00PM"]   },
+                { name: "Fortis Hospitals", price:3100 , times:["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"]  },
+                { name: "Narayana Health", price:2100 , times: ["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"] },
+                { name: "Columbia Asia Hospital", price:1950 , times: ["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"] },
+                { name: "Aster Labs", price:2800 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]  }
+            
+
+            
+
+            ],
+            Dexa_Scan :[
+            { name: "SurgiDerma Hospital Skin Hair Laser Plastic surgery", price:2390 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Amrutha diagnostic Center", price:1999 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "RS Diagnostic center", price:3256 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Takshvi Diagnostic Center", price:2345 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Aster Labs", price:3800 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]  },
+                { name: "Orange Health Labs", price:2000 , times: ["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+                { name: "Narayana Health", price: 3214, times:["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"]  },
+                { name: "Columbia Asia Hospital", price:1234 , times:["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"]  }
+            
+
+            ],
+            Endoscopy_Capsule_Endoscopy :[
+            { name: "SurgiDerma Hospital Skin Hair Laser Plastic surgery", price:2390 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Amrutha diagnostic Center", price:1999 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "RS Diagnostic center", price:3256 , times: ["8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Takshvi Diagnostic Center", price:2345 , times: ["5:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","10:30PM","11:30PM"]  },
+                { name: "Aster Labs", price:3800 , times:["11:00AM", "1:00PM", "2:00PM","3:30PM","5:00PM","6:00PM"]  },
+                { name: "Orange Health Labs", price:2000 , times: ["6:30AM","8:00AM", "10:00AM", "12:00PM","2:00PM","4:00PM","6:00PM","8:00PM","9:00PM"] },
+                { name: "Narayana Health", price: 3214, times:["10:00AM", "11:30AM", "1:00PM","2:00PM","3:30PM","5:00PM"]  },
+                { name: "Columbia Asia Hospital", price:1234 , times:["8:30AM", "10:30AM", "12:00PM","2:30PM","4:30PM","6:00PM"]  }
+            
+
+            
+            ]
+            
+            
+
+            
+            
+                
+
+            
+
+
+            };
+
+            
+                document.getElementById("testType").addEventListener("change", function () {
+                    const test = this.value;
+                    const centerDropdown = document.getElementById("testCenter");
+                    centerDropdown.innerHTML = "<option value=''>Select Center</option>";
+                
+                    if (test && testCenterData[test]) {
+                        testCenterData[test].forEach((center) => {
+                            const option = document.createElement("option");
+                            option.value = center.name; // ✅ Store center name instead of index
+                            option.textContent = center.name;
+                            centerDropdown.appendChild(option);
+                        });
+                    }
+                });
+                
+                document.getElementById("testCenter").addEventListener("change", function() {
+                    const test = document.getElementById("testType").value;
+                    const centerName = this.value;  // ✅ Now contains actual center name
+                    const timeDropdown = document.getElementById("testTime");
+                    timeDropdown.innerHTML = "<option value=''>Select Time</option>";
+                
+                    // Find the selected center object
+                    const selectedCenter = testCenterData[test]?.find(center => center.name === centerName);
+                
+                    if (selectedCenter) {
+                        document.getElementById("appointmentCenterName").value = selectedCenter.name; // ✅ Now storing name correctly
+                        document.getElementById("appointmentAmount").value = selectedCenter.price;
+                        
+                        document.getElementById("centerDetails").textContent = `Name: ${selectedCenter.name}, Price: ₹${selectedCenter.price}`;
+
+                
+                        selectedCenter.times.forEach(time => {
+                            const option = document.createElement("option");
+                            option.value = time;
+                            option.textContent = time;
+                            timeDropdown.appendChild(option);
+                        });
+                    }
+                });
+                
+                
+                
+                
+                
+         // Payment method selection handler
+         document.getElementById("paymentMethod").addEventListener("change", function () {
+            const paymentMethod = this.value;
+            const gpayDiv = document.getElementById("gpayQR");
+            const debitCardDiv = document.getElementById("debitCardForm");
+        
+            // Hide both first
+            gpayDiv.style.display = "none";
+            debitCardDiv.style.display = "none";
+        
+            if (paymentMethod === "gpay") {
+                const test = document.getElementById("testType").value;
+                const centerIndex = document.getElementById("testCenter").value;
+        
+                const selectedCenter = testCenterData[test]?.find(center => center.name === centerIndex);
+        
+                if (selectedCenter) {
+                    const price = selectedCenter.price;
+        
+                    // Generate the QR Code
+                    document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Pay%20%E2%82%B9${price}`;
+        
+                    // Show the QR code
+                    gpayDiv.style.display = "block";
+        
+                    // Automatically submit the booking form after showing QR
+                    setTimeout(() => {
+                        document.getElementById("bookingForm").submit(); 
+                    }, 3000); // 3-second delay to allow user to scan QR before submitting
+                } else {
+                    alert("Please select a test and center first");
+                    this.value = "";
+                }
+            } else if (paymentMethod === "debit") {
+                debitCardDiv.style.display = "block";
+            }
+        });
+
+        // Also update QR code when test center changes (if payment method is already GPay)
+        document.getElementById("testCenter").addEventListener("change", function() {
+            if (document.getElementById("paymentMethod").value === "gpay") {
+                const test = document.getElementById("testType").value;
+                const centerIndex = this.value;
+                
+                const selectedCenter = testCenterData[test]?.find(center => center.name === centerIndex);
+if (selectedCenter) {
+    const price = selectedCenter.price;
+
+    document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Pay%20%E2%82%B9${price}`;
+
+                }
+            }
+        });
+
+        // Format card number input
+        document.getElementById("cardNumber").addEventListener("input", function(e) {
+            let value = e.target.value.replace(/\s+/g, '');
+            if (value.length > 0) {
+                value = value.match(new RegExp('.{1,4}', 'g')).join(' ');
+            }
+            e.target.value = value;
+        });
+
+        // Format expiry date input
+        document.getElementById("expiryDate").addEventListener("input", function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            e.target.value = value;
+        });
+        function submitForm() {
+            document.getElementById('appointmentForm').submit();
+         }
+         
+    </script>
+</body>
+</html>

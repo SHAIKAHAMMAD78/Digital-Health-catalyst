@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Endoscopy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --secondary: #4a90e2;
+            --accent: #ff7e5f;
+            --light: #f9fbfd;
+            --dark: #2c3e50;
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .home-button {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 3rem;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            padding: 0.8rem 0 0.8rem 1.5rem;
+            position: relative;
+        }
+
+        ul li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Endoscopy.html" class="home-button"><i class="fas fa-arrow-left"></i> Home</a>
+        <h1>Understanding Endoscopy</h1>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>What Is Endoscopy?</h2>
+            <p>Endoscopy is a medical procedure that uses a flexible tube with a camera to examine the digestive tract or other internal organs. It helps diagnose and treat various conditions without the need for invasive surgery.</p>
+        </section>
+
+        <section class="section">
+            <h2>Types of Endoscopy</h2>
+            <ul>
+                <li><strong>Gastroscopy:</strong> Examines the esophagus, stomach, and upper small intestine.</li>
+                <li><strong>Colonoscopy:</strong> Evaluates the large intestine and rectum for abnormalities.</li>
+                <li><strong>Bronchoscopy:</strong> Used to examine the airways and lungs.</li>
+                <li><strong>Cystoscopy:</strong> Inspects the bladder and urethra.</li>
+                <li><strong>Laparoscopy:</strong> A minimally invasive surgical procedure to view the abdominal organs.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Why Is Endoscopy Performed?</h2>
+            <ul>
+                <li>To investigate symptoms like persistent stomach pain, difficulty swallowing, or abnormal bleeding.</li>
+                <li>To diagnose conditions such as ulcers, infections, or tumors.</li>
+                <li>To monitor ongoing medical conditions.</li>
+                <li>To remove polyps, take tissue samples (biopsies), or treat certain conditions.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Preparation & Recovery</h2>
+            <ul>
+                <li>Fasting is usually required for several hours before the procedure.</li>
+                <li>A sedative may be administered to keep the patient comfortable.</li>
+                <li>Recovery time is usually short, but patients may need someone to drive them home.</li>
+                <li>Follow-up instructions will be provided based on the findings.</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Endoscopy Health Awareness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

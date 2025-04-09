@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors Grid - Medical Practice</title>
+    <style>
+        :root {
+            --primary: #3fbbc0;
+            --secondary: #1977cc;
+            --dark: #1e4356;
+            --light: #f6f9fe;
+            --gray: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: white;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-button a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateX(-3px);
+        }
+        
+        .back-button i {
+            margin-right: 5px;
+        }
+        
+        .header-section {
+            position: relative;
+            height: 300px;
+            background: linear-gradient(rgba(30, 67, 86, 0.7), rgba(30, 67, 86, 0.7)), 
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .breadcrumb {
+            margin: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 80px;
+        }
+        
+        .doctor-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doctor-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doctor-card h2 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .doctor-card .qualification {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .doctor-card .specialty {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .doctor-card .address {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            margin-top: auto;
+        }
+        
+        .doctor-card .address p {
+            margin-bottom: 5px;
+        }
+        
+        .main-title {
+            color: var(--dark);
+            margin: 30px 20px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .action-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .book-appointment-container {
+            text-align: center;
+            margin: 40px;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 700px;
+            padding: 30px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--dark);
+        }
+        
+        .modal-body {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .modal-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .modal-info {
+            flex: 1;
+        }
+        
+        .modal-info h2 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .modal-info .modal-qualification {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .modal-info .modal-specialty {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .modal-info p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .modal-info strong {
+            color: var(--dark);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column p, 
+        .footer-column a {
+            color: #ddd;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-section {
+                height: 250px;
+            }
+            
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .doctor-card {
+                padding: 20px;
+            }
+            
+            .doctor-photo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .modal-body {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .modal-photo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .modal-content {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="back-button">
+        <a href="home.html">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+    
+    <header class="header-section">
+        <div class="header-content">
+            <h1>Our Team</h1>
+            <p>Meet our dedicated team of healthcare professionals committed to your well-being</p>
+        </div>
+    </header>
+    
+    <div class="breadcrumb">
+        <a href="home.html">Home</a> → Doctors Grid
+    </div>
+    
+    <h1 class="main-title">Our Medical Specialists</h1>
+    
+    <div class="doctors-grid">
+        <div class="doctor-card" onclick="openModal('Dr. Sima', 'D.N.Sc. - H.B.B.S.Ph.D', 'Neurology Specialist', 'Rajajinagar,Bangalore', 'https://watermark.lovepik.com/photo/20211202/large/lovepik-smiling-female-doctor-picture_501442983.jpg', 'Dr. Sima.S has over 15 years of experience in neurology and has published numerous papers on cognitive disorders. She completed her residency at Johns Hopkins Hospital and specializes in treating migraines and epilepsy.')">
+            <img src="https://watermark.lovepik.com/photo/20211202/large/lovepik-smiling-female-doctor-picture_501442983.jpg" alt="Dr. Chewing Shinlong" class="doctor-photo">
+            <h2>Dr. Sima</h2>
+            <div class="qualification">D.N.Sc. - H.B.B.S.Ph.D</div>
+            <div class="specialty">Neurology Specialist</div>
+            <div class="address">
+                <p>Rajajinagar</p>
+                <p>Bangalore</p>
+            </div>
+        </div>
+        
+        <div class="doctor-card" onclick="openModal('Dr. Adhithya.S', 'D.N.Sc. - H.B.B.S.Ph.D', 'Neurology Specialist', 'Vijaynagar,Bangalore', 'https://imgcdn.stablediffusionweb.com/2024/3/30/68e909a4-34e6-403d-97fc-72cee0558af0.jpg', 'Dr. Adhithya is a board-certified neurologist with expertise in movement disorders. He completed his fellowship at Mayo Clinic and has been recognized for his innovative treatments for Parkinson\'s disease.')">
+            <img src="https://imgcdn.stablediffusionweb.com/2024/3/30/68e909a4-34e6-403d-97fc-72cee0558af0.jpg" alt="Dr. Vincent Brinky" class="doctor-photo">
+            <h2>Dr. Adhithya.S</h2>
+            <div class="qualification">D.N.Sc. - H.B.B.S.Ph.D</div>
+            <div class="specialty">Neurology Specialist</div>
+            <div class="address">
+                <p>Vijaynagar</p>
+                <p>Bangalore</p>
+            </div>
+        </div>
+        
+        
+    
+    <div class="book-appointment-container">
+        <a href="appoinment.html" class="btn btn-primary">Book Appointment</a>
+    </div>
+    
+    <!-- Doctor Modal -->
+    <div class="modal" id="doctorModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modalDoctorPhoto" src="" alt="Doctor Photo" class="modal-photo">
+                <div class="modal-info">
+                    <h2 id="modalDoctorName"></h2>
+                    <div class="modal-qualification" id="modalDoctorQualification"></div>
+                    <div class="modal-specialty" id="modalDoctorSpecialty"></div>
+                    <p><strong>Address:</strong> <span id="modalDoctorAddress"></span></p>
+                    <p id="modalDoctorBio"></p>
+                    <div class="action-buttons" style="margin-top: 20px;">
+                        <a href="#" class="btn btn-primary">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Our hospital has been providing exceptional healthcare services for over 20 years, with a team of dedicated professionals committed to your well-being.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#">Services</a>
+                <a href="#">Doctors</a>
+                <a href="#">Appointments</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive, Amaganset, CA 1930</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@medicalpractice.com</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Medical Practice. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Modal functions
+        function openModal(name, qualification, specialty, address, photo, bio) {
+            document.getElementById('modalDoctorName').textContent = name;
+            document.getElementById('modalDoctorQualification').textContent = qualification;
+            document.getElementById('modalDoctorSpecialty').textContent = specialty;
+            document.getElementById('modalDoctorAddress').textContent = address;
+            document.getElementById('modalDoctorPhoto').src = photo;
+            document.getElementById('modalDoctorPhoto').alt = name;
+            document.getElementById('modalDoctorBio').textContent = bio;
+            document.getElementById('doctorModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+        
+        function closeModal() {
+            document.getElementById('doctorModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('doctorModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

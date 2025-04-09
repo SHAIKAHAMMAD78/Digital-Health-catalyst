@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MEDINOVA - Hospital Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFYR-W5prc5IK1MFvUvcZ7yOwuUGI_CyUvzg&s" type="image/x-icon">
+
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid py-2 border-bottom d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>+91 9842161122</a>
+                        <span class="text-body">|</span>
+                        <a class="text-decoration-none text-body px-3" href=""><i class="bi bi-envelope me-2"></i>getwell@kmchhospital.com</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-lg-end">
+                    <div class="d-inline-flex align-items-center">
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-body px-2" href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-body ps-2" href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid sticky-top bg-white shadow-sm mb-5">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+                <a href="index.html" class="navbar-brand">
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>KMCH</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Service</a>
+                        
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <style>
+        .con {
+            background  : white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            text-align: left;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 60px;
+            resize: none;
+        }
+
+        .consultation-fee {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        button[type="reset"] {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #b21f2d;
+        }
+
+        #gpayQR {
+            display: none;
+            text-align: center;
+        }
+
+        #gpayQR img {
+            width: 150px;
+            margin-top: 10px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+     
+
+    <center>
+    <section id="appointment" class="appointment-container">
+        <div class="con">
+            <h2>Book KMCH Hospital Appointment</h2>
+            <form id="appointmentForm" action="process_appointment.php" method="POST">
+                <section class="session">
+                    <h3>Patient Information</h3>
+                    <label for="patientName">Name:</label>
+                    <input type="text" id="patientName" name="patientName" required>
+                    <label for="patientAge">Age:</label>
+                    <input type="number" id="patientAge" name="patientAge" required>
+                    <label for="patientPhone">Phone:</label>
+                    <input type="text" id="patientPhone" name="patientPhone" required>
+                    <label for="patientEmail">Email:</label>
+                    <input type="email" id="patientEmail" name="patientEmail" required>
+                </section>
+            
+                <section class="session">
+                    <h3>Service Selection</h3>
+                    <label>Select Test:
+                        <select id="testType" name="testType" required>
+                            <option value="">Select</option>
+                            <option value="Hematology">Hematology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="Allergist">Allergist</option>
+                            <option value="Physiotherapist">Physiotherapist</option>
+                        </select>
+                    </label>
+                    <label>Select Doctor:
+                        <select id="testCenter" name="testCenter" required>
+                            <option value="">Select Doctor</option>
+                        </select>
+                    </label>
+                    <p><strong>Center Details:</strong></p>
+                    <p id="centerDetails"></p>
+                    <label>Select Date: <input type="date" id="testDate" name="testDate" required></label>
+                    <label>Select Time:
+                        <select id="testTime" name="testTime" required>
+                            <option value="">Select a Time</option>
+                        </select>
+                    </label>
+                    <input type="hidden" id="appointmentAmount" name="amount">
+                </section>
+            
+                <section class="session">
+                    <h3>Payment</h3>
+                    <label>Select Payment Method:
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Select</option>
+                            <option value="debit">Debit Card</option>
+                            <option value="gpay">Google Pay</option>
+                        </select>
+                    </label>
+                    <div id="gpayQR" style="display:none;">
+                        <p>Scan to Pay:</p>
+                        <img id="qrCode" src="" alt="QR Code">
+                    </div>
+                </section>
+            
+                <button type="submit">Book Appointment</button>
+                <button type="reset">Reset</button>
+                <button type="button" onclick="window.location.href='http://localhost/final%20year%20project-2025/Hospitals/KMCH/'">Cancel Appointment</button>
+        
+            </form>
+        </div>
+        
+    </section>
+</center>
+
+    <script>
+        document.getElementById("testDate").setAttribute("min", new Date().toISOString().split("T")[0]);
+
+const testCenterData = {
+    Hematology: [
+        { name: "Dr.Kavin", price: 999, times: ["8:00AM", "10:00AM", "12:00PM"] },
+        { name: "Dr.raki kumar", price: 999, times: ["10:00AM", "11:30AM", "1:00PM"] },
+        { name: "Dr.Deepak", price: 999, times: ["8:30AM", "10:30AM", "12:00PM", "2:30PM", "4:30PM", "6:00PM"] }
+    ],
+    Dermatology: [
+        { name: "Dr. Dhaneesh", price: 1299, times: ["11:00AM", "1:00PM", "2:00PM"] },
+        { name: "Dr. Kumaran", price: 1299, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM"] }
+    ],
+    Allergist: [
+        { name: "Dr. Mouneash", price: 1399, times: ["11:00AM", "1:00PM", "2:00PM"] },
+        { name: "Dr. Dinesh", price: 1399, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM"] }
+    ],
+    Physiotherapist: [
+        { name: "Dr. Imman kumar", price: 1599, times: ["11:00AM", "1:00PM", "2:00PM"] },
+        { name: "Dr. Harsha Sharma", price: 1599, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM"] }
+    ]
+};
+
+document.getElementById("testType").addEventListener("change", function() {
+    const test = this.value;
+    const centerDropdown = document.getElementById("testCenter");
+    centerDropdown.innerHTML = "<option value=''>Select Doctor</option>";
+
+    if (test && testCenterData[test]) {
+        testCenterData[test].forEach(center => {
+            const option = document.createElement("option");
+            option.value = center.name;
+            option.textContent = center.name;
+            option.dataset.price = center.price;
+            centerDropdown.appendChild(option);
+        });
+    }
+});
+
+document.getElementById("testCenter").addEventListener("change", function() {
+    const selectedOption = this.options[this.selectedIndex];
+    const doctorName = selectedOption.value;
+    const doctorPrice = selectedOption.dataset.price;
+
+    document.getElementById("centerDetails").textContent = `Selected: ${doctorName}, ₹${doctorPrice}`;
+    document.getElementById("appointmentAmount").value = doctorPrice;
+
+    const timeDropdown = document.getElementById("testTime");
+    timeDropdown.innerHTML = "<option value=''>Select Time</option>";
+
+    const testType = document.getElementById("testType").value;
+    const doctorData = testCenterData[testType]?.find(doc => doc.name === doctorName);
+
+    if (doctorData) {
+        doctorData.times.forEach(time => {
+            const option = document.createElement("option");
+            option.value = time;
+            option.textContent = time;
+            timeDropdown.appendChild(option);
+        });
+    }
+});
+
+document.getElementById("paymentMethod").addEventListener("change", function() {
+    const qrDiv = document.getElementById("gpayQR");
+    const amount = document.getElementById("appointmentAmount").value;
+
+    if (this.value === "gpay" && amount) {
+        document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Pay ₹${amount}`;
+        qrDiv.style.display = "block";
+    } else {
+        qrDiv.style.display = "none";
+    }
+});
+</script>
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light mt-5 py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Get In Touch</h4>
+                    <p class="mb-4">For inquiries or appointments, get in touch with KMCH at [contact details] or visit their official website.</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>Sulur,Coimbatore, India</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>getwell@kmchhospitals.com</p>
+                    <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+91 96594 33334</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Quick Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
+                        <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Popular Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
+                        <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+        <div class="container">
+            <div class="row g-5">
+               
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed by <a class="text-primary" href="">Ashwanth</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

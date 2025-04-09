@@ -1,0 +1,567 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #002f6c;
+    padding: 20px 50px;
+    color: white;
+    font-size: 18px;
+}
+.logo1 {
+    margin: 0;
+    font-size: 20px;
+}
+.logo p {
+    margin: 0;
+    font-size: 16px;
+}
+.contact .appointment-btn {
+    background: #65b32e;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.contact .helpline {
+    margin-top: 10px;
+    font-size: 18px;
+}
+nav {
+    background: #023e8a;
+    padding: 15px 0;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+nav ul li {
+    margin: 0 20px;
+    position: relative; /* Added for dropdown positioning */
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+}
+.dropdown-content {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position it below the parent */
+    background-color: #023e8a; /* Same as nav background */
+    min-width: 160px; /* Set a minimum width */
+    z-index: 1; /* Ensure it appears above other content */
+}
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* Make links block elements */
+}
+.dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown on hover */
+}
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+    background: #f5f5f5;
+    height: calc(100vh - 150px);
+}
+.hero .content {
+    max-width: 50%;
+}
+.hero h2 {
+    color: #65b32e;
+    font-size: 36px;
+}
+.hero p {
+    color: #333;
+    font-size: 20px;
+    margin: 20px 0;
+}
+.hero .appointment-btn {
+    background: #65b32e;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.hero .image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+
+
+
+
+
+.counts {
+    width: 100%;
+    background: #65b32e;
+    padding: 30px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.count-box {
+    text-align: center;
+    color: white;
+    flex: 1;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+}
+
+.count-box:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 2px;
+    background: white;
+}
+
+.count-box .number {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+
+
+
+.hospitals h2 {
+    color: #6AAA3D;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #333;
+    font-size: 18px;
+    width: 60%;
+    margin: 0 auto 30px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hospital-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+}
+
+.hospital-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 300px;
+    transition: 0.3s ease-in-out;
+}
+
+.hospital-card:hover {
+    transform: scale(1.05);
+}
+
+.hospital-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.hospital-card h3 {
+    color: black;
+    margin: 10px 0;
+}
+
+.view-more {
+    background: #6AAA3D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.view-more:hover {
+    background: #558A30;
+}
+
+button.prev,
+button.next {
+    background: #6AAA3D;
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button.prev:hover,
+button.next:hover {
+    background: #558A30;
+}
+
+
+
+
+
+
+.specialties h2 {
+    color: #6AAA3D;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #333;
+    font-size: 18px;
+    width: 60%;
+    margin: 0 auto 30px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.specialty-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 900px; /* Adjusted width */
+    padding: 10px;
+}
+
+.specialty-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-width: 280px;
+    max-width: 280px;
+    transition: 0.3s ease-in-out;
+}
+
+.specialty-card:hover {
+    transform: scale(1.05);
+}
+
+.specialty-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #6AAA3D;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.specialty-card h3 {
+    color: black;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.specialty-card p {
+    color: #555;
+    font-size: 14px;
+}
+
+.view-more {
+    background: #6AAA3D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.view-more:hover {
+    background: #558A30;
+}
+
+button.prev,
+button.next {
+    background: #6AAA3D;
+    color: white;
+    font-size: 24px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+button.prev:hover,
+button.next:hover {
+    background: #558A30;
+}
+
+
+
+
+.testimonial-container {
+    background-color: #f0f0f0;
+    width: 60%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h2 {
+    color: #5b9e3a;
+    font-weight: bold;
+}
+
+.testimonial {
+    font-size: 18px;
+    color: #333;
+    min-height: 100px;
+}
+
+.author {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.location {
+    font-size: 14px;
+    color: #666;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #5b9e3a;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.nav-button:hover {
+    background-color: #4a852c;
+}
+
+
+
+
+
+.contact-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #0057b8;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+.left-section, .middle-section, .right-section {
+    flex: 1;
+    padding: 20px;
+}
+
+.left-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.middle-section h3 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.helpline-number {
+    font-size: 20px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: white;
+    margin: 10px 0;
+}
+
+.locations p {
+    font-size: 16px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.phone-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.right-section {
+    text-align: center;
+}
+
+.right-section img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px 0;
+}
+
+.chairman-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.email {
+    font-size: 14px;
+    color: #d9d9d9;
+}
+
+
+
+
+
+.footer {
+    background-color: #0057b8;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo0 img {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.specialtie {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.specialtie ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.specialtie ul li {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.social-media {
+    margin: 20px 0;
+}
+
+.social-media a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    font-size: 14px;
+    margin-top: 20px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: #8dc63f;
+}
+
+.privacy {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.privacy:hover {
+    text-decoration: underline;
+}

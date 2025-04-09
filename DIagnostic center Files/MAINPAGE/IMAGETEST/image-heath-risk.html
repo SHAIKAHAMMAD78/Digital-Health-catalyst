@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Medical Imaging Tests</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --secondary: #4a90e2;
+            --accent: #ff7e5f;
+            --light: #f9fbfd;
+            --dark: #2c3e50;
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --radius: 8px;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem 0 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .home-button {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -2rem auto 3rem;
+            background: white;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 1rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            padding: 0.8rem 0 0.8rem 1.5rem;
+            position: relative;
+        }
+
+        ul li:before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="imagingtest.html" class="home-button"><i class="fas fa-arrow-left"></i> Home</a>
+        <h1>Understanding Medical Imaging Tests</h1>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>What Are Medical Imaging Tests?</h2>
+            <p>Medical imaging tests help doctors diagnose and monitor conditions inside the body using various technologies, such as X-rays, MRIs, and ultrasounds.</p>
+        </section>
+
+        <section class="section">
+            <h2>Types of Imaging Tests</h2>
+            <ul>
+                <li><strong>X-ray:</strong> Uses radiation to capture images of bones and internal organs.</li>
+                <li><strong>MRI (Magnetic Resonance Imaging):</strong> Uses powerful magnets and radio waves to create detailed images of soft tissues and organs.</li>
+                <li><strong>CT Scan (Computed Tomography):</strong> Combines X-rays and computer processing to create cross-sectional images.</li>
+                <li><strong>Ultrasound:</strong> Uses sound waves to create real-time images, commonly used for pregnancy and organ imaging.</li>
+                <li><strong>PET Scan (Positron Emission Tomography):</strong> Detects metabolic activity and helps in cancer diagnosis.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>When Are Imaging Tests Needed?</h2>
+            <ul>
+                <li>Detecting fractures, tumors, or infections</li>
+                <li>Monitoring chronic conditions like arthritis or heart disease</li>
+                <li>Evaluating organ health and function</li>
+                <li>Guiding surgical procedures</li>
+                <li>Screening for early signs of disease</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Medical Imaging Awareness. All rights reserved.</p>
+    </footer>
+</body>
+</html>

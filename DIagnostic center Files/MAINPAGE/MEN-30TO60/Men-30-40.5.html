@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Tests List</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            font-size: 1.5rem;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        header .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            color: #2c3e50;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        header .home-button:hover {
+            background-color: #34495e;
+            color: white;
+        }
+        .test-list {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .test-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .test-item:hover {
+            background: #ecf0f1;
+        }
+        .test-item i {
+            transition: transform 0.3s ease;
+        }
+        .test-item.active i {
+            transform: rotate(180deg);
+        }
+        .sub-items {
+            display: none;
+            padding: 10px 20px;
+            background: #f9f9f9;
+            border-left: 3px solid #2c3e50;
+            font-size: 1rem;
+        }
+        .test-item.active .sub-items {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .related-centers {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .related-centers h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .center-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .center-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .center-item h3 {
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+        .center-item p {
+            font-size: 1rem;
+            margin: 5px 0;
+        } 
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <a href="Men--30to40.html" class="home-button">Home</a>
+        <h1>XPERT HEALTH SMOKERS IMPACT PACKAGE</h1>
+    </header>
+
+    <div class="test-list">
+        <div class="test-item" onclick="toggleTest(this)">
+            <span>APOLIPOPROTEIN A1 AND B</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="sub-items">
+                <p>APO-A1</p>
+                  <p>  APO-B</p>
+                    <p> APO B/A1 RATIO</p>
+                                                                                                                                                                                                    
+            </div>
+        </div>
+        <div class="test-item" onclick="toggleTest(this)">
+            <span>25-HYDROXY VITAMIN D (D2+D3)</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="sub-items">
+                <p>-25-HYDROXY VITAMIN D (D2+D3) </p>
+                    
+            </div>
+        </div>
+        <div class="test-item" onclick="toggleTest(this)">
+            <span>HBA1C (GLYCATED HEMOGLOBIN)</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="sub-items">
+                <p>-HBA1C, GLYCATED HEMOGLOBIN</p>
+                    <p>-   ESTIMATED AVERAGE GLUCOSE (eAG)</p>
+                        <p>-  COMMENTS </p>
+                    
+            </div>
+        </div>
+        <div class="test-item" onclick="toggleTest(this)">
+            <span>GAMMA GLUTAMYL TRANFERASE (GGT) </span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="sub-items">
+                <p>-GAMMA GLUTAMYL TRANFERASE (GGT) </p>
+                    
+            </div>
+        </div>
+        <div class="test-item" onclick="toggleTest(this)">
+            <span>VITAMIN B12</span>
+            <i class="fas fa-chevron-down"></i>
+            <div class="sub-items">
+                <p>-VITAMIN B12</p>
+                    
+            </div>
+        </div>
+        
+    </div>
+    <div class="related-centers">
+        <h2>Related Centers</h2>
+        <div class="centers-grid">
+            <div class="center-item">
+                <img src="https://apollodiagnostics.in/images/defaultBlog.jpg" alt="Apollo Hospitals">
+                <h3>Apollo Diagnostics</h3>
+                <p><strong>Dr. Ramesh Kumar</strong></p>
+                <p><a href="https://www.google.com/maps/dir//61%2F5,+Harohalli,+Rishi+Landscape+Building,+Shop+No:+4,+Doddaballapur+Main+Road+Nagenahalli,+Cross,+Yelahanka,+Bengaluru,+Karnataka+560064/@13.128592,77.4899551,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae19a948614e6f:0x699ebf960ef44557!2m2!1d77.572357!2d13.1286051?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">61/5, Harohalli, Rishi Landscape Building, Shop No: 4, Doddaballapur Main Road Nagenahalli, Cross, Yelahanka, Bengaluru, Karnataka 560064</a></p>
+                <p><strong>Timings:</strong> 8:00 AM - 8:00 PM</p>
+                <p><strong>Email:</strong> <a href="mailto:info@apollohospitals.com">info@apollohospitals.com</a></p>
+                <button onclick="window.location.href='tel:+917993517708'">Call Now</button>
+                <div class="timings">
+                    <p><strong>Available Test Timings:</strong> Every 2 hours from 8:00 AM to 8:00 PM</p>
+                    <p><strong>Available Dates:</strong> Mon, Tue, Wed, Fri, Sat (No Thursdays)</p>
+                    <p><strong>Price:</strong>2500</p>
+            </div>
+            </div>
+    
+            <div class="center-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/Manipal_Hospitals_%28logo%29.png" alt="Manipal Hospitals">
+                <h3>Manipal Hospitals</h3>
+                <p><strong>Dr. Anjali Rao</strong></p>
+                <p><a href="https://www.google.com/maps/dir//9th+cross,+Magadi+Rd,+Cholourpalya,+Bengaluru,+Karnataka+560023/@12.9701468,77.4665795,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae3da33e37eb8b:0x326ed9eec49939cb!2m2!1d77.5489814!2d12.9701598?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">9th cross, Magadi Rd, Cholourpalya, Bengaluru, Karnataka 560023</a></p>
+                <p><strong>Timings:</strong> 9:00 AM - 7:00 PM</p>
+                <p><strong>Email:</strong> <a href="mailto:contact@manipalhospitals.com">contact@manipalhospitals.com</a></p>
+                <button onclick="window.location.href='tel:+918076543210'">Call Now</button>
+                <div class="timings">
+                    <p><strong>Available Test Timings:</strong> Every 2 hours from 24 Hours</p>
+                    <p><strong>Available Dates:</strong> Mon, Tue, Wed, thur, Fri, Sat</p>
+                    <p><strong>Price:</strong>2800</p>
+            </div>
+            </div>
+    
+            <div class="center-item">
+                <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=700,fit=crop,q=95/YKb17g4NDnFey92Q/logo_transparent-ts1570380384-AVL345L3NbCV7yXr.png" alt="Fortis Hospitals">
+            <h3>Fortis Hospitals</h3>
+            <p><strong>Dr. Vikram Singh</strong></p>
+            <p><a href="https://www.google.com/maps/dir//Fortis+Hospital,+14,+Cunningham+Rd,+Vasanth+Nagar,+Bengaluru,+Karnataka+560052/@12.9882036,77.5119037,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae166847800b0f:0x5670f48c68782ac8!2m2!1d77.5943056!2d12.9882166?entry=ttu&g_ep=EgoyMDI1MDMwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">Fortis Hospital, 14, Cunningham Rd, Vasanth Nagar, Bengaluru, Karnataka 560052</a></p>
+            <p><strong>Timings:</strong> 8:30 AM - 6:30 PM</p>
+            <p><strong>Email:</strong> <a href="mailto:help@fortishealthcare.com">help@fortishealthcare.com</a></p>
+            <button onclick="window.location.href='tel:+918088888888'">Call Now</button>
+            <div class="timings">
+                <p><strong>Available Test Timings:</strong> Every 2 hours from 8:30 AM to 6:30 PM</p>
+                <p><strong>Available Dates:</strong> Mon, Tue, Wed, Fri, Sat (No Thursdays)</p>
+                <p><strong>Price:</strong>3100</p>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script>
+        function toggleTest(element) {
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

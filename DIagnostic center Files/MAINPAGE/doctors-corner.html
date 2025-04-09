@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Corner - Expert Perspectives</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a7fba;
+            --secondary: #3a9ad9;
+            --accent: #e63946;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--accent);
+        }
+        
+        .home-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .home-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Rest of your CSS remains the same */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .doctor-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .doctor-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .doctor-card:hover .doctor-img img {
+            transform: scale(1.05);
+        }
+        
+        .doctor-info {
+            padding: 1.5rem;
+        }
+        
+        .doctor-info h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .doctor-title {
+            color: var(--gray);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .doctor-quote {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .doctor-quote:before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+        
+        .references {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 4rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .references h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .ref-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .ref-list a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .ref-list a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .footer-col h4 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .home-btn {
+                position: static;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-stethoscope"></i>
+                <span>Doctor's Corner</span>
+            </div>
+            <a href="http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/diagnosis-Main.html" class="home-btn">
+                <i class="fas fa-home"></i> Home
+            </a>
+        </div>
+    </header>
+    
+    <!-- Rest of your HTML remains the same -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Expert Perspectives on Diagnostic Centers</h1>
+            <p>Leading medical professionals share their insights on modern diagnostic approaches and their impact on patient outcomes</p>
+        </div>
+    </section>
+    
+    <main class="container">
+        <section>
+            <div class="section-title">
+                <h2>Medical Experts Speak</h2>
+            </div>
+            
+            <div class="doctors-grid">
+                <article class="doctor-card">
+                    <div class="doctor-img">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dr. Sarah Johnson">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="doctor-title">
+                            <i class="fas fa-hospital"></i> Chief of Radiology, Mayo Clinic
+                        </p>
+                        <blockquote class="doctor-quote">
+                            Modern diagnostic centers with advanced imaging technologies have revolutionized early disease detection. Our studies show 40% better outcomes when cancers are diagnosed through comprehensive screening programs.
+                        </blockquote>
+                        <p>
+                            "The integration of AI in diagnostic imaging has reduced false negatives by 28% in our center. Patients now receive more accurate results in half the time compared to traditional methods."
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="doctor-card">
+                    <div class="doctor-img">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Dr. Michael Chen">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p class="doctor-title">
+                            <i class="fas fa-heartbeat"></i> Cardiologist, Cleveland Clinic
+                        </p>
+                        <blockquote class="doctor-quote">
+                            Comprehensive cardiac diagnostic centers have transformed how we prevent heart disease. Our advanced lipid profiling and CT angiography catch problems 5-7 years before symptoms appear.
+                        </blockquote>
+                        <p>
+                            "Patients who utilize our full diagnostic workup have 60% fewer cardiac events. The detailed metabolic and genetic testing we offer creates truly personalized prevention plans."
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="doctor-card">
+                    <div class="doctor-img">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Dr. Amina Diallo">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Amina Diallo</h3>
+                        <p class="doctor-title">
+                            <i class="fas fa-dna"></i> Geneticist, Johns Hopkins Medicine
+                        </p>
+                        <blockquote class="doctor-quote">
+                            The rise of genetic diagnostic centers has been the single most important development in preventive medicine this century. We're now preventing diseases before conception.
+                        </blockquote>
+                        <p>
+                            "Our whole genome sequencing program identifies 94% of actionable genetic risks. This allows for early interventions that can add decades of healthy life for our patients."
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section class="references">
+            <h3>Trusted References & Resources</h3>
+            <div class="ref-list">
+                <a href="https://www.mayoclinic.org" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Mayo Clinic Diagnostics
+                </a>
+                <a href="https://www.hopkinsmedicine.org" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Johns Hopkins Medicine
+                </a>
+                <a href="https://www.clevelandclinic.org" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Cleveland Clinic
+                </a>
+                <a href="https://www.cdc.gov" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> CDC Diagnostic Guidelines
+                </a>
+                <a href="https://www.who.int" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> WHO Diagnostic Standards
+                </a>
+                <a href="https://www.nih.gov" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> NIH Research
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Doctor's Corner</h4>
+                <p>Providing expert medical insights on modern diagnostics and their impact on healthcare outcomes.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Expert Insights</a></li>
+                    <li><a href="#">Diagnostic Technologies</a></li>
+                    <li><a href="#">Patient Stories</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> contact@doctorscorner.org</li>
+                    <li><i class="fas fa-phone"></i> (800) DOC-TALK</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 100 Medical Drive, Boston MA</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Doctor's Corner. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

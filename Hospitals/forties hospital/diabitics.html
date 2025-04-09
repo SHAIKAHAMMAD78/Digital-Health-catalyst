@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes & Endocrinology - Forties Hospital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #005f8c;
+            --secondary: #00a0e1;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #6c757d;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+        .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #00796B;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: #004D40;
+      transform: translateX(-5px);
+    }
+
+    .back-button i {
+      margin-right: 5px;
+    }
+
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Main Content */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* Conditions Section */
+        .conditions {
+            background-color: var(--white);
+        }
+        
+        .condition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .condition-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .condition-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .condition-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .condition-card ul {
+            list-style-position: inside;
+        }
+        
+        .condition-card li {
+            margin-bottom: 8px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: #f0f4f8;
+        }
+        
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+         /* Testimonials */
+        .testimonials {
+            background-color: #f0f4f8;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-card .quote {
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card .quote::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-light:hover {
+            background: #e6f7ff;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="home.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Diabetes & Endocrinology Care</h1>
+            <p>Comprehensive diabetes management and endocrine care to help you live your healthiest life.</p>
+            <a href="appointment.html" class="btn">Schedule an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Conditions Section -->
+    <section class="section conditions">
+        <div class="container">
+            <h2 class="section-title">Conditions We Treat</h2>
+            <div class="condition-grid">
+                <div class="condition-card">
+                    <h3>Diabetes</h3>
+                    <ul>
+                        <li>Type 1 Diabetes</li>
+                        <li>Type 2 Diabetes</li>
+                        <li>Gestational Diabetes</li>
+                        <li>Prediabetes</li>
+                        <li>Diabetes Complications</li>
+                    </ul>
+                </div>
+                <div class="condition-card">
+                    <h3>Thyroid Disorders</h3>
+                    <ul>
+                        <li>Hypothyroidism</li>
+                        <li>Hyperthyroidism</li>
+                        <li>Thyroid Nodules</li>
+                        <li>Thyroid Cancer</li>
+                        <li>Hashimoto's Disease</li>
+                    </ul>
+                </div>
+                <div class="condition-card">
+                    <h3>Other Endocrine Conditions</h3>
+                    <ul>
+                        <li>Metabolic Syndrome</li>
+                        <li>Obesity</li>
+                        <li>Osteoporosis</li>
+                        <li>Adrenal Disorders</li>
+                        <li>Pituitary Disorders</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services">
+        <div class="container">
+            <h2 class="section-title">Diagnostic & Treatment Services</h2>
+            
+            <div class="service-tabs">
+                <button class="tab-btn active" data-tab="diagnostics">Diagnostics</button>
+                <button class="tab-btn" data-tab="treatments">Treatments</button>
+            </div>
+            
+            <div id="diagnostics" class="tab-content active">
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>Blood Glucose Monitoring</h3>
+                        <p>Comprehensive testing including A1C, fasting glucose, and continuous glucose monitoring.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Endocrine Testing</h3>
+                        <p>Complete hormone panels to evaluate thyroid, adrenal, and pituitary function.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Body Composition Analysis</h3>
+                        <p>Advanced assessments of body fat, muscle mass, and metabolic rate.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Diabetic Eye & Foot Exams</h3>
+                        <p>Specialized screenings to detect and prevent diabetes complications.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="treatments" class="tab-content">
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>Diabetes Management</h3>
+                        <p>Personalized treatment plans including medication, insulin therapy, and lifestyle changes.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Nutrition Counseling</h3>
+                        <p>Customized meal planning with our certified diabetes educators.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Weight Management</h3>
+                        <p>Evidence-based programs for sustainable weight loss and metabolic health.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Advanced Therapies</h3>
+                        <p>Including insulin pumps, GLP-1 agonists, and other innovative treatments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">Patient Success Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "After years of uncontrolled blood sugar, Dr. Johnson's team helped me lower my A1C from 9.2 to 6.4 in just 6 months!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="James P." class="author-img">
+                        <div class="author-info">
+                            <h4>James P.</h4>
+                            <p>Type 2 Diabetes Patient</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "The diabetes education program taught me how to manage my condition without feeling deprived. I've never felt better!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Emily R." class="author-img">
+                        <div class="author-info">
+                            <h4>Emily R.</h4>
+                            <p>Type 1 Diabetes Patient</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">
+                        "Finally, a doctor who listened to my thyroid concerns and found the right treatment. My energy levels are back to normal."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Patricia K." class="author-img">
+                        <div class="author-info">
+                            <h4>Patricia K.</h4>
+                            <p>Hypothyroidism Patient</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Take Control of Your Metabolic Health</h2>
+            <p>Our diabetes specialists are here to help you manage your condition and improve your quality of life. Schedule an appointment today.</p>
+            <a href="diadoc.html" class="btn btn-light">Find Doctorst</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Forties Hospital</h3>
+                    <p>Providing exceptional healthcare services with compassion and innovation since 1985.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Doctors</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Departments</h3>
+                    <ul>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Oncology</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="#">Diabetes & Endocrinology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@fortieshospital.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8am-8pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Forties Hospital. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

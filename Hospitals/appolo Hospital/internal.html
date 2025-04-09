@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Medicine Information Hub</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: white;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-button a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateX(-3px);
+        }
+        
+        .back-button i {
+            margin-right: 5px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://www.nyuhs.org/sites/default/files/2020-07/Internal%20Medicine%20Residency%20-%20Banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            margin-top: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            font-size: 1.5em;
+        }
+        
+        .content-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        
+        .content-section p, .content-section li {
+            font-size: 0.9em;
+            margin-bottom: 0.8em;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+        
+        .image-card {
+            flex-basis: 30%;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .image-caption {
+            padding: 8px;
+            background-color: white;
+            text-align: center;
+            font-size: 0.85em;
+        }
+        
+        .find-doctor-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .find-doctor-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 5px;
+            font-size: 0.85em;
+        }
+        
+        @media (max-width: 768px) {
+            .image-card {
+                flex-basis: 100%;
+            }
+            
+            header {
+                padding: 40px 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="home.html">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+    <header>
+        <h1>Internal Medicine Information Hub</h1>
+        <p>Comprehensive care for adult health conditions</p>
+    </header>
+    
+    <div class="content-section">
+        <h2>Internal Medicine Overview</h2>
+        <p>Internal medicine physicians specialize in preventing, diagnosing, and treating adult diseases. They manage complex medical conditions and coordinate patient care.</p>
+        
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Doctor Consultation">
+                <div class="image-caption">Patient Consultation</div>
+            </div>
+            
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Medical Examination">
+                <div class="image-caption">Physical Examination</div>
+            </div>
+            
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Medical Research">
+                <div class="image-caption">Medical Research</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2>Common Conditions Treated</h2>
+        <ul>
+            <li><strong>Diabetes:</strong> Blood sugar management</li>
+            <li><strong>Hypertension:</strong> High blood pressure control</li>
+            <li><strong>Heart Disease:</strong> Cardiovascular conditions</li>
+            <li><strong>Respiratory Disorders:</strong> Asthma, COPD</li>
+            <li><strong>Infectious Diseases:</strong> Bacterial/viral infections</li>
+            <li><strong>Metabolic Disorders:</strong> Thyroid, cholesterol</li>
+        </ul>
+    </div>
+    
+    <div class="content-section">
+        <h2>Diagnostic Approaches</h2>
+        <p>Internists use various methods to diagnose health issues:</p>
+        <ol>
+            <li><strong>Physical Exams:</strong> Comprehensive patient assessment</li>
+            <li><strong>Lab Tests:</strong> Blood work and urinalysis</li>
+            <li><strong>Imaging:</strong> X-rays, CT scans, and MRIs</li>
+            <li><strong>Medical History:</strong> Detailed patient background</li>
+        </ol>
+    </div>
+
+    <a href="internaldoc.html" class="find-doctor-btn">Find Internists</a>
+    
+    <footer>
+        <p>&copy; 2023 Internal Medicine Information Hub | Educational content only</p>
+        <p>Always consult a healthcare professional for medical advice</p>
+    </footer>
+</body>
+</html>

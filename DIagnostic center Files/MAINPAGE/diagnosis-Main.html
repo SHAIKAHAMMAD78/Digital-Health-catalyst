@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Diagnostics - Modern Healthcare Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --secondary: #1e40af;
+            --accent: #dc2626;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .top-bar {
+            background-color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: contain;
+        }
+        
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .search-container {
+            position: relative;
+            width: 300px;
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding-right: 40px;
+        }
+        
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        
+        .search-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 100;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .suggestions div {
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .suggestions div:hover {
+            background-color: var(--light-gray);
+        }
+        
+        nav {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 0.8rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            position: relative;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+        }
+        
+        .banner video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .banner-overlay h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .banner-overlay p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .section {
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .card-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .info-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .info-section p {
+            color: var(--dark);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            width: 100%;
+            padding: 1.2rem;
+            background-color: white;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .faq-question span {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0 1.2rem;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 1.2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .highlight {
+            background-color: #fef08a;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            nav ul {
+                gap: 0.5rem;
+            }
+            
+            .banner-overlay h1 {
+                font-size: 2rem;
+            }
+            
+            .banner-overlay p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo-container">
+                <img src="https://static.vecteezy.com/system/resources/previews/041/041/452/non_2x/logo-for-diagnostic-center-vector.jpg" alt="Apollo Diagnostics Logo" class="logo">
+                <div class="brand-name"> DIAGNOSTICS CENTER</div>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search tests, services..." class="search-bar" onkeyup="showSuggestions()">
+                <button class="search-button" onclick="highlightText()">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="suggestions" id="suggestions"></div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="http://localhost/final%20year%20project-2025/front.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="health-risk.html"><i class="fas fa-heartbeat"></i> Health Risks</a></li>
+                <li><a href="heath-condtion.html"><i class="fas fa-stethoscope"></i> Health Conditions</a></li>
+                <li><a href="doctors-corner.html"><i class="fas fa-user-md"></i> Doctor's Corner</a></li>
+                <li><a href="About-us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="contact-us.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <video autoplay loop muted>
+                <source src="https://st2.depositphotos.com/4972287/45336/v/600/depositphotos_453363806-stock-video-mature-doctors-finishing-ct-scanning.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="banner-overlay">
+                <h1>Precision Diagnostics for Better Health</h1>
+                <p>Advanced diagnostic solutions with cutting-edge technology and expert care</p>
+                <a href="#services" class="cta-button">
+                    Explore Services <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-title">
+                <h2>Our Diagnostic Services</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-section">
+                    <p>We streamline your search for specialized diagnostic care. Our platform provides comprehensive information on a network of centers, detailing their specific services, technologies, and expertise. We empower you to easily find the right facility for your unique diagnostic needs, ensuring access to the most appropriate and effective care.</p>
+                </div>
+                
+                <div class="card-grid" id="services">
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/ALLERGY-TEST/AllergyTest.html'">
+                        <div class="card-image">
+                            <img src="https://static.vecteezy.com/system/resources/thumbnails/027/157/031/small/doodle-outline-allergy-icons-in-circle-vector.jpg" alt="Allergy Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Allergy Test</h3>
+                            <p>Comprehensive allergy screening to identify triggers and sensitivities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/BLOODTEST/BloodTest.html'">
+                        <div class="card-image">
+                            <img src="https://static.vecteezy.com/system/resources/previews/020/413/480/non_2x/blood-test-from-finger-concept-colored-icon-or-logo-vector.jpg" alt="Blood Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Blood Test</h3>
+                            <p>Complete blood analysis for accurate health assessment</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/URINETEST/UrineTest.html'">
+                        <div class="card-image">
+                            <img src="https://media.istockphoto.com/id/1381057628/vector/urine-analysis-the-doctor-in-gloves-holds-jar-with-urine-analysis.jpg?s=612x612&w=0&k=20&c=KPBVbNQNV89m6w-cUScYGu_YS4bQw-2RWTaupN5u3rA=" alt="Urine Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Urine Test</h3>
+                            <p>Comprehensive urinalysis for kidney and metabolic health</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/STOOLTEST/Stooltest.html'">
+                        <div class="card-image">
+                            <img src="https://media.istockphoto.com/id/1301900769/vector/doctor-hand-holding-test.jpg?s=612x612&w=0&k=20&c=wwxnVZceMy_JbfOlRZDJvmrbDg9LL2x-TCK_dHVajVE=" alt="Stool Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Stool Test</h3>
+                            <p>Gastrointestinal health assessment and parasite detection</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/IMAGETEST/imagingtest.html'">
+                        <div class="card-image">
+                            <img src="https://www.shutterstock.com/image-vector/medical-research-devices-ct-scan-260nw-1877839840.jpg" alt="Imaging Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Imaging Test</h3>
+                            <p>Advanced CT, MRI, and X-ray diagnostic imaging</p>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/CARDIACTEST/cardiacTest.html'">
+                        <div class="card-image">
+                            <img src="https://www.shutterstock.com/image-vector/heartbeat-icon-vector-illustration-logo-600nw-2144977035.jpg" alt="Cardiac Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Cardiac Test</h3>
+                            <p>Comprehensive heart health evaluation and monitoring</p>
+                        </div>
+                    </div>
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/NEUROLOGICALTEST/neurologicalTest.html'">
+                        <div class="card-image">
+                            <img src="https://thumbs.dreamstime.com/b/neurology-icon-monochrome-simple-sign-medical-speialist-collection-neurology-icon-logo-templates-web-design-neurology-270243090.jpg" alt="Neurological Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Neurological Tests</h3>
+                    <p>EEG, EMG, nerve conduction studies and other neurological diagnostic procedures.</p>
+                        </div>
+                    </div>
+                    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/PULMONARYTEST/PulmonaryTest.html'">
+                        <div class="card-image">
+                            <img src="https://media.istockphoto.com/id/1269913010/vector/functional-pulmonary-test-color-line-icon-outline-pictogram-for-web-page-mobile-app-promo.jpg?s=612x612&w=0&k=20&c=1EiJvg8iqgL3dVgkeEXrm-b_iFwffkU2g50tYxU5LUU=" alt="Pulmonary Test">
+                        </div>
+                        <div class="card-content">
+                            <h3>Pulmonary Tests</h3>
+                    <p>Spirometry, lung function tests, bronchial challenge tests and complete respiratory assessment.</p>
+                        </div>
+                </div>
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/ENDOSCOPYTEST/Endoscopy.html'">
+                    <div class="card-image">
+                        <img src="https://thumbs.dreamstime.com/b/stomach-endoscopy-icon-gastroscopy-symbol-stomach-endoscopy-procedure-icon-gastroscopy-color-symbol-99626719.jpg" alt="Endoscopy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Endoscopy</h3>
+                        <p>Upper GI endoscopy, colonoscopy, and other diagnostic endoscopic procedures with sedation.</p>
+                    </div>
+            </div>
+            <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/BIOPSYTEST/Biopsy.html'">
+                <div class="card-image">
+                    <img src="https://media.istockphoto.com/id/1276604859/vector/biopsy-concept-icon.jpg?s=612x612&w=0&k=20&c=LxcGTcMIMUQik0J1tWLCiPX-RXJvGkSHfTU4aggAOOU=" alt="Biopsy">
+                </div>
+                <div class="card-content">
+                    <h3>Biopsy Services</h3>
+                    <p>Tissue sampling and pathological examination for accurate diagnosis of various conditions.</p>
+                </div>
+        </div>
+        <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/DAIBITIESTEST/DiabitiesTest.html'">
+            <div class="card-image">
+                <img src="https://www.shutterstock.com/image-vector/beautiful-vector-diabetic-icon-glucometer-600nw-2204717311.jpg" alt="Diabetes Test">
+            </div>
+            <div class="card-content">
+                <h3>Diabetes Panel</h3>
+                    <p>Complete diabetes screening including HbA1c, glucose tolerance test and insulin levels.</p>
+            </div>
+    </div>
+    <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/GUTHEATHTEST/gutheath.html'">
+        <div class="card-image">
+            <img src="https://thumbs.dreamstime.com/b/stomach-icon-logo-illustration-white-background-generative-ai-stomach-icon-logo-illustration-white-background-338763454.jpg" alt="Gut Health">
+        </div>
+        <div class="card-content">
+            <h3>Gut Health Tests</h3>
+                    <p>Microbiome analysis, food intolerance tests, and comprehensive digestive health assessment.</p>
+        </div>
+</div>
+
+            </div>
+        </section>
+        
+        <section class="section" style="background-color: #f1f5f9;">
+            <div class="section-content">
+                <div class="info-section">
+                    <p>One of the primary advantages of visiting a diagnostic centre is the opportunity for early detection and prevention of diseases. These centres offer a wide range of screening tests and diagnostic procedures that can detect potential health issues at an early stage, even before the appearance of symptoms.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-title">
+                <h2>Men's Health Packages</h2>
+            </div>
+            <div class="card-grid">
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/MEN-30/Men--30.html'">
+                    <div class="card-image">
+                        <img src="https://t3.ftcdn.net/jpg/02/49/86/52/360_F_249865288_uAtlwBGHMv5jIqGuw2VPB9MSXBCbI9T2.jpg" alt="Under 30">
+                    </div>
+                    <div class="card-content">
+                        <h3>Under 30 Years</h3>
+                        <p>Comprehensive health screening for young adults</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/MEN-30TO60/Men--30to40.html'">
+                    <div class="card-image">
+                        <img src="https://st2.depositphotos.com/1075946/7097/i/450/depositphotos_70978195-stock-photo-attractive-50-year-old-man.jpg" alt="Age 30-60">
+                    </div>
+                    <div class="card-content">
+                        <h3>Age 30-60</h3>
+                        <p>Preventive health checkups for middle-aged men</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/MEN-60/Men-60+.html'">
+                    <div class="card-image">
+                        <img src="https://media.istockphoto.com/id/1319241181/photo/portrait-of-handsome-senior-man-standing-next-to-the-kitchen-window.jpg?s=612x612&w=0&k=20&c=wiAIvJY5EnfO2P3lMy-NaCXVx_57w8xaAdPo2MX_rWU=" alt="Age 60+">
+                    </div>
+                    <div class="card-content">
+                        <h3>Age 60+ Above</h3>
+                        <p>Senior health assessment and monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" style="background-color: #f1f5f9;">
+            <div class="section-content">
+                <div class="info-section">
+                    <p>Diagnostics are fundamental for identification of pathogens and successful outbreak containment and control strategies. They are the first line of defence against emerging pathogens and the possibility of the re-emergence of eradicated diseases.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-title">
+                <h2>Women's Health Packages</h2>
+            </div>
+            <div class="card-grid">
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/WOMEN-30/Women--30.html'">
+                    <div class="card-image">
+                        <img src="https://www.niddk.nih.gov/-/media/Images/Health-Information/Weight-Management/shutterstock_112646603.jpg" alt="Under 30">
+                    </div>
+                    <div class="card-content">
+                        <h3>Under 30 Years</h3>
+                        <p>Essential health screening for young women</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/WOMEN-30TO60/Women-30to60.html'">
+                    <div class="card-image">
+                        <img src="https://www.mirabilemd.com/wp-content/uploads/2022/03/skincare-in-your-30s-1.jpg" alt="Age 30-60">
+                    </div>
+                    <div class="card-content">
+                        <h3>Age 30-60</h3>
+                        <p>Comprehensive women's health assessment</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/WOMEN-60/Women-60+.html'">
+                    <div class="card-image">
+                        <img src="https://www.mirabilemd.com/wp-content/uploads/2022/06/skincare-treatments-women-over-60.jpg" alt="Age 60+">
+                    </div>
+                    <div class="card-content">
+                        <h3>Age 60+ Above</h3>
+                        <p>Senior women's health and wellness package</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/PCOD/pcod.html'">
+                    <div class="card-image">
+                        <img src="https://snehhealthcare.com/wp-content/uploads/2024/12/Understanding-PCOD.png" alt="PCOD">
+                    </div>
+                    <div class="card-content">
+                        <h3>PCOD</h3>
+                        <p>Polycystic ovarian disorder screening and management</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/PCOS/pcos.html'">
+                    <div class="card-image">
+                        <img src="https://www.shutterstock.com/image-illustration/pcos-polycystic-ovary-syndrome-text-260nw-2065873292.jpg" alt="PCOS">
+                    </div>
+                    <div class="card-content">
+                        <h3>PCOS</h3>
+                        <p>Comprehensive polycystic ovary syndrome evaluation</p>
+                    </div>
+                </div>
+                
+                <div class="service-card" onclick="location.href='http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/PREGNENCY/pregnency.html'">
+                    <div class="card-image">
+                        <img src="https://www.prohance.in/wp-content/uploads/2023/03/Do-Women-Have-a-Choice-in-Their-Pregnancy-Care-International-Womens-Day-2022-Banner-updated.jpg" alt="Pregnancy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pregnancy</h3>
+                        <p>Prenatal testing and maternal health monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">What types of diagnostic tests do you offer? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of tests including blood tests, allergy tests, cardiac tests, neurological tests, imaging tests, and specialized genetic testing. Our comprehensive menu includes over 200 different diagnostic procedures.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">How can I book an appointment? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>You can book appointments through our website, mobile app, or by calling our customer service center. We also offer walk-in services at most of our locations, though appointments are recommended for faster service.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">How long does it take to receive test results? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Most routine test results are available within 24-48 hours. Specialized tests may take 3-5 business days. You'll receive a notification when your results are ready to view in our secure patient portal.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">Do you offer home sample collection? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>Yes, we provide convenient home collection services for most tests. Our phlebotomists are available 7 days a week with flexible time slots. Home collection can be scheduled online or through our call center.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">Are test reports available online? <span>+</span></button>
+                    <div class="faq-answer">
+                        <p>All test reports are available through our secure patient portal. You'll receive login credentials when you register with us. Reports can be downloaded, printed, or shared directly with your healthcare provider.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>About </h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Accreditations</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services">Diagnostic Tests</a></li>
+                    <li><a href="#">Health Packages</a></li>
+                    <li><a href="#">Corporate Health</a></li>
+                    <li><a href="#">Second Opinion</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 1800-123-4567</li>
+                    <li><i class="fas fa-envelope"></i> info@apollodiagnostics.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Nationwide Locations</li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023  Diagnostics. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Search functionality
+        function highlightText() {
+            let query = document.getElementById("searchInput").value.trim();
+            if (query === "") {
+                removeHighlights();
+                document.getElementById("suggestions").style.display = "none";
+                return;
+            }
+            
+            removeHighlights();
+            
+            // Escape special regex characters
+            const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(escapedQuery, 'gi');
+            
+            let elements = document.body.querySelectorAll("p, h2, h3, div:not(.search-container):not(.suggestions)");
+            elements.forEach(element => {
+                if (element.childNodes.length > 0) {
+                    Array.from(element.childNodes).forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            const text = node.nodeValue;
+                            if (regex.test(text)) {
+                                const newText = text.replace(regex, match => `<span class='highlight'>${match}</span>`);
+                                const newElement = document.createElement('span');
+                                newElement.innerHTML = newText;
+                                node.parentNode.replaceChild(newElement, node);
+                            }
+                        }
+                    });
+                }
+            });
+            
+            // Scroll to first highlight
+            const firstHighlight = document.querySelector('.highlight');
+            if (firstHighlight) {
+                firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            
+            document.getElementById("suggestions").style.display = "none";
+        }
+        
+        function removeHighlights() {
+            document.querySelectorAll(".highlight").forEach(span => {
+                const parent = span.parentNode;
+                parent.replaceChild(document.createTextNode(span.textContent), span);
+                parent.normalize(); // Combine adjacent text nodes
+            });
+        }
+        
+        // Suggestions functionality
+        function showSuggestions() {
+            const input = document.getElementById("searchInput").value.trim().toLowerCase();
+            const suggestionsContainer = document.getElementById("suggestions");
+            
+            if (input.length < 2) {
+                suggestionsContainer.style.display = "none";
+                return;
+            }
+            
+            // Get all text content from the page
+            const allText = document.body.innerText.toLowerCase();
+            const words = allText.split(/\s+/).filter(word => word.length > 2);
+            
+            // Find unique matching words
+            const uniqueMatches = [...new Set(words.filter(word => word.includes(input)))].slice(0, 10);
+            
+            if (uniqueMatches.length > 0) {
+                suggestionsContainer.innerHTML = uniqueMatches.map(word => 
+                    `<div onclick="selectSuggestion('${word}')">${word}</div>`
+                ).join('');
+                suggestionsContainer.style.display = "block";
+            } else {
+                suggestionsContainer.style.display = "none";
+            }
+        }
+        
+        function selectSuggestion(word) {
+            document.getElementById("searchInput").value = word;
+            document.getElementById("suggestions").style.display = "none";
+            highlightText();
+        }
+        
+        // Close suggestions when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.search-container')) {
+                document.getElementById("suggestions").style.display = "none";
+            }
+        });
+        
+        // FAQ functionality
+        document.querySelectorAll(".faq-question").forEach(button => {
+            button.addEventListener("click", () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains("active");
+                
+                // Close all FAQs first
+                document.querySelectorAll(".faq-item").forEach(item => {
+                    item.classList.remove("active");
+                });
+                
+                // Open clicked one if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

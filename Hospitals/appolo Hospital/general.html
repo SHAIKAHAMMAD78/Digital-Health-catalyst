@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Surgery Information Hub</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: white;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .back-button a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateX(-3px);
+        }
+        
+        .back-button i {
+            margin-right: 5px;
+        }
+        
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                        url('https://srimsr.com/public//uploads/course/General%20Surgery.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            font-size: 1.5em;
+        }
+        
+        .content-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        
+        .content-section p, .content-section li {
+            font-size: 0.9em;
+            margin-bottom: 0.8em;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 15px 0;
+        }
+        
+        .image-card {
+            flex-basis: 30%;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .image-caption {
+            padding: 8px;
+            background-color: white;
+            text-align: center;
+            font-size: 0.85em;
+        }
+        
+        .find-surgeon-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px 20px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .find-surgeon-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 5px;
+            font-size: 0.85em;
+        }
+        
+        @media (max-width: 768px) {
+            .image-card {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back-button">
+        <a href="home.html">
+            <i class="fas fa-arrow-left"></i>
+            Back
+        </a>
+    </div>
+    <header>
+        <h1>General Surgery Information Hub</h1>
+        <p>Essential information about surgical procedures and care</p>
+    </header>
+    
+    <div class="content-section">
+        <h2>Surgery Overview</h2>
+        <p>General surgery focuses on abdominal organs, breast, skin, soft tissues, and trauma. Surgeons perform both emergency and elective procedures using various techniques.</p>
+        
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Surgery">
+                <div class="image-caption">Surgical Procedure</div>
+            </div>
+            
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Surgical Team">
+                <div class="image-caption">Surgical Team</div>
+            </div>
+            
+            <div class="image-card">
+                <img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Medical Equipment">
+                <div class="image-caption">Surgical Instruments</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <h2>Common Procedures</h2>
+        <ul>
+            <li><strong>Appendectomy:</strong> Appendix removal</li>
+            <li><strong>Cholecystectomy:</strong> Gallbladder removal</li>
+            <li><strong>Hernia Repair:</strong> Abdominal wall correction</li>
+            <li><strong>Mastectomy:</strong> Breast tissue removal</li>
+            <li><strong>Bowel Resection:</strong> Intestinal surgery</li>
+            <li><strong>Biopsies:</strong> Tissue sample collection</li>
+        </ul>
+    </div>
+    
+    <div class="content-section">
+        <h2>Surgical Approaches</h2>
+        <p>Modern surgery utilizes different techniques:</p>
+        <ol>
+            <li><strong>Open Surgery:</strong> Traditional large incision</li>
+            <li><strong>Laparoscopic:</strong> Minimally invasive with small incisions</li>
+            <li><strong>Robotic-Assisted:</strong> Precision surgery using robotic systems</li>
+        </ol>
+    </div>
+
+    <a href="generaldoc.html" class="find-surgeon-btn">Find Surgeons</a>
+    
+    <footer>
+        <p>&copy; 2023 General Surgery Information Hub | Educational content only</p>
+        <p>Always consult a healthcare professional for medical advice</p>
+    </footer>
+</body>
+</html>

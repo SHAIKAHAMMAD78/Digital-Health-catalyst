@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Health - Age 30-60</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #1e293b;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-dark);
+            border: 2px solid white;
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            opacity: 0.9;
+        }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .age-section {
+            margin-bottom: 3rem;
+        }
+        
+        .age-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            margin-bottom: 2rem;
+        }
+        
+        .age-content {
+            padding: 2.5rem;
+            flex: 1;
+        }
+        
+        .age-image {
+            flex: 1;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .age-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .age-card:hover .age-image img {
+            transform: scale(1.03);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .packages-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+        
+        .package-icon {
+            height: 120px;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        
+        .package-icon img {
+            max-width: 80px;
+            max-height: 80px;
+            object-fit: contain;
+        }
+        
+        .package-body {
+            padding: 1.5rem;
+        }
+        
+        .package-title {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .package-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .package-cta i {
+            transition: transform 0.3s ease;
+        }
+        
+        .package-card:hover .package-cta i {
+            transform: translateX(3px);
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .header-buttons {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .age-card {
+                flex-direction: column;
+            }
+            
+            .age-image {
+                order: -1;
+                min-height: 200px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .packages-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <a href="http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/diagnosis-Main.html" class="btn btn-outline">
+                <i class="fas fa-chevron-left"></i> Back
+            </a>
+        </div>
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Men's Health: Age 30-60</span>
+        </div>
+        <div class="header-buttons">
+            <a href="appointment-30to60.html" class="btn btn-primary">
+                <i class="fas fa-calendar-alt"></i> Book Appointment
+            </a>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <section class="age-section">
+            <div class="age-card">
+                <div class="age-content">
+                    <h2>Age 30-45</h2>
+                    <p>Maintaining good health between the ages of 30 and 45 is crucial for long-term well-being and quality of life. This period often marks the peak of personal and professional responsibilities, making it essential to balance physical health with mental and emotional well-being.</p>
+                    <p>Regular physical activity, such as cardiovascular exercise and strength training, helps to maintain a healthy weight, reduce the risk of chronic diseases, and enhance energy levels. Regular medical check-ups and screenings become increasingly important to catch potential risks early.</p>
+                </div>
+                <div class="age-image">
+                    <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Healthy man in 30s">
+                </div>
+            </div>
+            
+            <div class="packages-container">
+                <div class="package-card" onclick="openPackage('Men-30-40.1.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050159.png" alt="Master Check">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Master Check</h3>
+                        <p>Comprehensive health assessment covering all major systems and biomarkers.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="package-card" onclick="openPackage('Men-30-40.2.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3184/3184832.png" alt="Alcohol Impact">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Alcohol Impact</h3>
+                        <p>Specialized tests to evaluate the effects of alcohol consumption on your health.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="package-card" onclick="openPackage('Men-30-40.3.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3474/3474005.png" alt="Cancer Screening">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Cancer Screening</h3>
+                        <p>Early detection tests for common cancers affecting men in this age group.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="package-card" onclick="openPackage('Men-30-40.4.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5999/5999346.png" alt="Diabetes Comprehensive">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Diabetes Comprehensive</h3>
+                        <p>Complete evaluation of diabetes risk factors and metabolic health.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="package-card" onclick="openPackage('Men-30-40.5.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3024/3024803.png" alt="Smokers Impact">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Smokers Impact</h3>
+                        <p>Assessment of smoking-related health effects and early damage detection.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="age-section">
+            <div class="age-card">
+                <div class="age-content">
+                    <h2>Age 45-60</h2>
+                    <p>For men aged 45 to 60, regular health check-ups are essential to prevent and manage age-related conditions. These include routine monitoring of blood pressure, cholesterol, and blood sugar to reduce the risk of heart disease, diabetes, and stroke.</p>
+                    <p>Regular screenings for prostate cancer, lung health (particularly for smokers), and other age-related concerns are vital. Maintaining a healthy lifestyle with proper nutrition and exercise becomes increasingly important for overall well-being during these years.</p>
+                </div>
+                <div class="age-image">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Healthy man in 50s">
+                </div>
+            </div>
+            
+            <div class="packages-container">
+                <div class="package-card" onclick="openPackage('Men-30-40.6.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3050/3050159.png" alt="Comprehensive Check">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Comprehensive</h3>
+                        <p>Complete health evaluation tailored for men in their late 40s to 60s.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="package-card" onclick="openPackage('Men-30-40.7.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3184/3184832.png" alt="Alcohol Impact">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Alcohol Impact</h3>
+                        <p>Assessment of long-term alcohol effects on liver and overall health.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="package-card" onclick="openPackage('Men-30-40.8.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/5999/5999346.png" alt="Diabetes Comprehensive">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Diabetes Comprehensive</h3>
+                        <p>Advanced screening for diabetes and related metabolic conditions.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="package-card" onclick="openPackage('Men-30-40.9.html')">
+                    <div class="package-icon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3024/3024803.png" alt="Smokers Impact">
+                    </div>
+                    <div class="package-body">
+                        <h3 class="package-title">Xpert Health Smokers Impact</h3>
+                        <p>Evaluation of smoking-related health risks and early detection.</p>
+                        <a href="#" class="package-cta">View Package Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        function openPackage(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

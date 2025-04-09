@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manipal Hospital - Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #00539C;
+      --secondary: #FFD662;
+      --light: #f9f9f9;
+      --dark: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    .back-button a {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      background-color: white;
+      color: var(--dark);
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .back-button i {
+      margin-right: 8px;
+    }
+
+    header.contact-header {
+      background: linear-gradient(to right, var(--primary), #003f7f);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .contact-header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .contact-header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .main-content {
+      flex: 1;
+      min-width: 320px;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .phone-numbers {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .address {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 30px;
+    }
+
+    .address ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    .address li {
+      margin-bottom: 8px;
+    }
+
+    .description {
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .call-now-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .call-now-btn:hover {
+      background-color: #003b75;
+    }
+
+    .sidebar {
+      width: 300px;
+      background: var(--primary);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .sidebar h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgba(255,255,255,0.3);
+      padding-bottom: 8px;
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .contact-info i {
+      margin-right: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .contact-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .contact-header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-button">
+    <a href="home.html">
+      <i class="fas fa-arrow-left"></i> Back
+    </a>
+  </div>
+
+  <header class="contact-header">
+    <h1>Manipal Hospital - Contact Us</h1>
+    <p>Reach out to our trusted medical team across India for quality care and assistance</p>
+  </header>
+
+  <div class="container">
+    <div class="main-content">
+      <div class="phone-numbers">
+        📞 1800-102-5555<br>
+        📞 080-2222-1111
+      </div>
+
+      <div class="address">
+        <strong>Our Locations Across India:</strong>
+        <ul>
+          <li>Karnataka - Bengaluru, Mangalore</li>
+          <li>Tamil Nadu - Chennai</li>
+          <li>Maharashtra - Pune</li>
+          <li>Andhra Pradesh - Vijayawada</li>
+          <li>Telangana - Hyderabad</li>
+          <li>Delhi NCR - New Delhi</li>
+        </ul>
+      </div>
+
+      <div class="description">
+        Manipal Hospitals is one of India's foremost multi-specialty healthcare providers, offering top-tier treatments with state-of-the-art infrastructure and medical expertise. We are committed to clinical excellence and patient-centric care across all our locations.
+      </div>
+
+      <a href="tel:18001025555" class="call-now-btn">
+        CALL NOW
+      </a>
+    </div>
+
+    <div class="sidebar">
+      <h3>CALL US</h3>
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> +91 1800-102-5555</p>
+        <p><i class="fas fa-phone"></i> +91 80-2222-1111</p>
+      </div>
+
+      <h3>LOCATIONS</h3>
+      <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> Bengaluru, Chennai, Pune, Hyderabad, Delhi</p>
+      </div>
+
+      <h3>HOURS</h3>
+      <div class="contact-info">
+        <p><i class="fas fa-clock"></i> Open 24/7</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

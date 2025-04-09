@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergy Test Appointment</title>
+    <style>
+        :root {
+            --primary-color: #2c7be5;
+            --secondary-color: #6c757d;
+            --success-color: #00b27d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #00796B;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      color: #004D40;
+      transform: translateX(-5px);
+    }
+
+    .back-button i {
+      margin-right: 5px;
+    }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            color: var(--dark-color);
+        }
+        
+
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 500px;
+            margin: 20px 0;
+        }
+        
+        
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .session {
+            margin-bottom: 25px;
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid #e9ecef;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: var(--border-radius);
+            font-size: 15px;
+            transition: var(--transition);
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.2);
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #009a6a;
+            transform: translateY(-2px);
+        }
+        
+        #gpayQR {
+            display: none;
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        #gpayQR img {
+            width: 180px;
+            margin: 10px auto;
+            display: block;
+        }
+        
+        #centerDetails {
+            background: white;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin: 10px 0;
+            font-weight: 500;
+            color: var(--success-color);
+            border: 1px dashed #dee2e6;
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .session {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="home.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+    <div class="container">
+        <h2>Book  Your Appointment</h2>
+        <form id="appointmentForm" action="process_appointment.php" method="POST">
+            <section class="session">
+                <h3>Patient Information</h3>
+                <label for="patientName">Full Name:</label>
+                <input type="text" id="patientName" name="patientName" required placeholder="Enter your full name">
+                
+                <label for="patientAge">Age:</label>
+                <input type="number" id="patientAge" name="patientAge" required placeholder="Enter your age">
+                
+                <label for="patientPhone">Phone Number:</label>
+                <input type="tel" id="patientPhone" name="patientPhone" required placeholder="Enter your phone number">
+                
+                <label for="patientEmail">Email Address:</label>
+                <input type="email" id="patientEmail" name="patientEmail" required placeholder="Enter your email">
+            </section>
+        
+            <section class="session">
+                <h3>Service Selection</h3>
+                <label for="testType">Select Department:</label>
+                <select id="testType" name="testType" required>
+                    <option value="">-- Select Department --</option>
+                    <option value="Pulmonology">Pulmonology</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Diabetology">Diabetology</option>
+                    <option value="Gastroenterology">Gastroenterology</option>
+                </select>
+                
+                <label for="testCenter">Select Doctor:</label>
+                <select id="testCenter" name="testCenter" required>
+                    <option value="">-- Select Doctor --</option>
+                </select>
+                
+                <p id="centerDetails">No doctor selected</p>
+                
+                <label for="testDate">Appointment Date:</label>
+                <input type="date" id="testDate" name="testDate" required>
+                
+                <label for="testTime">Appointment Time:</label>
+                <select id="testTime" name="testTime" required>
+                    <option value="">-- Select Time --</option>
+                </select>
+                
+                <input type="hidden" id="appointmentAmount" name="amount">
+            </section>
+        
+            <section class="session">
+                <h3>Payment Information</h3>
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="">-- Select Payment Method --</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="gpay">Google Pay</option>
+                </select>
+                
+                <div id="gpayQR">
+                    <p>Scan to Pay:</p>
+                    <img id="qrCode" src="" alt="QR Code">
+                </div>
+            </section>
+        
+            <button type="submit">Confirm Appointment</button>
+        </form>
+        
+        <script>
+            document.getElementById("testDate").setAttribute("min", new Date().toISOString().split("T")[0]);
+        
+            const testCenterData = {
+                Pulmonology: [
+                    { name: "Dr. Sarah Johnson", price: 999, times: ["8:00AM", "10:00AM", "12:00PM"] },
+                    { name: "Dr. Emily Parker", price: 999, times: ["10:00AM", "11:30AM", "1:00PM"] },
+                    { name: "Dr. Olivia Martin", price: 999, times: ["8:30AM", "10:30AM", "12:00PM", "2:30PM", "4:30PM", "6:00PM"] },
+                ],
+                ENT: [
+                    { name: "Dr. Daniel Lee", price: 1299, times: ["11:00AM", "1:00PM", "2:00PM"] },
+                    { name: "Dr. David Kim", price: 1299, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM"] },
+                    { name: "Dr. Michael Chen", price: 1299, times: ["8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM", "8:00PM"] },
+                ],
+                Diabetology: [
+                    { name: "Dr. Priya Sharma", price: 599, times: ["6:30AM", "8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM", "8:00PM", "9:00PM"] },
+                    { name: "Dr. Lisa Wong", price: 599, times: ["5:30AM", "8:00AM", "10:00AM", "12:00PM", "2:00PM", "4:00PM", "6:00PM", "8:00PM", "10:30PM", "11:30PM"] },
+                ],
+                Gastroenterology: [
+                    { name: "Dr. James Rodriguez", price: 899, times: ["8:30AM", "10:30AM", "12:00PM", "2:30PM", "4:30PM"] },
+                    { name: "Dr. Robert Wilson", price: 899, times: ["10:00AM", "11:30AM", "1:00PM", "2:00PM", "3:30PM", "5:00PM"] },             
+                ]
+            };
+        
+            document.getElementById("testType").addEventListener("change", function() {
+                const test = this.value;
+                const centerDropdown = document.getElementById("testCenter");
+                centerDropdown.innerHTML = "<option value=''>-- Select Doctor --</option>";
+        
+                if (test && testCenterData[test]) {
+                    testCenterData[test].forEach(center => {
+                        const option = document.createElement("option");
+                        option.value = center.name;
+                        option.textContent = center.name;
+                        option.dataset.price = center.price;
+                        centerDropdown.appendChild(option);
+                    });
+                }
+            });
+        
+            document.getElementById("testCenter").addEventListener("change", function() {
+                const selectedOption = this.options[this.selectedIndex];
+                const doctorName = selectedOption.value;
+                const doctorPrice = selectedOption.dataset.price;
+                
+                document.getElementById("centerDetails").textContent = `Selected: ${doctorName} | Fee: ₹${doctorPrice}`;
+                document.getElementById("appointmentAmount").value = doctorPrice;
+        
+                const timeDropdown = document.getElementById("testTime");
+                timeDropdown.innerHTML = "<option value=''>-- Select Time --</option>";
+        
+                const testType = document.getElementById("testType").value;
+                const doctorData = testCenterData[testType].find(doc => doc.name === doctorName);
+                
+                if (doctorData) {
+                    doctorData.times.forEach(time => {
+                        const option = document.createElement("option");
+                        option.value = time;
+                        option.textContent = time;
+                        timeDropdown.appendChild(option);
+                    });
+                }
+            });
+        
+            document.getElementById("paymentMethod").addEventListener("change", function() {
+                const qrDiv = document.getElementById("gpayQR");
+                const amount = document.getElementById("appointmentAmount").value;
+        
+                if (this.value === "gpay" && amount) {
+                    document.getElementById("qrCode").src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Pay ₹${amount}`;
+                    qrDiv.style.display = "block";
+                } else {
+                    qrDiv.style.display = "none";
+                }
+            });
+        </script>
+        
+    </div>
+</body>
+</html>

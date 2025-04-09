@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Women's Health - above 60</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1;
+        }
+        .header {
+            background-color: #007b8f;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .home-btn, .appointment-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007b8f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .content {
+            width: 60%;
+        }
+        .image-container {
+            width: 35%;
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .package-container {
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+        .package {
+            width: 30%;
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .package img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function openPackage(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <a href="http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/diagnosis-Main.html" class="home-btn">Home</a>
+        </div>
+        <span>Women's Health &gt; Age 60+ above</span>
+        <div class="header-buttons">
+            <a href="appointment-women60.html" class="appointment-btn">Book Appointment</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h2> Age 60+ above</h2>
+            <div class="overview">
+                <h3>Overview</h3>
+                <p>
+                    Women's health above the age of 60 is characterized by the need for ongoing care and attention to both physical and mental well-being. As women age, the risk for chronic conditions such as heart disease, osteoporosis, arthritis, and diabetes tends to increase, making regular medical check-ups and screenings essential. Bone health becomes particularly important due to the increased risk of fractures, so maintaining a diet rich in calcium and vitamin D, along with regular weight-bearing exercise, is recommended. 
+                </p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="https://www.mirabilemd.com/wp-content/uploads/2022/06/skincare-treatments-women-over-60.jpg" alt="Men's Health Image">
+        </div>
+    </div>
+    <div class="package-container">
+        <div class="package" onclick="openPackage('women-60-1.html')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeREhZEwsFMV5uf7Z0KErfqlWII0vC9QBMQg&s" alt="Package 1">
+            <h3>Xpert Health Vitamin Package- Vita Check</h3>
+         
+            
+        </div>
+        <div class="package" onclick="openPackage('women-60-2.html')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeREhZEwsFMV5uf7Z0KErfqlWII0vC9QBMQg&s" alt="Package 2">
+            <h3>XPERT HEALTH SENIOR CITIZEN - FEMALE</h3>
+           
+           
+        </div>
+        
+    </div>
+</body>
+</html>

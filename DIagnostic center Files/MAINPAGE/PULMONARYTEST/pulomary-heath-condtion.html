@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulmonary Diagnostic Tests</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2a5c8d;
+            --primary-light: #e8f1f8;
+            --secondary: #4a90e2;
+            --accent: #ff7e5f;
+            --light: #f9fbfd;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --radius: 8px;
+            --transition: all 0.25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        h1, h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 3rem 0 4rem;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .home-button {
+            background-color: rgba(255,255,255,0.2);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: absolute;
+            left: 2rem;
+            top: 2rem;
+        }
+
+        .home-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1000px;
+            margin: -2rem auto 3rem;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        .section ul {
+            list-style-type: none;
+        }
+
+        .section li {
+            padding: 1rem 0 1rem 1.5rem;
+            border-bottom: 1px solid var(--light);
+            position: relative;
+        }
+
+        .section li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.5rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--gray);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="PulmonaryTest.html" class="home-button">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+        <h1>Pulmonary Diagnostic Tests</h1>
+    </header>
+
+    <div class="main-content">
+        <section class="section">
+            <h2>What are Pulmonary Tests?</h2>
+            <p>Pulmonary tests assess lung function and help diagnose conditions such as asthma, COPD, and lung infections. These tests measure airflow, lung volume, and oxygen levels.</p>
+        </section>
+
+        <section class="section">
+            <h2>Common Pulmonary Tests</h2>
+            <ul>
+                <li><strong>Spirometry:</strong> Measures airflow and detects conditions like asthma and COPD.</li>
+                <li><strong>Chest X-ray:</strong> Provides images of the lungs to detect infections or abnormalities.</li>
+                <li><strong>CT Scan:</strong> Offers detailed lung images for diagnosing diseases like lung cancer.</li>
+                <li><strong>Pulse Oximetry:</strong> Measures oxygen levels in the blood.</li>
+                <li><strong>Bronchoscopy:</strong> Uses a camera to examine the airways and collect tissue samples.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Benefits of Pulmonary Testing</h2>
+            <ul>
+                <li>Early detection of lung diseases</li>
+                <li>Monitoring respiratory conditions</li>
+                <li>Guiding treatment options</li>
+                <li>Assessing lung function in chronic conditions</li>
+                <li>Improving overall respiratory health</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Pulmonary Diagnostic Center. All rights reserved.</p>
+    </footer>
+</body>
+</html>

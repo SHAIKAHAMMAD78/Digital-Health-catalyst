@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chest X-ray - Collage Blog</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #4c93afdd;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            color: #4CAF50;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header .home-button:hover {
+            background-color: #457da0;
+            color: white;
+        }
+        .collage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .collage-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .collage-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .collage-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .collage-item .content {
+            padding: 20px;
+        }
+        .collage-item h2 {
+            color: #4c98af;
+            margin-top: 0;
+        }
+        .collage-item p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="pulmonary-cx.html" class="home-button">Home</a>
+        <h1>Chest X-ray</h1>
+    </header>
+
+    <div class="collage-grid">
+        <div class="collage-item">
+            <img src="https://www.example.com/xray-intro.jpg" alt="Introduction to Chest X-ray">
+            <div class="content">
+                <h2>What is a Chest X-ray?</h2>
+                <p>A Chest X-ray is a diagnostic imaging test that uses X-ray beams to create images of the lungs, heart, and chest structures.</p>
+            </div>
+        </div>
+
+        <div class="collage-item">
+            <img src="https://www.example.com/how-xray-works.jpg" alt="How Chest X-rays Work">
+            <div class="content">
+                <h2>How Does a Chest X-ray Work?</h2>
+                <p>During a Chest X-ray, a small amount of radiation passes through the chest to capture images of internal structures.</p>
+            </div>
+        </div>
+
+        <div class="collage-item">
+            <img src="https://www.example.com/why-xray.jpg" alt="Importance of Chest X-rays">
+            <div class="content">
+                <h2>Why Are Chest X-rays Important?</h2>
+                <p>Chest X-rays help diagnose conditions like pneumonia, lung disease, heart failure, and fractures of the ribs.</p>
+            </div>
+        </div>
+
+        <div class="collage-item">
+            <img src="https://www.example.com/xray-results.jpg" alt="Understanding Chest X-ray Results">
+            <div class="content">
+                <h2>Understanding the Results</h2>
+                <p>Radiologists analyze the images to detect abnormalities, lung infections, tumors, and other health issues.</p>
+            </div>
+        </div>
+
+        <div class="collage-item">
+            <img src="https://www.example.com/preparing-xray.jpg" alt="How to Prepare for a Chest X-ray">
+            <div class="content">
+                <h2>How to Prepare</h2>
+                <p>Remove jewelry, wear loose clothing, and inform the technician if you are pregnant before the test.</p>
+            </div>
+        </div>
+
+        <div class="collage-item">
+            <img src="https://www.example.com/xray-benefits.jpg" alt="Benefits of Chest X-rays">
+            <div class="content">
+                <h2>Benefits of Chest X-rays</h2>
+                <p>They are quick, non-invasive, painless, and provide critical information about lung and heart health.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Chest X-ray Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>

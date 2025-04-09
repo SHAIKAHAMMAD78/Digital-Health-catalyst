@@ -72,10 +72,35 @@
             background: #333;
             color: white;
             margin-top: 20px;
+        }.back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .back-button button {
+            background-color: #ffffff;
+            border: 2px solid #3b82f6;
+            color: #3b82f6;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .back-button button:hover {
+            background-color: #3b82f6;
+            color: white;
         }
     </style>
 </head>
 <body>
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="front.html">
+        <button >← Back</button>
+    </a>
+    </div>
+
 
     <header>
         About Us - Hospital & Diagnosis Centers
