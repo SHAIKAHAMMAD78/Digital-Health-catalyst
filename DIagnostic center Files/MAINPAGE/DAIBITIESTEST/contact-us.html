@@ -1,0 +1,356 @@
+Contact us:
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-light: #ebf0ff;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #4cc9f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: white;
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background-color: white;
+            padding: 20px 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .home-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 40px 5%;
+            background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-info {
+            padding: 60px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .contact-form {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .contact-form img {
+            width: 130%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        
+        .contact-form h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .contact-form p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button[type="submit"] {
+            background: var(--primary);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        button[type="submit"]:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+        }
+        
+        .success-message {
+            display: none;
+            background-color: #e6f7ee;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                padding: 15px 5%;
+            }
+            
+            main {
+                padding: 20px 5%;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/diagnosis-Main.html" class="home-btn">
+            <i class="fas fa-arrow-left"></i>
+             Home
+        </a>
+    </header>
+    
+    <main>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Let's Get in Touch</h2>
+                <p>We'd love to hear from you! Whether you have a question about our services, pricing, or anything else, our team is ready to answer all your questions.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <a href="tel:8431427877" style="color: white; text-decoration: none;">+91 8431427877</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <a href="mailto:skandagowda9432@gmail.com" style="color: white; text-decoration: none;">skandagowda9432@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>Bangalore, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <img src="https://www.shutterstock.com/image-photo/using-laptop-show-icon-address-600nw-2521386695.jpg" alt="Contact Illustration">
+            </div>
+            
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 All Rights Reserved</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Show loading state on button
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Send form data to server
+            fetch('send-mail.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Show success message
+                document.getElementById('success-message').style.display = 'block';
+                document.getElementById('contact-form').reset();
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message';
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('success-message').style.display = 'none';
+                }, 5000);
+                
+                // Scroll to show message
+                document.getElementById('success-message').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again.');
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message';
+            });
+        });
+    </script>
+</body>
+</html>

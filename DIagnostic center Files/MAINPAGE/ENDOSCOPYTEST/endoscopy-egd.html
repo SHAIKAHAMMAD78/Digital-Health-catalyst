@@ -3,249 +3,819 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upper Endoscopy
-        (EGD)</title>
+    <title>Endo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #2a7f8a;
+            --primary-light: #e1f5fe;
+            --accent: #ff7043;
+            --light: #ffffff;
+            --dark: #37474f;
+            --gray: #eceff1;
+            --text: #455a64;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-image: url('https://alokamedicare.in/wp-content/uploads/2022/01/Factors-to-be-considered-while-choosing-the-Best-Diagnostic-Center.jpeg '); /* Background image */
-            background-size: cover; /* Ensures the image covers the entire page */
-            background-position: center; /* Centers the image */
-            background-attachment: fixed; /* Ensures the image stays fixed while scrolling */
-            position: relative;
+            box-sizing: border-box;
         }
-        body::before {
+        
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            background-color: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #006064);
+            color: var(--light);
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: inherit; /* Inherits the background image */
-            filter: blur(10px); /* Adds a blur effect */
-            z-index: -1; /* Places the blurred background behind the content */
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-NxjH-8nN_mrtb80_OSSRji-h-pbpZV0Vvw&s') center/cover;
+            opacity: 0.15;
+            z-index: 0;
         }
-        header {
-            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        header img {
-            width: 100%;
-            height: auto;
-            filter: blur(5px);
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        header h1 {
+        
+        .header-content {
             position: relative;
             z-index: 1;
-            margin: 0;
-            padding: 20px 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin: 0 auto;
         }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+        
         nav {
-            background-color: rgba(68, 68, 68, 0.8); /* Semi-transparent background */
-            padding: 10px;
-            text-align: center;
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.2rem;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .main-container {
+        
+        .logo i {
+            font-size: 1.4rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+        
+        .filter-section {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .filter-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .filter-options {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 20px;
-            position: relative;
-            z-index: 1; /* Ensures content is above the blurred background */
+            gap: 1rem;
         }
-        .sub-container {
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            width: 40%;
-            text-align: center;
+        
+        .filter-btn {
+            background-color: var(--gray);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .centers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .center-card {
+            background-color: var(--light);
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            position: relative;
         }
-        .sub-container:hover {
+        
+        .center-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
-        .sub-container img {
+        
+        .card-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-radius: 10px;
+            display: block;
         }
-        .sub-container h3 {
-            margin: 15px 0;
-            color: #333;
+        
+        .card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--accent);
+            color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
-        .sub-container p {
-            margin: 10px 0;
-            color: #666;
+        
+        .card-content {
+            padding: 1.5rem;
         }
-        .sub-container a {
-            color: #4CAF50;
+        
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .card-doctor {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card-details {
+            margin: 1rem 0;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
+        }
+        
+        .detail-item i {
+            color: var(--primary);
+            margin-right: 0.7rem;
+            margin-top: 0.2rem;
+            min-width: 1rem;
+        }
+        
+        .action-btns {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
             text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            gap: 0.5rem;
         }
-        .sub-container a:hover {
-            text-decoration: underline;
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+            flex: 1;
         }
-        .sub-container button {
-            background-color: #4CAF50;
+        
+        .btn-primary:hover {
+            background-color: #006064;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .price-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            background-color: rgba(255,255,255,0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Floating Home Button */
+        .home-button {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 5px 20px;
-            border-radius: 5px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             cursor: pointer;
-            margin: 10px 0;
-            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
         }
-        .sub-container button:hover {
-            background-color: #45a049;
+        
+        .home-button:hover {
+            background: #1a6168;
+            transform: translateY(-50%) scale(1.1);
         }
-        .timings {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #555;
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .centers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-btns {
+                flex-direction: column;
+            }
+            
+            .home-button {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                left: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Home Button -->
+    <button class="home-button" onclick="window.location.href='Endoscopy.html'">🏠</button>
+    
     <header>
-        <img src="https://www.drpatrickwalsh.com.au/wp-content/uploads/2016/09/allergy_testing-1-1160x600.jpg" alt="Header Image">
-        <h1>Upper Endoscopy
-            (EGD)</h1>
+        <div class="header-content">
+            <h1>Upper Endoscopy (EGD)</h1>
+            <p class="subtitle">Find certified diagnostic centers in Bangalore with verified pricing and availability</p>
+        </div>
     </header>
+    
     <nav>
-        <a href="Endoscopy.html">Home</a>
-        <a href="endo-egd-blog.html">Blogs</a>
+        <div class="nav-container">
+            <a href="https://www.shutterstock.com/image-vector/blood-test-tube-cartoon-vector-600nw-2431506631.jpg" class="logo">
+                <i class="fas fa-allergy"></i>
+                ENDOSCOPY CARE:
+            </a>
+            <div class="nav-links">
+                <a href="Endoscopy.html">Home</a>
+                <a href="endo-egd-blog.html">Blog</a>
+                <a href="contact-us.html">Contact</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Main Container with 6 Sub-Containers -->
-    <div class="main-container">
-        <!-- Center 1: Apollo Hospitals -->
-        <div class="sub-container">
-            <img src="https://radialdiagnostics.in/images/logo.png" alt="Fortis Hospitals">
-            <h3>Radial Diagnostics</h3>
-            <p><strong>Dr Abdul Khan</strong></p>
-            <p><a href="https://www.google.com/maps/dir//Lions+Seva+Bhavan,+CA+Site+%239D,8th+A+Cross,Yelahanka+Lions+Blood+Bank,+16+A+Main+Rd,+Near+N.E.S,+Yelahanka+Satellite+Town,+Yelahanka+New+Town,+Bengaluru,+Karnataka+560064/@13.0981505,77.508155,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae185eb4c97045:0x309aab07cc8e9f5e!2m2!1d77.5905569!2d13.0981636?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Lions Seva Bhavan, CA Site #9D,8th A Cross,Yelahanka Lions Blood Bank, 16 A Main Rd, Near N.E.S, Yelahanka Satellite Town, Yelahanka New Town, Bengaluru, Karnataka 560064</a></p>
-            <p><strong>Timings:</strong> 6.00AM TO 10PM</p>
-            <p><strong>Email:</strong> <a href="lab@radialdiagnostics.in">lab@radialdiagnostics.in</a></p>
-            <button onclick="window.location.href='tel:080 2856 1125'">Call Now</button>
-            <div class="timings">
-                <p><strong>Available Test Timings:</strong> 8:00AM TO 9:OOPM</p>
-                <p><strong>Available Dates:</strong>All Days In Week</p>
-                <p><strong>Price:</strong>2499</p>
+    <div class="container">
+        <div class="filter-section">
+            <h3 class="filter-title">Filter Centers</h3>
+            <div class="filter-options">
+                <button class="filter-btn active">All</button>
+                
             </div>
         </div>
-
-
-        <!-- Center 2: Manipal Hospitals -->
-        <div class="sub-container">
-            <img src="https://content.jdmagicbox.com/v2/comp/bangalore/u1/080pxx80.xx80.150708225422.m1u1/catalogue/amruth-diagnostic-centre-yelahanka-bangalore-diagnostic-centres-ghl2feyvei.jpg" alt="Fortis Hospitals">
-            <h3>Amrutha diagnostic Center</h3>
-            <p><strong>Dr Yash</strong></p>
-            <p><a href="https://www.google.com/maps/dir/13.1810872,77.5733936/amrutha+diagnostic+centre+yelahanka/@13.1384283,77.5357055,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae1863ae645f95:0xedc0f1eeef3f09e7!2m2!1d77.5832999!2d13.0934127?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">No 287, 15th A Main Road, Yelahanka New Town, Bangalore - 560064 (Near Loyal City Super Market  Chikbamsandra)</a></p>
-            <p><strong>Timings:</strong>24 Hours </p>
-            <p><strong>Email:</strong> <a href="labamruth@gmail.com">labamruth@gmail.com</a></p>
-            <button onclick="window.location.href='tel:'+919980042671">Call Now</button>
-            <div class="timings">
-                <p><strong>Available Test Timings:</strong>9:00AM to 9:00Pm </p>
-                <p><strong>Available Dates:</strong>All Days In Week</p>
-                <p><strong>Price:</strong>2399</p>
-            </div>
-        </div>
-        <div class="sub-container">
-            <img src="https://www.poojalab.com/images/logo.png" alt="Fortis Hospitals">
-            <h3>Pooja Diagnostic Centre</h3>
-            <p><strong>Dr Arbaz Sheikh</strong></p>
-            <p><a href="https://www.google.com/maps?s=web&rlz=1C1CHBF_enIN1029IN1029&sca_esv=cc0ea5adc48b5c6f&lqi=ChdQb29qYSBEaWFnbm9zdGljIENlbnRyZUj8zKT_vq2AgAhaJRAAEAEQAhgAGAEYAiIXcG9vamEgZGlhZ25vc3RpYyBjZW50cmWSARVibG9vZF90ZXN0aW5nX3NlcnZpY2WqAUAQATIfEAEiG_UBr9UwAHqhgxo4JCWhz-tF_mvjnX_JSYTjpjIbEAIiF3Bvb2phIGRpYWdub3N0aWMgY2VudHJl&vet=12ahUKEwj7n9DM1P6LAxUMiK8BHepgI-EQ1YkKegQIHhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KXF4YgErGa47MbKvQ0CZEBZE&daddr=No+20+Krishnappa+building+main+road,+opposite+Karnataka+ATM,+near+SBI+Bank+Ananthapura,+Yelahanka,+Bengaluru,+Karnataka+560064" target="_blank"> No 20 Krishnappa building main road, opposite Karnataka ATM, near SBI Bank Ananthapura, Yelahanka, Bengaluru, Karnataka 560064</a></p>
-            <p><strong>Timings:</strong>7.00AM TO 9PM </p>
-            <p><strong>Email:</strong> <a href="enquiry@poojalab.com">enquiry@poojalab.com</a></p>
-            <button onclick="window.location.href='tel:098802 56220'">Call Now</button>
-            <div class="timings">
-                <p><strong>Available Test Timings:</strong>7.00AM TO 9PM </p>
-                <p><strong>Available Dates:</strong>All Days In Week</p>
-                <p><strong>Price:</strong>2999</p>
-            </div>
-        </div>
-        <div class="sub-container">
-            <img src="https://content.jdmagicbox.com/v2/comp/bangalore/j4/080pxx80.xx80.180323205644.w1j4/catalogue/jai-maruthi-diagnostic-centre-kurubarahalli-bangalore-diagnostic-centres-uoocy.jpg" alt="Fortis Hospitals">
-            <h3>Jai Maruthi Diagnostic Centre</h3>
-            <p><strong>Dr Vasundhara</strong></p>
-            <p><a href="https://www.google.com/maps/dir//4FQF%2B8X9,+No+19,+opposite+to+subregister+office,+vinayakanagara,+Hesaraghatta,+Karnataka+560088/@13.1387566,77.3920663,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae230d1cbe3b27:0xa3183b2abb1fcdea!2m2!1d77.4744682!2d13.1387697?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Building No.20, Vinayaka Nagara Hesarghatta Hobli Bangalore North Taluk, Bengaluru, Hesaraghatta, Hessargatta, Bangalore - 560088 (Sub Registrar Office)</a></p>
-            <p><strong>Timings:</strong>6.30AM TO 9.30PM </p>
-            <p><strong>Email:</strong> <a href=""></a></p>
-            <button onclick="window.location.href='tel:9606257265'">Call Now</button>
-            <div class="timings">
-                <p><strong>Available Test Timings:</strong>6.30AM TO 9.30PM </p>
-                <p><strong>Available Dates:</strong>All Days In Week</p>
-                <p><strong>Price:</strong>3214</p>
-            </div>
-        </div>
-        <div class="sub-container">
-            <img src="https://etimg.etb2bimg.com/photo/91942638.cms" alt="Fortis Hospitals">
-            <h3>Orange Health Labs</h3>
-            <p><strong></strong></p>
-            <p><a href="https://www.google.com/maps/dir//2nd+floor,+912,+80+Feet+Rd,+6th+Block,+Ejipura,+Bengaluru,+Karnataka+560095/@12.9380419,77.544151,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae151899650db7:0xe9891378daae6449!2m2!1d77.6265529!2d12.9380548?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">2nd floor, 912, 80 Feet Rd, 6th Block, Ejipura, Bengaluru, Karnataka 560095</a></p>
-            <p><strong>Timings:</strong>6.00AM to 10PM </p>
-            <p><strong>Email:</strong> <a href="hello@orangehealth.in. ">hello@orangehealth.in. </a></p>
-            <button onclick="window.location.href='tel:090081 11144'">Call Now</button>
-            <div class="timings">
-                <p><strong>Available Test Timings:6:30am to 9:00PM</strong> </p>
-                <p><strong>Available Dates:</strong>sun,Mon,Tue,Wed,Thur,Fri,Sat</p>
-                <p><strong>Price:3000</strong></p>
-            </div>
-        </div>
-        <div class="sub-container">
-            <img src="https://content3.jdmagicbox.com/v2/comp/bangalore/u2/080pxx80.xx80.240611145114.b9u2/catalogue/6cj5hi47mg3u9if-nfrpvyplui.jpg" alt="Fortis Hospitals">
-            <h3>Jana Scans & Diagnostics</h3>
-            <p><strong>Dr Vardhan M</strong></p>
-            <p><a href="https://www.google.com/maps/dir/13.1760128,77.5323648/Jana+Scans+%26+Diagnostics/@13.1286647,77.4202832,12z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae2366b9407053:0x6a0648c9b0f56731!2m2!1d77.5073109!2d13.0572597?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">No 10/1 First Floor, Hesargatta Main Road, Nagasandra, Bangalore - 560073 (Near Bagalgubte Signal)</a></p>
-            <p><strong>Timings:</strong>7.00AM TO 8.30PM </p>
-            <p><strong>Email:</strong> <a href=""> </a></p>
-            <button onclick="window.location.href='tel:063617 99852'">Call Now</button>
-            <div class="timings">
-                <p><strong>Available Test Timings:</strong>7.00AM TO 8.30PM </p>
-                <p><strong>Available Dates:</strong>Mon, Tue, Wed, Fri, Sat (No Thursdays)</p>
-                <p><strong>Price:</strong>3499</p>
-            </div>
-        </div>
-        <div class="sub-container">
-            <img src="https://bengaluruallergycentre.com/wp-content/uploads/2023/10/bengaluru-allergy-centre-bangalore.jpg" alt="Fortis Hospitals">
-            <h3>Bengaluru Allergy Centre</h3>
-            <p><strong>Dr. Sumath Rao</strong></p>
-            <p><a href="https://www.google.com/maps/dir//169%2F170+31st+Cross+Road,11th+Main+Road,+Opp+to+RV+girls+Hostel+4th+Block,+4th+T+Block+East,+Pattabhirama+Nagar,+Jayanagar,+Bengaluru,+Karnataka+560011/@12.9270023,77.5054522,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae15a039fee871:0xa8ed04408be7115a!2m2!1d77.5878552!2d12.9270669?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">169/170 31st Cross Road,11th Main Road, Opp to RV girls Hostel 4th Block, 4th T Block East, Pattabhirama Nagar, Jayanagar, Bengaluru, Karnataka 560011</a></p>
-            <p><strong>Timings:</strong>10 AM TO 6 PM </p>
-            <p><strong>Email:</strong> <a href=" bengaluruallergy@gmail.com."> bengaluruallergy@gmail.com.</a></p>
-            <button onclick="window.location.href='tel:+918041570187'">Call Now</button>
-            <div class="timings">
-                <p><strong>Available Test Timings:</strong> 10AM to 5PM</p>
-                <p><strong>Available Dates:</strong>Mon,Tue,Wed,Thur,Fri,Sat</p>
-                <p><strong>Price:2500</strong></p>
-            </div>
-        </div>
-
-       
         
-
-
-       
+        <div class="centers-grid">
+            <!-- Radial Diagnostics -->
+            <div class="center-card">
+                <img src="https://radialdiagnostics.in/images/logo.png" alt="Radial Diagnostics" class="card-image">
+                <div class="card-badge">Popular</div>
+                <div class="card-content">
+                    <h3 class="card-title">Radial Diagnostics</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Ganavi
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka New Town, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6:00 AM - 10:00 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>8:00 AM to 9:00 PM daily</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>lab@radialdiagnostics.in</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2499
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:08028561125'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//Lions+Seva+Bhavan,+CA+Site+%239D,8th+A+Cross,Yelahanka+Lions+Blood+Bank,+16+A+Main+Rd,+Near+N.E.S,+Yelahanka+Satellite+Town,+Yelahanka+New+Town,+Bengaluru,+Karnataka+560064/@13.0981505,77.508155,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae185eb4c97045:0x309aab07cc8e9f5e!2m2!1d77.5905569!2d13.0981636?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Amrutha Diagnostic Center -->
+            <div class="center-card">
+                <img src="https://content.jdmagicbox.com/v2/comp/bangalore/u1/080pxx80.xx80.150708225422.m1u1/catalogue/amruth-diagnostic-centre-yelahanka-bangalore-diagnostic-centres-ghl2feyvei.jpg" alt="Amrutha Diagnostic Center" class="card-image">
+                <div class="card-badge">24/7</div>
+                <div class="card-content">
+                    <h3 class="card-title">Amrutha Diagnostic Center</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Jeevitha
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka New Town, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>24 Hours (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>9:00 AM to 9:00 PM daily</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>labamruth@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2399
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:919980042671'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir/13.1810872,77.5733936/amrutha+diagnostic+centre+yelahanka/@13.1384283,77.5357055,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae1863ae645f95:0xedc0f1eeef3f09e7!2m2!1d77.5832999!2d13.0934127?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pooja Diagnostic Centre -->
+            <div class="center-card">
+                <img src="https://www.poojalab.com/images/logo.png" alt="Pooja Diagnostic Centre" class="card-image">
+                <div class="card-badge">Best Value</div>
+                <div class="card-content">
+                    <h3 class="card-title">Pooja Diagnostic Centre</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Mahima Raj
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Yelahanka, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>7:00 AM - 9:00 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>7:00 AM to 9:00 PM daily</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>enquiry@poojalab.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2999
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:09880256220'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps?s=web&rlz=1C1CHBF_enIN1029IN1029&sca_esv=cc0ea5adc48b5c6f&lqi=ChdQb29qYSBEaWFnbm9zdGljIENlbnRyZUj8zKT_vq2AgAhaJRAAEAEQAhgAGAEYAiIXcG9vamEgZGlhZ25vc3RpYyBjZW50cmWSARVibG9vZF90ZXN0aW5nX3NlcnZpY2WqAUAQATIfEAEiG_UBr9UwAHqhgxo4JCWhz-tF_mvjnX_JSYTjpjIbEAIiF3Bvb2phIGRpYWdub3N0aWMgY2VudHJl&vet=12ahUKEwj7n9DM1P6LAxUMiK8BHepgI-EQ1YkKegQIHhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KXF4YgErGa47MbKvQ0CZEBZE&daddr=No+20+Krishnappa+building+main+road,+opposite+Karnataka+ATM,+near+SBI+Bank+Ananthapura,+Yelahanka,+Bengaluru,+Karnataka+560064" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jai Maruthi Diagnostic Centre -->
+            <div class="center-card">
+                <img src="https://content.jdmagicbox.com/v2/comp/bangalore/j4/080pxx80.xx80.180323205644.w1j4/catalogue/jai-maruthi-diagnostic-centre-kurubarahalli-bangalore-diagnostic-centres-uoocy.jpg" alt="Jai Maruthi Diagnostic Centre" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Jai Maruthi Diagnostic Centre</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Isiri
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Hesaraghatta, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6:30 AM - 9:30 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>6:30 AM to 9:30 PM daily</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3214
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:9606257265'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//4FQF%2B8X9,+No+19,+opposite+to+subregister+office,+vinayakanagara,+Hesaraghatta,+Karnataka+560088/@13.1387566,77.3920663,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae230d1cbe3b27:0xa3183b2abb1fcdea!2m2!1d77.4744682!2d13.1387697?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Orange Health Labs -->
+            <div class="center-card">
+                <img src="https://etimg.etb2bimg.com/photo/91942638.cms" alt="Orange Health Labs" class="card-image">
+                <div class="card-badge">Fast Results</div>
+                <div class="card-content">
+                    <h3 class="card-title">Orange Health Labs</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Shaik Ahammad
+                    </p>
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ejipura, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>6:00 AM - 10:00 PM (Daily)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>6:30 AM to 9:00 PM daily</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@orangehealth.in</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3000
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:09008111144'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//2nd+floor,+912,+80+Feet+Rd,+6th+Block,+Ejipura,+Bengaluru,+Karnataka+560095/@12.9380419,77.544151,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae151899650db7:0xe9891378daae6449!2m2!1d77.6265529!2d12.9380548?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jana Scans & Diagnostics -->
+            <div class="center-card">
+                <img src="https://content3.jdmagicbox.com/v2/comp/bangalore/u2/080pxx80.xx80.240611145114.b9u2/catalogue/6cj5hi47mg3u9if-nfrpvyplui.jpg" alt="Jana Scans & Diagnostics" class="card-image">
+                <div class="card-content">
+                    <h3 class="card-title">Jana Scans & Diagnostics</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. lellavathi
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagasandra, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>7:00 AM - 8:30 PM (Mon-Sat)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>7:00 AM to 8:30 PM (No Thursdays)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹3499
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:06361799852'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir/13.1760128,77.5323648/Jana+Scans+%26+Diagnostics/@13.1286647,77.4202832,12z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae2366b9407053:0x6a0648c9b0f56731!2m2!1d77.5073109!2d13.0572597?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bengaluru Allergy Centre -->
+            <div class="center-card">
+                <img src="https://bengaluruallergycentre.com/wp-content/uploads/2023/10/bengaluru-allergy-centre-bangalore.jpg" alt="Bengaluru Allergy Centre" class="card-image">
+                <div class="card-badge">Specialized</div>
+                <div class="card-content">
+                    <h3 class="card-title">Bengaluru Allergy Centre</h3>
+                    <p class="card-doctor">
+                        <i class="fas fa-user-md"></i>
+                        Dr. Divya Jothi
+                    </p>
+                    
+                    <div class="card-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jayanagar, Bengaluru</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>10:00 AM - 6:00 PM (Mon-Sat)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>10:00 AM to 5:00 PM (Closed Sunday)</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>bengaluruallergy@gmail.com</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-tag">
+                        <i class="fas fa-tag"></i> ₹2500
+                    </div>
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" onclick="window.location.href='tel:+918041570187'">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                        <a href="https://www.google.com/maps/dir//169%2F170+31st+Cross+Road,11th+Main+Road,+Opp+to+RV+girls+Hostel+4th+Block,+4th+T+Block+East,+Pattabhirama+Nagar,+Jayanagar,+Bengaluru,+Karnataka+560011/@12.9270023,77.5054522,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3bae15a039fee871:0xa8ed04408be7115a!2m2!1d77.5878552!2d12.9270669?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D" 
+                           target="_blank" class="btn btn-outline">
+                            <i class="fas fa-directions"></i> Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>About Endo Care</h3>
+                <p>We connect patients with trusted Endoscopy testing centers across Bangalore, providing transparent pricing and appointment information.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/your.username"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/yourusername"><i class="fab fa-twitter"></i></a>
+                    <a href="instagram.com/yourusername"><i class="fab fa-instagram"></i></a>
+                   
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="Endoscopy.html">Home</a>
+                <a href="endo-egd-blog.html">Blog</a>
+                <a href="contact-us.html">Contact</a>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                
+                <p><i class="fas fa-phone"></i> +91 9876543210</p>
+                <p><i class="fas fa-envelope"></i> skandagowda943@gmail.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 EndoScopy Care. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
-</html>

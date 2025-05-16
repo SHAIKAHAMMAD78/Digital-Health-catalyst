@@ -3,86 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointment Tests</title>
+    <title>Appointment Tests Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #4cc9f0;
+            --accent: #f72585;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-dark: #2b2d42;
+            --text-light: #8d99ae;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            min-height: 100vh;
+            color: var(--text-dark);
         }
-        h2 {
-            color: #333;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            max-width: 600px;
-            margin: auto;
-        }
-        .test-link {
-            display: block;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 8px;
-            transition: 0.3s;
-            width: 180px;
+        
+        .page-header {
             text-align: center;
+            padding: 30px 20px 20px;
+            position: relative;
         }
-        .test-link:hover {
-            background-color: #0056b3;
-        }
-        .back-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            background-color: #007bff;
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            text-decoration: none;
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: inline-block;
         }
+        
+        .page-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Search Bar Styles */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 14px 20px;
+            padding-left: 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+        }
+        
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .test-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .test-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .test-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .test-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .test-name {
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+        
+        .test-card:hover .test-name {
+            color: var(--primary);
+        }
+        
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .back-btn i {
+            margin-right: 8px;
+        }
+        
         .back-btn:hover {
-            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                padding: 15px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .back-btn {
+                top: 15px;
+                right: 15px;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .search-container {
+                max-width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header {
+                padding: 30px 15px 20px;
+            }
+            
+            .search-bar {
+                padding: 12px 15px 12px 45px;
+            }
+            
+            .search-icon {
+                left: 25px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <h2>List of Appointment Tests</h2>
+    <div class="page-header">
+        <h2>Appointment Tests</h2>
+    </div>
+    
+    <!-- Search Bar -->
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-bar" placeholder="Search tests..." id="searchInput">
+    </div>
+    
     <!-- Back Button -->
-    <a href="http://localhost/final%20year%20project-2025/admininterface.php" class="back-btn">⬅ Back</a>
-    <div class="container">
-        <a href="DIagnostic center Files/MAINPAGE/ALLERGY-TEST/admin.php" class="test-link">Allergy Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/BIOPSYTEST/admin.php" class="test-link">Biopsy Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/BLOODTEST/admin.php" class="test-link">Blood Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/URINETEST/admin.php" class="test-link">Urine Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/STOOLTEST/admin.php" class="test-link">Stool Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/IMAGETEST/admin.php" class="test-link">Image Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/CARDIACTEST/admin.php" class="test-link">Cardiac Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/NEUROLOGICALTEST/admin.php" class="test-link">Neurology Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/PULMONARYTEST/admin.php" class="test-link">Pulmonary Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/ENDOSCOPYTEST/admin.php" class="test-link">Endoscopy Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/DAIBITIESTEST/admin.php" class="test-link">Diabetes Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/GUTHEATHTEST/admin.php" class="test-link">Gut Health Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/MEN-30/admin.php" class="test-link">Men Age-30 Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/MEN-60/admin.php" class="test-link">Men Age-60+ Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/WOMEN-30/admin.php" class="test-link">Women Age-30 Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/WOMEN-60/admin.php" class="test-link">Women Age-60+ Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/PREGNENCY/admin.php" class="test-link">Pregnency Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/PCOD/admin.php" class="test-link">PCOD Test</a>
-        <a href="DIagnostic center Files/MAINPAGE/PCOS/admin.php" class="test-link">PCOS Test</a>
+    <a href="http://localhost/final%20year%20project-2025/admininterface.php" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+    
+    <div class="container" id="testsContainer">
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/ALLERGY-TEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-allergies"></i></div>
+                <div class="test-name">Allergy Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/BIOPSYTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-microscope"></i></div>
+                <div class="test-name">Biopsy Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/BLOODTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-tint"></i></div>
+                <div class="test-name">Blood Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/URINETEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-flask"></i></div>
+                <div class="test-name">Urine Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/STOOLTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-vial"></i></div>
+                <div class="test-name">Stool Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/IMAGETEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-x-ray"></i></div>
+                <div class="test-name">Image Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/CARDIACTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="test-name">Cardiac Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/NEUROLOGICALTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-brain"></i></div>
+                <div class="test-name">Neurology Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/PULMONARYTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-lungs"></i></div>
+                <div class="test-name">Pulmonary Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/ENDOSCOPYTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-camera"></i></div>
+                <div class="test-name">Endoscopy Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/DAIBITIESTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-syringe"></i></div>
+                <div class="test-name">Diabetes Test</div>
+            </a>
+        </div>
+        
+        <div class="test-card">
+            <a href="DIagnostic center Files/MAINPAGE/GUTHEATHTEST/admin.php" class="test-link">
+                <div class="test-icon"><i class="fas fa-stomach"></i></div>
+                <div class="test-name">Gut Health Test</div>
+            </a>
+        </div>
+        
+       
     </div>
 
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const testCards = document.querySelectorAll('.test-card');
+            
+            testCards.forEach(card => {
+                const testName = card.querySelector('.test-name').textContent.toLowerCase();
+                if (testName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -4,76 +4,379 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Appointments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4cc9f0;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            min-height: 100vh;
+            color: var(--dark);
         }
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
         h2 {
-            color: #333;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            max-width: 600px;
-            margin: auto;
-        }
-        .test-link {
-            display: block;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 8px;
-            transition: 0.3s;
-            width: 180px;
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
             text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .test-link:hover {
-            background-color: #0056b3;
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
         }
+        
+        .hospital-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+        
+        .hospital-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hospital-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .hospital-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(67,97,238,0.1) 0%, rgba(72,149,239,0.05) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .hospital-card:hover::before {
+            opacity: 1;
+        }
+        
+        .hospital-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            position: relative;
+            height: 100%;
+        }
+        
+        .hospital-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(67,97,238,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .hospital-card:hover .hospital-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(67,97,238,0.4);
+        }
+        
+        .hospital-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+        
+        .hospital-card:hover .hospital-name {
+            color: var(--primary);
+        }
+        
+        .book-btn {
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(67,97,238,0.3);
+        }
+        
+        .hospital-card:hover .book-btn {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(67,97,238,0.4);
+        }
+        
         .back-btn {
             position: absolute;
-            top: 10px;
+            top: 20px;
             right: 20px;
-            background-color: #007bff;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 8px 15px;
+            padding: 0.6rem 1.2rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
+            font-weight: 500;
             cursor: pointer;
-            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 4px 10px rgba(67,97,238,0.3);
+            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
         }
+        
         .back-btn:hover {
-            background-color: #0056b3;}
+            transform: translateX(-5px);
+            box-shadow: 0 7px 15px rgba(67,97,238,0.4);
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: var(--shadow);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding-left: 3rem;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .hospital-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .back-btn {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 1rem;
+                display: inline-flex;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hospital-card {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .hospital-card:nth-child(1) { animation-delay: 0.1s; }
+        .hospital-card:nth-child(2) { animation-delay: 0.2s; }
+        .hospital-card:nth-child(3) { animation-delay: 0.3s; }
+        .hospital-card:nth-child(4) { animation-delay: 0.4s; }
+        .hospital-card:nth-child(5) { animation-delay: 0.5s; }
+        .hospital-card:nth-child(6) { animation-delay: 0.6s; }
+        .hospital-card:nth-child(7) { animation-delay: 0.7s; }
+        .hospital-card:nth-child(8) { animation-delay: 0.8s; }
+        .hospital-card:nth-child(9) { animation-delay: 0.9s; }
+        .hospital-card:nth-child(10) { animation-delay: 1s; }
     </style>
 </head>
 <body>
-
-    <h2>List of Hospitals</h2>
-    <!-- Back Button -->
-    <a href="http://localhost/final%20year%20project-2025/admininterface.php" class="back-btn">⬅ Back</a>
-    <div class="container">
-        <a href="Hospitals/Sparsh Hospital/AppointmentBackend/admin.php" class="test-link">Sparsh Hospitals</a>
-        <a href="http://localhost/final%20year%20project-2025/Hospitals/Raksha%20Hospital/AppointmentBackend/admin.php" class="test-link">Raksha Hospitals</a>
-        <a href="Hospitals/appolo Hospital/admin.php" class="test-link">Appollo Hospital</a>
-        <a href="Hospitals/Ganga Hospital/admin.php" class="test-link">Ganga Hospital</a>
-        <a href="Hospitals/KMCH/admin.php" class="test-link">KMCH Hospital</a>
-        <a href="Hospitals/Medway Hospital/admin.php" class="test-link">Medway Hospital</a>
-        <a href="Hospitals/manipal hospital/admin.php" class="test-link">Manipal Hospital</a>
-        <a href="" class="test-link">Billroth Hospital</a>
-        <a href="Hospitals/forties hospital/admin.php" class="test-link">Fortis Hospital</a>
-        <a href="" class="test-link">Kauvery Hospital</a>
-
+    <div class="main-container">
+        <h2>Our Partner Hospitals</h2>
+        <a href="http://localhost/final%20year%20project-2025/admininterface.php" class="back-btn">
+            <span>←</span> Back
+        </a>
+        
+        <div class="search-container">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" class="search-input" placeholder="Search hospitals..." id="searchInput">
+        </div>
+        
+        <div class="hospital-grid" id="hospitalContainer">
+            <div class="hospital-card">
+                <a href="Hospitals/Sparsh Hospital/AppointmentBackend/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🏥</div>
+                    <h3 class="hospital-name">Sparsh Hospitals</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="http://localhost/final%20year%20project-2025/Hospitals/Raksha%20Hospital/AppointmentBackend/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🛡️</div>
+                    <h3 class="hospital-name">Raksha Hospitals</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/appolo Hospital/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🌙</div>
+                    <h3 class="hospital-name">Appollo Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/Ganga Hospital/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🌊</div>
+                    <h3 class="hospital-name">Ganga Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/KMCH/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🏛️</div>
+                    <h3 class="hospital-name">KMCH Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/Medway Hospital/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🩺</div>
+                    <h3 class="hospital-name">Medway Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/manipal hospital/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🏢</div>
+                    <h3 class="hospital-name">Manipal Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/bilroth/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🩹</div>
+                    <h3 class="hospital-name">Billroth Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/forties hospital/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🏨</div>
+                    <h3 class="hospital-name">Fortis Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+            
+            <div class="hospital-card">
+                <a href="Hospitals/Kavery Hospital/admin.php" class="hospital-link">
+                    <div class="hospital-icon">🌿</div>
+                    <h3 class="hospital-name">Kauvery Hospital</h3>
+                    <button class="book-btn">View Appointments</button>
+                </a>
+            </div>
+        </div>
     </div>
 
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const hospitalCards = document.querySelectorAll('.hospital-card');
+        
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            hospitalCards.forEach(card => {
+                const hospitalName = card.querySelector('.hospital-name').textContent.toLowerCase();
+                if (hospitalName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Add hover effect for cards
+        hospitalCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.zIndex = '1';
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Our Expert Doctors | MedCare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2a7fba;
+      --primary-dark: #1d5f8a;
+      --secondary: #ff7e33;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --success: #28a745;
+      --success-dark: #218838;
+    }
+    
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Header Styles */
+    .header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+
+    /* Back Button */
+    .back-button {
+      background-color: white;
+      color: var(--primary);
+      padding: 10px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .back-button i {
+      margin-right: 8px;
+    }
+
+    .back-button:hover {
+      background-color: var(--secondary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Main Content */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+    }
+
+    .page-title h1 {
+      font-size: 2.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+    }
+
+    .page-title p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .page-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Doctors Grid */
+    .doctors-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .doctor-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 25px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doctor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .doctor-photo-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+    }
+
+    .doctor-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .doctor-card:hover .doctor-photo {
+      transform: scale(1.05);
+    }
+
+    .doctor-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: var(--secondary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .doctor-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--dark);
+    }
+
+    .doctor-specialty {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .doctor-experience {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .doctor-rating {
+      color: #ffc107;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+    }
+
+    .view-profile {
+      display: inline-block;
+      padding: 8px 20px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .view-profile:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Book Appointment Button */
+    .book-appointment {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .book-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--success), var(--success-dark));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+    }
+
+    .book-btn i {
+      margin-left: 10px;
+    }
+
+    .book-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .page-title h1 {
+        font-size: 2rem;
+      }
+      
+      .doctors-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="https://pbs.twimg.com/profile_images/806939135034277888/dDH1zvHB_400x400.jpg" alt="Bilroth Hospital Logo">
+        <span>Billroth Hospital</span>
+      </div>
+      <a href="orthopedic.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <div class="page-title">
+      <h1>Meet Our Expert Doctors</h1>
+      <p>Our team of highly qualified specialists is dedicated to providing you with the best medical care tailored to your needs.</p>
+    </div>
+    <!-- Doctors Grid -->
+    <div class="doctors-container">
+      
+      
+
+      <div class="doctor-card">
+        <div class="doctor-photo-container">
+          <img src="https://img.pikbest.com/photo/20240707/indian-doctor-8_10655658.jpg!sw800" alt="Dr. Saraswathi" class="doctor-photo">
+          
+        </div>
+        <div class="doctor-name">Dr. Saraswathi</div>
+        <div class="doctor-specialty">Orthopedic Surgeon</div>
+        <div class="doctor-experience">18+ years experience</div>
+      </div>
+
+      
+      
+
+      <div class="doctor-card">
+        <div class="doctor-photo-container">
+          <img src="https://thumbs.dreamstime.com/b/portrait-happy-young-handsome-indian-man-doctor-smiling-studio-shot-against-white-background-137823661.jpg" alt="Dr. Anuragh Agarwal" class="doctor-photo">
+    
+        </div>
+        <div class="doctor-name">Dr. Anuragh Agarwal</div>
+        <div class="doctor-specialty">Orthopedic Specialist</div>
+        <div class="doctor-experience">20+ years experience</div>
+        
+      </div>
+    </div>
+
+    <!-- Book Appointment Button -->
+    <div class="book-appointment">
+      <a href="appointment.html" class="book-btn">
+        Book Appointment Now
+        <i class="fas fa-calendar-check"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2023 Bilroth Hospital. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,6 +1,7 @@
 <?php
 require 'db_connect.php';
-
+// Set timezone correctly (VERY IMPORTANT)
+date_default_timezone_set('Asia/Kolkata'); // Set to your country timezone
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $patient_name = $_POST["patientName"];
     $patient_age = $_POST["patientAge"];

@@ -4,256 +4,488 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #aba8a3;
+        :root {
+            --primary-color: #2a7fba;
+            --secondary-color: #ff7e5f;
+            --accent-color: #4caf50;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 60px;
             background-image: url("https://static.vecteezy.com/system/resources/previews/021/284/056/non_2x/top-view-of-stethoscope-on-color-background-with-empty-copy-space-flat-design-health-medical-concept-free-photo.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.85);
         }
+
         header {
-            background: #b86609;
-            color: #ffffff;
-            padding: 10px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a5f8a 100%);
+            color: white;
+            padding: 1.5rem 0;
             text-align: center;
-            position: static;
-            top: 0px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 100;
+            border-bottom: 4px solid var(--secondary-color);
         }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            background: linear-gradient(to right, #fff 0%, #f5f5f5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+        }
+
         nav a {
-            color: #ffffff;
-            padding: 10px 20px;
+            color: white;
+            padding: 0.75rem 1.5rem;
             text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
         }
+
         nav a:hover {
-            background: #e8491d;
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
         }
+
+        nav a i {
+            font-size: 1rem;
+        }
+
         .hero {
-            background: url('hero-image.jpg') no-repeat center center/cover;
-            height: 400px;
+            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            text-align: center;
-        }
-        .chat-container {
-            background: #dc985d;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 300px;
-            z-index: 1000;
-        }
-        
-        .service-buttons {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .service-buttons button {
-            padding: 8px 16px;
-            margin-top: 10px;
-            background: #35424a;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .service-buttons button:hover {
-            background: #e8491d;
-        }
-        footer {
-            text-align: center;
-            padding: 5px;
-            background: #9cc8e3;
-            color: #ffffff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .enquire-button {
-            padding: 8px 16px;
-            margin-top: 10px;
-            background: #35424a;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            
-        }
-        .service-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            padding: 20px ;
-        }
-        
-        .enquire-button {
-            display: inline-block;
-            padding: 12px 240px;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s, transform 0.2s;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .enquire-button:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-        
-        .enquire-button:active {
-            background-color: #004494;
-            transform: translateY(1px);
-        }
-
-
-
-
-        /*bot css*/
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #aba8a3;
-            margin: 0;
-            padding: 20px;
-            background-image: url("https://static.vecteezy.com/system/resources/previews/021/284/056/non_2x/top-view-of-stethoscope-on-color-background-with-empty-copy-space-flat-design-health-medical-concept-free-photo.jpg");
-        }
-        header {
-            background: #b86609;
-            color: #ffffff;
-            padding: 15px 0;
             text-align: center;
             position: relative;
-            width: 100%;
-        }
-        nav a {
-            color: #ffffff;
-            padding: 10px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background: #e8491d;
+            overflow: hidden;
+            margin: 2rem 0;
         }
 
-        /* Chatbot container positioned at the top-right */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
         .chat-container {
-            width: 300px;
+            width: 350px;
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #b86609;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+            z-index: 1000;
+            transform: translateY(0);
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.9);
         }
+
+        .chat-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
         .bot-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: bold;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a5f8a 100%);
+            color: white;
+            cursor: pointer;
         }
+
         .bot-header img {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-        }
-        .messages {
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 10px;
-        }
-        .message {
-            padding: 8px;
-            margin: 5px 0;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .user-message {
-            background: #007bff;
-            color: white;
-            text-align: left;
-        }
-        .bot-message {
-            background: #e8e8e8;
-            text-align: right;
-        }
-        input, button {
-            width: 90%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background: #28a745;
-            color: white;
-            cursor: pointer;
+            margin-right: 10px;
+            border: 2px solid white;
         }
 
-        /* Chat response below the header */
-        .chat-responses {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 600px;
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .bot-header span {
+            font-weight: 600;
+            font-size: 1.1rem;
         }
-        
+
+        .bot-header .status {
+            margin-left: auto;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4caf50;
+            animation: pulse 2s infinite;
+        }
+
+        .messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: rgba(255,255,255,0.8);
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) #f1f1f1;
+        }
+
+        .messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .messages::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .message {
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 15px;
+            max-width: 80%;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            animation: fadeIn 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .bot-message {
+            background: #f1f1f1;
+            color: var(--text-color);
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+
+        .bot-message::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-right-color: #f1f1f1;
+            border-left: 0;
+            margin-top: 10px;
+            margin-left: -10px;
+        }
+
+        .user-message::before {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-left-color: var(--primary-color);
+            border-right: 0;
+            margin-top: 10px;
+            margin-right: -10px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 0.75rem;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .chat-input input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(42, 127, 186, 0.2);
+        }
+
+        .chat-input button {
+            margin-left: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-input button:hover {
+            background: #1a5f8a;
+            transform: translateY(-2px);
+        }
+
+        .chat-input button:active {
+            transform: translateY(0);
+        }
+
+        .service-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 1000px;
+            flex-wrap: wrap;
+        }
+
+        .enquire-button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem 3rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a5f8a 100%);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(42, 127, 186, 0.4);
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            min-width: 300px;
+        }
+
+        .enquire-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(42, 127, 186, 0.5);
+        }
+
+        .enquire-button:active {
+            transform: translateY(-2px);
+        }
+
+        .enquire-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .enquire-button:hover::before {
+            left: 100%;
+        }
+
+        .enquire-button i {
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1a252f 100%);
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .chat-container {
+                width: 90%;
+                right: 5%;
+                top: 10px;
+            }
+
+            .service-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .enquire-button {
+                width: 90%;
+                padding: 1rem 2rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Floating animation for chatbot */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .chat-container {
+            animation: float 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Medical Sevices</h1>
+        <h1>Welcome to Our Medical Services</h1>
         <nav>
-            <a href="http://localhost/final%20year%20project-2025/first.html">Log Out</a>
-            <a href="About.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contactus.html">Contact</a>
-            
+            <a href="http://localhost/final%20year%20project-2025/first.html"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+            <a href="About.html"><i class="fas fa-info-circle"></i> About</a>
+            <a href="services.html"><i class="fas fa-concierge-bell"></i> Services</a>
+            <a href="contactus.html"><i class="fas fa-envelope"></i> Contact</a>
         </nav>
     </header>
+
     <div class="hero">
-        <h2>Your Health Matters</h2>
+        <div class="hero-content">
+            <h2>Your Health Matters</h2>
+            <p>Access premium healthcare services with just a click</p>
+        </div>
     </div>
+
     <div class="chat-container">
         <div class="bot-header">
             <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Bot">
             <span>Medical Chatbot</span>
+            <div class="status"></div>
         </div>
         <div class="messages" id="chatbox"></div>
-        <input type="text" id="user-input" placeholder="Ask a medical question..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">Send</button>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Ask a medical question..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
     
     <div class="service-buttons">
-        <a href="http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/diagnosis-Main.html" class="enquire-button">Diagnosis Centers</a>
-        <a href="Hospitals/hospitals.html" class="enquire-button">Hospitals</a>
-        
+        <a href="http://localhost/final%20year%20project-2025/DIagnostic%20center%20Files/MAINPAGE/diagnosis-Main.html" class="enquire-button">
+            <i class="fas fa-clinic-medical"></i> Diagnosis Centers
+        </a>
+        <a href="Hospitals/hospitals.html" class="enquire-button">
+            <i class="fas fa-hospital"></i> Hospitals
+        </a>
     </div>
+
     <footer>
         <p>&copy; 2025 Your Website. All Rights Reserved.</p>
     </footer>
-    
-
-    
 
     <script>
         function displayMessage(message, sender) {
@@ -264,9 +496,13 @@
             chatbox.appendChild(messageDiv);
             chatbox.scrollTop = chatbox.scrollHeight;
 
-            // Display bot's answer below the header
-            if (sender === "bot") {
-                document.getElementById("bot-answer").textContent = message;
+            // Add typing indicator for bot messages
+            if (sender === "user") {
+                const typingIndicator = document.createElement("div");
+                typingIndicator.classList.add("message", "bot-message");
+                typingIndicator.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+                chatbox.appendChild(typingIndicator);
+                chatbox.scrollTop = chatbox.scrollHeight;
             }
         }
 
@@ -276,13 +512,21 @@
 
             displayMessage(userInput, "user");
 
+            // Remove any existing typing indicators
+            document.querySelectorAll('.typing').forEach(el => el.remove());
+
             fetch("chatbot.php", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: "message=" + encodeURIComponent(userInput),
             })
             .then(response => response.text())
-            .then(data => displayMessage(data, "bot"));
+            .then(data => {
+                // Simulate typing delay
+                setTimeout(() => {
+                    displayMessage(data, "bot");
+                }, 1000 + Math.random() * 1000);
+            });
 
             document.getElementById("user-input").value = "";
         }
@@ -292,6 +536,13 @@
                 sendMessage();
             }
         }
+
+        // Initial bot greeting
+        window.onload = function() {
+            setTimeout(() => {
+                displayMessage("Hello! I'm your medical assistant. How can I help you today?", "bot");
+            }, 1000);
+        };
     </script>
 </body>
 </html>

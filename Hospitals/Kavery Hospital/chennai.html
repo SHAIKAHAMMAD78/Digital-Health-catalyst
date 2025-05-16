@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="shortcut icon" href="https://pbcdn1.podbean.com/imglogo/image-logo/8372264/Untitled-4.jpg" type="image/x-icon">
+
+  <meta charset="UTF-8">
+  <title>Kauvery Hospital - Best Hospital in Chennai</title>
+  <button onclick="window.location.href='index.html'"
+    style="
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: pink;
+      border: none;
+      border-radius: 50%;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s;
+    "
+    onmouseover="this.style.backgroundColor='#e0e0e0'"
+    onmouseout="this.style.backgroundColor='#f0f0f0'"
+  >&larr;</button>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: fl;
+    }
+
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #e91e63 40%, #ffffff 40%);
+      padding: 40px 60px;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .hero-left {
+      color: white;
+      max-width: 40%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-left h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .hero-left p {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .certificate {
+      max-width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .hero-right {
+      max-width: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hospital-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column;
+        padding: 20px;
+        background: linear-gradient(to bottom, #e91e63 50%, #ffffff 50%);
+        height: auto;
+      }
+
+      .hero-left, .hero-right {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .hero-left {
+        margin-bottom: 30px;
+      }
+
+      .certificate {
+        margin: 0 auto;
+      }
+    }
+
+
+    .container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #e91e63;
+}
+
+
+
+h1 {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px 60px;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .item img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .label {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+
+
+    .stats-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 20px;
+  background: linear-gradient(90deg, #d62c6a, #e8337b);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-box h2 {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.stat-box p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.location-info {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  color: #222;
+  line-height: 1.6;
+}
+
+.location-info h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.location-info p {
+  margin-bottom: 12px;
+}
+
+.appointment-number {
+  color: #e91e63;
+  font-weight: 500;
+}
+
+.location-info h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.sub-text {
+  font-size: 16px;
+  font-weight: normal;
+  color: #555;
+}
+
+.location-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.location-info ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.location-info ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #e91e63;
+  font-size: 20px;
+  line-height: 1;
+}
+
+
+.info-section {
+  max-width: 700px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.info-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.icon {
+  font-size: 28px;
+  color: #e91e63;
+  margin-top: 4px;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.ambulance-contact {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.ambulance-contact span {
+  color: #d81b60;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.footer {
+    background: #881f55;
+    color: white;
+    padding: 50px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 5px 0;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: white;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    transition: 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <section class="hero-section">
+    <div class="hero-left">
+      <h1>Best Hospital<br>in Chennai</h1>
+      <p>Experience world-class<br>care at Kauvery hospital.</p>
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2024/03/Chennai-alwarpet-banner-certificate.png" alt="NABH Certificate" class="certificate">
+    </div>
+    <div class="hero-right">
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2024/02/Chennai-Unit.png" alt="Kauvery Hospital Building" class="hospital-img">
+    </div>
+  </section>
+  <br><br><br>
+
+  <div class="container">
+    <h1>
+      Expert care with a personal touch at <br />
+      Kauvery hospital
+    </h1>
+    <p>
+      With a 300 bed multi – specialty hospital in Alwarpet, Chennai, Kauvery hospital has marked its presence in this bustling capital of Tamil Nadu that is home to 4.5 million people. In keeping with Kauvery’s high standards, our
+      <span class="highlight">hospital in Chennai</span>
+      boasts world-class facilities, top-of-the-line infrastructure, the best doctors and highly trained medical staff who cater to all your needs with a smile.
+    </p>
+    <p>
+      Kauvery Hospital, Chennai is an imposing building spanning seven floors located right in the middle of the city just adjacent to Alwarpet Flyover. We’re very easy to reach from all major locations in Chennai. Under astute leadership and strong management, Kauvery Hospital, Chennai has evolved as a centre of excellence in medicine providing the highest quality standards of medical treatment to all sections of the society. Our work has always been guided by the needs of patients and delivered by our perfectly combined revolutionary technology, best medical expertise and advanced procedures.
+    </p>
+  </div>
+  <br><br><br>
+
+
+<center>
+  <h1>Centers of Excellence and Specialties</h1>
+
+  <div class="grid">
+    <div class="item">
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2023/03/location-cardiac-science.png" alt="Heart & Lung">
+      <div class="label">Heart & Lung Transplant</div>
+    </div>
+    <div class="item">
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2023/04/Cardiac-Electrophysiology.png" alt="Cardiac Science">
+      <div class="label">Cardiac Science</div>
+    </div>
+    <div class="item">
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2022/09/gastroentrology.png" alt="Gastroenterology">
+      <div class="label">Gastroenterology</div>
+    </div>
+    <div class="item">
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2023/03/hc-geriatric-health-check-basic-female.png" alt="Geriatrics">
+      <div class="label">Geriatrics</div>
+    </div>
+    <div class="item">
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2023/03/Uro-oncology.png" alt="Nephrology">
+      <div class="label">Nephrology & Urology Science</div>
+    </div>
+    <div class="item">
+      <img src="https://www.kauveryhospital.com/wp-content/uploads/2023/04/pediatric_neurology1.png" alt="Neurology">
+      <div class="label">Neurology and Neuroscience</div>
+    </div>
+  </div>
+</center>
+<br><br><br><br>
+
+<div class="stats-section">
+  <div class="stat-box">
+    <h2>3,500 +</h2>
+    <p>Surgeries</p>
+  </div>
+  <div class="stat-box">
+    <h2>160 +</h2>
+    <p>Doctors</p>
+  </div>
+  <div class="stat-box">
+    <h2>300 +</h2>
+    <p>Bed multi - specialty hospital</p>
+  </div>
+</div>
+<br><br><br>
+
+<div class="location-info">
+  <h2>Kauvery Hospital Chennai</h2>
+  <p>No.199, Luz Church Road, Mylapore, Chennai Tamilnadu, India.</p>
+
+  <p><strong>For Appointments:</strong> <span class="appointment-number">044 4000 6000</span></p>
+  <hr />
+
+  <h3>Directions <span class="sub-text">(Driving time from)</span></h3>
+  <ul>
+    <li>Airport (International / Domestic): 45 minutes with traffic and 25 minutes without traffic.</li>
+    <li>Central Railway Station (via Beach Road): 30 minutes with traffic.</li>
+    <li>Koyambedu Bus Terminus: 60 minutes with traffic.</li>
+  </ul>
+</div>
+<hr />
+
+<div class="info-section">
+  <div class="info-block">
+    <div class="icon">👤</div>
+    <div class="content">
+      <h3>Visiting Hours</h3>
+      <p><strong>Wards:</strong> 5:00 pm – 7:00 pm</p>
+      <p><strong>ICU:</strong> 11:00am –11:30am | 4:00pm – 4:30pm</p>
+      <p><strong>SICU:</strong> 10:00am – 10:30am | 3:00pm – 3:30 pm</p>
+      <p><strong>CCU / CTICU:</strong> 10:00 am –10:30 am | 5:00pm – 5:30 pm</p>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="info-block">
+    <div class="icon">🚑</div>
+    <div class="content">
+      <h3>Ambulance Services</h3>
+      <p class="ambulance-contact">+91 – <span>091500 30541</span></p>
+    </div>
+  </div>
+</div>
+<br><br><br>
+<div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=670&amp;height=363&amp;hl=en&amp;q= kauvery hospital, TTK Road Junction, CIT Colony, Alwarpet, Chennai, Tamil Nadu 600018, India&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.fnfgo.com/">FNF Mods</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:363px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:363px;}.gmap_iframe {height:363px!important;}</style></div>
+
+<br><br><br>
+
+<footer class="footer">
+  <div class="footer-container">
+      <div class="footer-logo">
+          <img src="https://www.kauveryhospital.com/wp-content/themes/KauveryHospital/images/logo-foot.png" alt="Kauvery Hospital">
+      </div>
+      <div class="footer-columns">
+          <div class="footer-column">
+              <h3>About</h3>
+              <ul>
+                  <li><a href="#">Overview</a></li>
+                  <li><a href="#">Our Management Team</a></li>
+                  <li><a href="#">Awards</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">International Patients</a></li>
+                  <li><a href="#">Press Releases</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">BWM Data</a></li>
+                  <li><a href="#">Investors</a></li>
+                  <li><a href="#">Vendor Portal</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h3>Centers of excellence</h3>
+              <ul>
+                  <li><a href="#">Cardiac Science</a></li>
+                  <li><a href="#">Neurology</a></li>
+                  <li><a href="#">General Medicine</a></li>
+                  <li><a href="#">Diabetology</a></li>
+                  <li><a href="#">Spine Surgery</a></li>
+                  <li><a href="#">Orthopaedics</a></li>
+                  <li><a href="#">Geriatrics</a></li>
+                  <li><a href="#">Nephrology & Urology</a></li>
+                  <li><a href="#">Gastroenterology</a></li>
+                  <li><a href="#">Vascular Surgery</a></li>
+                  <li><a href="#">Liver Diseases</a></li>
+                  <li><a href="#">Oncology</a></li>
+                  <li><a href="#">Paediatrics & Neonatology</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h3>Specialties</h3>
+              <ul>
+                  <li><a href="#">Anesthesiology</a></li>
+                  <li><a href="#">Critical Care</a></li>
+                  <li><a href="#">Dental Maxillofacial</a></li>
+                  <li><a href="#">Dermatology</a></li>
+                  <li><a href="#">Ophthalmology</a></li>
+                  <li><a href="#">Endocrinology</a></li>
+                  <li><a href="#">ENT Head</a></li>
+                  <li><a href="#">General Surgery</a></li>
+                  <li><a href="#">Laboratory Services</a></li>
+                  <li><a href="#">Obstetrics Gynecology</a></li>
+                  <li><a href="#">Psychiatry</a></li>
+                  <li><a href="#">Pulmonology</a></li>
+                  <li><a href="#">Rheumatology</a></li>
+              </ul>
+          </div>
+          <div class="footer-column">
+              <h3>Patients & Visitors</h3>
+              <ul>
+                  <li><a href="#">Overview</a></li>
+                  <li><a href="#">Appointments</a></li>
+                  <li><a href="#">Admissions</a></li>
+                  <li><a href="#">Preparing for surgery</a></li>
+                  <li><a href="#">Emergency & urgent care</a></li>
+                  <li><a href="#">Patient safety</a></li>
+                  <li><a href="#">Billing insurance</a></li>
+                  <li><a href="#">Amenities</a></li>
+                  <li><a href="#">Medical Records</a></li>
+                  <li><a href="#">Patient stories</a></li>
+                  <li><a href="#">Preventive health care</a></li>
+                  <li><a href="#">Ask your doctor</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  
+</footer>
+
+</body>
+</html>
